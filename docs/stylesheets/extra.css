@@ -1,0 +1,90 @@
+/* KSBravo - dark theme with orange accent (matches the channel avatar) */
+:root {
+  --ks-orange: #ff5a1f;
+  --ks-orange-soft: rgba(255, 90, 31, 0.15);
+  --ks-panel: rgba(255, 255, 255, 0.04);
+  --ks-border: rgba(255, 255, 255, 0.10);
+}
+
+.md-header { border-bottom: 2px solid var(--ks-orange); }
+
+.md-content h1 {
+  color: var(--ks-orange) !important;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+.md-content h2 {
+  border-bottom: 1px solid var(--ks-border);
+  padding-bottom: .3em;
+}
+
+/* Hero */
+.ks-hero {
+  display: flex; align-items: center; gap: 28px; flex-wrap: wrap;
+  padding: 24px; margin: 8px 0 32px;
+  background: var(--ks-panel); border: 1px solid var(--ks-border); border-radius: 8px;
+}
+.ks-hero img { width: 140px; height: 140px; border-radius: 12px; }
+.ks-hero h1 { margin: 0 0 6px !important; }
+.ks-hero p { margin: 4px 0; font-size: 1.05em; }
+.ks-hero-text { flex: 1; min-width: 260px; }
+
+/* Buttons */
+.ks-btn {
+  display: inline-block; padding: 10px 18px; margin: 6px 8px 6px 0;
+  border: 1px solid var(--ks-orange); border-radius: 6px;
+  color: #fff !important; background: var(--ks-orange);
+  text-decoration: none !important; font-weight: 600;
+  transition: all .2s ease;
+}
+.ks-btn:hover { background: #ff7a45; box-shadow: 0 0 12px rgba(255, 90, 31, .45); }
+.ks-btn.ghost { background: transparent; color: var(--ks-orange) !important; }
+.ks-btn.ghost:hover { background: var(--ks-orange-soft); }
+
+/* Card grid */
+.ks-grid {
+  display: grid; gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  margin: 16px 0 28px;
+}
+.ks-card {
+  background: var(--ks-panel); border: 1px solid var(--ks-border); border-radius: 8px;
+  padding: 16px; display: flex; flex-direction: column; gap: 6px;
+}
+.ks-card h3 { margin: 0 0 4px; font-size: 1.05em; color: #fff; }
+.ks-card p { margin: 0; font-size: .92em; opacity: .9; }
+.ks-card .ks-price { display: block; color: var(--ks-orange); font-weight: 700; margin-top: 8px; }
+.ks-card a { color: var(--ks-orange); }
+
+/* Stats row */
+.ks-stats { display: flex; gap: 12px; flex-wrap: wrap; margin: 12px 0 24px; }
+.ks-stat {
+  flex: 1; min-width: 140px; text-align: center; padding: 14px 8px;
+  background: var(--ks-panel); border: 1px solid var(--ks-border); border-radius: 8px;
+}
+.ks-stat b { display: block; font-size: 1.6em; color: var(--ks-orange); }
+.ks-stat span { font-size: .85em; opacity: .85; }
+
+/* Steps */
+.ks-steps { counter-reset: step; list-style: none; padding: 0; margin: 12px 0 24px; }
+.ks-steps li {
+  counter-increment: step; position: relative; padding: 10px 0 10px 48px; margin: 0;
+  border-bottom: 1px dashed var(--ks-border);
+}
+.ks-steps li::before {
+  content: counter(step); position: absolute; left: 0; top: 8px;
+  width: 32px; height: 32px; line-height: 32px; text-align: center; border-radius: 50%;
+  background: var(--ks-orange); color: #fff; font-weight: 700;
+}
+
+/* Video embed */
+.ks-video { position: relative; padding-bottom: 56.25%; height: 0; margin: 12px 0 24px; border-radius: 8px; overflow: hidden; border: 1px solid var(--ks-border); }
+.ks-video iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+
+/* Team */
+.ks-team { display: grid; gap: 16px; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); margin: 16px 0 28px; }
+.ks-member { background: var(--ks-panel); border: 1px solid var(--ks-border); border-radius: 8px; padding: 18px; }
+.ks-member h3 { margin: 0; color: #fff; }
+.ks-member .ks-role { color: var(--ks-orange); font-size: .9em; margin: 2px 0 8px; }
+.ks-member p { margin: 0; font-size: .92em; }

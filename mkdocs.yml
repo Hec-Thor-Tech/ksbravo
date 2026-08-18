@@ -1,0 +1,57 @@
+site_name: KSBravo
+site_description: KSBravo - custom nextbots, NPCs and tools for Garry's Mod and s&box. Commissions open.
+site_url: https://hec-thor-tech.github.io/ksbravo/
+repo_url: https://github.com/Hec-Thor-Tech/ksbravo
+edit_uri: ""
+
+theme:
+  name: material
+  custom_dir: overrides
+  language: en
+  logo: img/logo.webp
+  favicon: img/icono.webp
+  font:
+    text: Roboto
+    code: Roboto Mono
+  palette:
+    scheme: slate
+    primary: black
+    accent: deep orange
+  features:
+    - navigation.top
+    - content.tabs.link
+
+nav:
+  - Home: index.md
+  - Commissions: commissions.md
+  - Work: work.md
+  - Tools: tools.md
+  - Team: team.md
+
+plugins:
+  - search
+  - i18n:
+      docs_structure: folder
+      languages:
+        - locale: en
+          default: true
+          name: English
+        - locale: es
+          name: Español
+          nav_translations:
+            Home: Inicio
+            Commissions: Encargos
+            Work: Trabajos
+            Tools: Herramientas
+            Team: Equipo
+
+markdown_extensions:
+  - attr_list
+  - md_in_html
+  - admonition
+  - pymdownx.details
+  - pymdownx.tabbed:
+      alternate_style: true
+
+extra_css:
+  - stylesheets/extra.css
