@@ -65,9 +65,9 @@ Sandbox tools, ranking systems, minigames for NPCs. See [Tools](tools.md).
 
 ## Contact
 
-<a class="ks-btn" href="#" title="Discord server coming soon">Discord (coming soon)</a>
+<a class="ks-btn" href="https://discord.gg/bMudjAq2JR" target="_blank">Join our Discord</a>
 <a class="ks-btn ghost" href="https://www.youtube.com/@KSBravo" target="_blank">Comment on YouTube</a>
 <a class="ks-btn ghost" href="https://www.gmodstore.com/users/ks_bravo" target="_blank">Gmodstore profile</a>
 <a class="ks-btn ghost" href="https://steamcommunity.com/id/KSBravo" target="_blank">Steam</a>
 
-Until the Discord server opens, the fastest way is a comment on any of our YouTube videos or a message on Steam.
+The fastest way is the Discord server: post in #commission-requests. A comment on YouTube or a message on Steam also works.
