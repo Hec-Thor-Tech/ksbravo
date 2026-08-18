@@ -36,7 +36,7 @@ Un comando para que todos los NPCs y nextbots ignoren a jugadores y props.
 
 Una aplicación de escritorio que convierte una carpeta de imágenes y sonidos en un addon de nextbot 2D terminado, sin tocar Lua. Pensada para creadores que quieren publicar sus propios personajes. Versiones para Garry's Mod (base sprite de DrGBase) y para s&box (SBHBase).
 
-- Versión s&box, código e instalador: [Hec-Thor-Tech/Nextbot-2D-Maker-SBOX](https://github.com/Hec-Thor-Tech/Nextbot-2D-Maker-SBOX){target=_blank}
+Todavía no se distribuye públicamente. Si querés usarlo para tus propios personajes, [pedinos](commissions.md).
 
 ## SBHBase (s&box)
 

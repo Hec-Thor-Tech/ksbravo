@@ -9,7 +9,7 @@ description: KSBravo makes custom nextbots, NPCs, player models and server tools
 # KSBravo
 **Custom nextbots, NPCs and tools for Garry's Mod and s&box.**
 
-A small family studio from Argentina. We model, rig, animate and compile characters for Source and s&box, and we build the tools we use to do it fast.
+A small family studio. We model, rig, animate and compile characters for Source and s&box, and we build the tools we use to do it fast.
 
 <a class="ks-btn" href="commissions/">Request a commission</a>
 <a class="ks-btn ghost" href="work/">See our work</a>
@@ -36,7 +36,7 @@ The same characters running on **SBHBase**, our nextbot base for s&box: possessi
 </div>
 <div class="ks-card" markdown>
 ### Tools for servers and creators
-Sandbox tools like the Force Meter arena, ranking and time-attack tools, and the Nextbot 2D Maker for creators who want to make their own.
+Sandbox tools like the Force Meter arena, ranking and time-attack tools, and our own production tools that turn a character into a working nextbot in a click.
 </div>
 </div>
 

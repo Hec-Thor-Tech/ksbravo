@@ -1,11 +1,11 @@
 ---
 title: Equipo - KSBravo
-description: El equipo de KSBravo, un estudio familiar de Argentina que hace nextbots, NPCs, herramientas y juegos.
+description: El equipo de KSBravo, un estudio familiar que hace nextbots, NPCs, herramientas y juegos.
 ---
 
 # Equipo
 
-KSBravo es un estudio familiar de Argentina. Cuatro personas, un taller.
+KSBravo es un estudio familiar. Cuatro personas, un taller.
 
 <div class="ks-team" markdown>
 <div class="ks-member" markdown>
@@ -35,5 +35,4 @@ Graba y prueba cada lanzamiento en Garry's Mod. Si lo viste moverse en un video,
 - YouTube: [@KSBravo](https://www.youtube.com/@KSBravo){target=_blank}
 - Steam Workshop: [KS_Bravo](https://steamcommunity.com/id/KSBravo/myworkshopfiles){target=_blank}
 - Gmodstore: [ks_bravo](https://www.gmodstore.com/users/ks_bravo){target=_blank}
-- GitHub: [Hec-Thor-Tech](https://github.com/Hec-Thor-Tech){target=_blank}
 - Toy Zombies: [toy-zombies.com](https://toy-zombies.com/){target=_blank}

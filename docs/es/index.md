@@ -9,7 +9,7 @@ description: KSBravo hace nextbots, NPCs, player models y herramientas a medida 
 # KSBravo
 **Nextbots, NPCs y herramientas a medida para Garry's Mod y s&box.**
 
-Un pequeño estudio familiar de Argentina. Modelamos, riggeamos, animamos y compilamos personajes para Source y s&box, y construimos las herramientas que usamos para hacerlo rápido.
+Un pequeño estudio familiar. Modelamos, riggeamos, animamos y compilamos personajes para Source y s&box, y construimos las herramientas que usamos para hacerlo rápido.
 
 <a class="ks-btn" href="../es/commissions/">Pedir un encargo</a>
 <a class="ks-btn ghost" href="../es/work/">Ver trabajos</a>
@@ -36,7 +36,7 @@ Los mismos personajes corriendo sobre **SBHBase**, nuestra base de nextbots para
 </div>
 <div class="ks-card" markdown>
 ### Herramientas para servidores y creadores
-Tools de Sandbox como la arena Force Meter, ranking y contrarreloj, y el Nextbot 2D Maker para creadores que quieren hacer los suyos.
+Tools de Sandbox como la arena Force Meter, ranking y contrarreloj, y nuestras propias herramientas de producción que convierten un personaje en un nextbot funcional en un clic.
 </div>
 </div>
 

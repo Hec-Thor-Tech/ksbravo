@@ -1,8 +1,6 @@
 site_name: KSBravo
 site_description: KSBravo - custom nextbots, NPCs and tools for Garry's Mod and s&box. Commissions open.
 site_url: https://hec-thor-tech.github.io/ksbravo/
-repo_url: https://github.com/Hec-Thor-Tech/ksbravo
-edit_uri: ""
 
 theme:
   name: material
