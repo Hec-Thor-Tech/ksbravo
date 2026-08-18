@@ -1,11 +1,11 @@
 ---
 title: Encargos - KSBravo
-description: Pedí un nextbot, NPC, player model o herramienta a medida para Garry's Mod o s&box. Precios, plazos y cómo funciona.
+description: Pedí un nextbot, NPC, player model o herramienta a medida para Garry's Mod o s&box. Qué hacemos y cómo funciona.
 ---
 
 # Encargos
 
-Tomamos pedidos. Esto es lo que hacemos, lo que cuesta y cómo funciona.
+Tomamos pedidos. Esto es lo que hacemos y cómo funciona. Cada pedido se cotiza aparte.
 
 ## Servicios
 
@@ -13,27 +13,27 @@ Tomamos pedidos. Esto es lo que hacemos, lo que cuesta y cómo funciona.
 <div class="ks-card" markdown>
 ### Nextbot / NPC a medida (Garry's Mod)
 Nextbot DrGBase a partir de tu imagen o modelo. Incluye rig, animaciones de caminar/correr/atacar, sonidos, ragdoll y entrada en el menú de spawn.
-<span class="ks-price">desde USD 20 por personaje</span>
+<span class="ks-price">se cotiza por pedido</span>
 </div>
 <div class="ks-card" markdown>
 ### Pack de personajes
-Varios personajes con un tema en común, un solo addon, una sola página del Workshop. Descuento a partir de 5 personajes.
+Varios personajes con un tema en común, un solo addon, una sola página del Workshop.
 <span class="ks-price">cotización por pack</span>
 </div>
 <div class="ks-card" markdown>
 ### Port a s&box
 Tu personaje sobre SBHBase para s&box, con posesión, facciones y efectos. Los personajes que ya existen en GMod se portean más rápido.
-<span class="ks-price">desde USD 20 por personaje</span>
+<span class="ks-price">se cotiza por pedido</span>
 </div>
 <div class="ks-card" markdown>
 ### Player model / ragdoll
 Rig al esqueleto ValveBiped, compilado para GMod, c_hands y bodygroups a pedido.
-<span class="ks-price">desde USD 30</span>
+<span class="ks-price">se cotiza por pedido</span>
 </div>
 <div class="ks-card" markdown>
 ### Nextbot 2D
 El clásico nextbot PNG con tu imagen y tus sonidos. También por tandas.
-<span class="ks-price">desde USD 10</span>
+<span class="ks-price">se cotiza por pedido</span>
 </div>
 <div class="ks-card" markdown>
 ### Herramientas y scripts
@@ -42,14 +42,14 @@ Tools de Sandbox, sistemas de ranking, minijuegos para NPCs. Ver [Herramientas](
 </div>
 </div>
 
-!!! note "Los precios son puntos de partida"
-    El precio final depende del modelo (imagen 2D vs modelo 3D terminado), la cantidad de animaciones y las mecánicas especiales. Siempre tenés el número exacto antes de empezar.
+!!! note "Cada pedido se cotiza aparte"
+    Precio y fecha de entrega dependen del personaje (imagen 2D vs modelo 3D terminado), la cantidad de animaciones, las mecánicas especiales y la carga de trabajo del momento. No publicamos precios fijos; siempre tenés el número y la fecha exactos antes de empezar, y nada arranca hasta que estés de acuerdo.
 
 ## Cómo funciona
 
 <ol class="ks-steps">
 <li><b>Contanos qué querés.</b> Imagen o modelo 3D, nombre, qué hace (caminar, correr, atacar, sonidos o efectos especiales). Si está basado en un personaje existente, decilo.</li>
-<li><b>Cotizamos.</b> Precio y fecha de entrega, normalmente en el día.</li>
+<li><b>Cotizamos.</b> Miramos el pedido y respondemos con precio y fecha de entrega. Nada arranca hasta que estés de acuerdo.</li>
 <li><b>Lo construimos.</b> Modelado o importación, rig, animación, sonidos, compilado, prueba en el juego.</li>
 <li><b>Revisás un video.</b> Ves el personaje funcionando en Garry's Mod (o s&box) antes de pagar.</li>
 <li><b>Pago y entrega.</b> Recibís la carpeta del addon (o la subida al Workshop si preferís). Los ajustes chicos después de la entrega están incluidos.</li>
@@ -57,7 +57,7 @@ Tools de Sandbox, sistemas de ranking, minijuegos para NPCs. Ver [Herramientas](
 
 ## Bueno saberlo
 
-- **Plazos.** Un personaje suelto suele llevar de 1 a 3 días. Un pack de 6, alrededor de una semana.
+- **Plazos.** Dependen del personaje y de cuántos pedidos haya en curso. La fecha que te damos en la cotización es la que nos comprometemos a cumplir.
 - **No exclusivo por defecto.** Los encargos estándar pueden sumarse a nuestros packs públicos después de una ventana corta de exclusividad (2 días). Si necesitás que el personaje quede privado, pedí una licencia exclusiva al momento de cotizar.
 - **Tu IP es tuya.** No revendemos personajes de los que tenés los derechos sin tu permiso.
 - **Qué necesitamos de vos.** La referencia más clara que tengas. Un modelo 3D (FBX, Blend, OBJ) ahorra tiempo y plata; una buena imagen alcanza para un nextbot 2D o uno 3D simple.

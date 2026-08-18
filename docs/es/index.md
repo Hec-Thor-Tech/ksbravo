@@ -52,9 +52,9 @@ Packs y showcases nuevos cada pocas semanas en [YouTube](https://www.youtube.com
 
 <ol class="ks-steps">
 <li>Mandanos el personaje: una imagen, un video de referencia o un modelo 3D, y contanos qué tiene que hacer (caminar, correr, atacar, sonidos).</li>
-<li>Te respondemos con precio y fecha de entrega. La mayoría de los personajes sueltos llevan de 1 a 3 días.</li>
+<li>Te respondemos con precio y fecha de entrega para ese pedido. Nada arranca hasta que estés de acuerdo.</li>
 <li>Recibís un video del personaje funcionando en el juego antes de pagar.</li>
 <li>Recibís el addon, listo para instalar.</li>
 </ol>
 
-<a class="ks-btn" href="../es/commissions/">Precios y detalles</a>
+<a class="ks-btn" href="../es/commissions/">Cómo funcionan los encargos</a>

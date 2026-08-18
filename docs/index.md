@@ -52,9 +52,9 @@ New packs and showcases every few weeks on [YouTube](https://www.youtube.com/@KS
 
 <ol class="ks-steps">
 <li>Send us the character: an image, a reference video or a 3D model, and tell us what it should do (walk, run, attack, sounds).</li>
-<li>We reply with a price and a delivery date. Most single characters take 1 to 3 days.</li>
+<li>We reply with a price and a delivery date for that request. Nothing starts until you agree.</li>
 <li>You get a video of the character working in game before you pay.</li>
 <li>You receive the addon, ready to install.</li>
 </ol>
 
-<a class="ks-btn" href="commissions/">Prices and details</a>
+<a class="ks-btn" href="commissions/">How commissions work</a>
