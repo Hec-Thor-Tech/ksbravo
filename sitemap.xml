@@ -2,70 +2,84 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
     <url>
         <loc>https://hec-thor-tech.github.io/ksbravo/</loc>
-        <lastmod>2026-08-18</lastmod>
+        <lastmod>2026-08-19</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://hec-thor-tech.github.io/ksbravo/"/>
         <xhtml:link rel="alternate" hreflang="es" href="https://hec-thor-tech.github.io/ksbravo/es/"/>
     </url>
     <url>
         <loc>https://hec-thor-tech.github.io/ksbravo/commissions/</loc>
-        <lastmod>2026-08-18</lastmod>
+        <lastmod>2026-08-19</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://hec-thor-tech.github.io/ksbravo/commissions/"/>
         <xhtml:link rel="alternate" hreflang="es" href="https://hec-thor-tech.github.io/ksbravo/es/commissions/"/>
     </url>
     <url>
+        <loc>https://hec-thor-tech.github.io/ksbravo/progress/</loc>
+        <lastmod>2026-08-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://hec-thor-tech.github.io/ksbravo/progress/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://hec-thor-tech.github.io/ksbravo/es/progress/"/>
+    </url>
+    <url>
         <loc>https://hec-thor-tech.github.io/ksbravo/team/</loc>
-        <lastmod>2026-08-18</lastmod>
+        <lastmod>2026-08-19</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://hec-thor-tech.github.io/ksbravo/team/"/>
         <xhtml:link rel="alternate" hreflang="es" href="https://hec-thor-tech.github.io/ksbravo/es/team/"/>
     </url>
     <url>
         <loc>https://hec-thor-tech.github.io/ksbravo/tools/</loc>
-        <lastmod>2026-08-18</lastmod>
+        <lastmod>2026-08-19</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://hec-thor-tech.github.io/ksbravo/tools/"/>
         <xhtml:link rel="alternate" hreflang="es" href="https://hec-thor-tech.github.io/ksbravo/es/tools/"/>
     </url>
     <url>
         <loc>https://hec-thor-tech.github.io/ksbravo/work/</loc>
-        <lastmod>2026-08-18</lastmod>
+        <lastmod>2026-08-19</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://hec-thor-tech.github.io/ksbravo/work/"/>
         <xhtml:link rel="alternate" hreflang="es" href="https://hec-thor-tech.github.io/ksbravo/es/work/"/>
     </url>
     <url>
         <loc>https://hec-thor-tech.github.io/ksbravo/es/</loc>
-        <lastmod>2026-08-18</lastmod>
+        <lastmod>2026-08-19</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="es" href="https://hec-thor-tech.github.io/ksbravo/es/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://hec-thor-tech.github.io/ksbravo/"/>
     </url>
     <url>
         <loc>https://hec-thor-tech.github.io/ksbravo/es/commissions/</loc>
-        <lastmod>2026-08-18</lastmod>
+        <lastmod>2026-08-19</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="es" href="https://hec-thor-tech.github.io/ksbravo/es/commissions/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://hec-thor-tech.github.io/ksbravo/commissions/"/>
     </url>
     <url>
+        <loc>https://hec-thor-tech.github.io/ksbravo/es/progress/</loc>
+        <lastmod>2026-08-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="https://hec-thor-tech.github.io/ksbravo/es/progress/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://hec-thor-tech.github.io/ksbravo/progress/"/>
+    </url>
+    <url>
         <loc>https://hec-thor-tech.github.io/ksbravo/es/team/</loc>
-        <lastmod>2026-08-18</lastmod>
+        <lastmod>2026-08-19</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="es" href="https://hec-thor-tech.github.io/ksbravo/es/team/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://hec-thor-tech.github.io/ksbravo/team/"/>
     </url>
     <url>
         <loc>https://hec-thor-tech.github.io/ksbravo/es/tools/</loc>
-        <lastmod>2026-08-18</lastmod>
+        <lastmod>2026-08-19</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="es" href="https://hec-thor-tech.github.io/ksbravo/es/tools/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://hec-thor-tech.github.io/ksbravo/tools/"/>
     </url>
     <url>
         <loc>https://hec-thor-tech.github.io/ksbravo/es/work/</loc>
-        <lastmod>2026-08-18</lastmod>
+        <lastmod>2026-08-19</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="es" href="https://hec-thor-tech.github.io/ksbravo/es/work/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://hec-thor-tech.github.io/ksbravo/work/"/>
