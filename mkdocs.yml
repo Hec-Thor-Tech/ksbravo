@@ -1,4 +1,4 @@
-site_name: KSBravo
+﻿site_name: KSBravo
 site_description: KSBravo - custom nextbots, NPCs and tools for Garry's Mod and s&box. Commissions open.
 site_url: https://hec-thor-tech.github.io/ksbravo/
 
@@ -23,6 +23,7 @@ nav:
   - Home: index.md
   - Commissions: commissions.md
   - Work: work.md
+  - Progress: progress.md
   - Tools: tools.md
   - Team: team.md
 
@@ -40,6 +41,7 @@ plugins:
             Home: Inicio
             Commissions: Encargos
             Work: Trabajos
+            Progress: Progreso
             Tools: Herramientas
             Team: Equipo
 
@@ -53,3 +55,8 @@ markdown_extensions:
 
 extra_css:
   - stylesheets/extra.css
+
+extra_javascript:
+  - javascripts/progress-data.js
+  - javascripts/progress.js
+
