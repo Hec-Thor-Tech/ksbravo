@@ -19,21 +19,32 @@
   padding-bottom: .3em;
 }
 
-/* Fondo de pagina: luz naranja arriba + montañas estilo Earthworm Jim abajo,
-   las dos fijas, para que la pagina tenga profundidad sin tapar el texto. */
+/* Fondo de pagina: el paisaje alienigena, fijo y bien oscurecido.
+   El velo de arriba es lo que hace que el texto se siga leyendo: si se aclara
+   mucho, la ilustracion (que tiene mucho detalle) se come al contenido. */
 body {
   background-image:
-    radial-gradient(60vw 40vw at 82% 4%, rgba(255, 90, 31, .10), rgba(255, 90, 31, 0) 70%),
-    url("../img/mountains.svg");
+    linear-gradient(rgba(14, 13, 20, .80), rgba(14, 13, 20, .88)),
+    url("../img/fondo.webp");
   background-repeat: no-repeat, no-repeat;
-  background-position: center top, center bottom;
-  background-size: auto, 100% 300px;
+  background-position: center, center bottom;
+  background-size: cover, cover;
   background-attachment: fixed, fixed;
 }
 .md-main { background-color: transparent; }
+/* Base translucida detras del texto: el paisaje se sigue viendo en los
+   margenes y en los costados, pero el contenido nunca queda ilegible. */
+.md-content {
+  background: rgba(15, 15, 19, .62);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  border-radius: 12px;
+}
+.md-sidebar--secondary .md-nav__title,
+.md-sidebar--primary .md-nav__title { background: transparent; }
 /* en celulares el fixed va lento y en iOS se rompe: que scrollee normal */
 @media screen and (max-width: 767px) {
-  body { background-attachment: scroll, scroll; background-size: auto, 160% 200px; }
+  body { background-attachment: scroll, scroll; }
 }
 
 /* Hero */
