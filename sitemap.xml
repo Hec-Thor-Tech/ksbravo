@@ -22,20 +22,6 @@
         <xhtml:link rel="alternate" hreflang="es" href="https://ks-bravo.com/es/progress/"/>
     </url>
     <url>
-        <loc>https://ks-bravo.com/team/</loc>
-        <lastmod>2026-08-20</lastmod>
-        <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="en" href="https://ks-bravo.com/team/"/>
-        <xhtml:link rel="alternate" hreflang="es" href="https://ks-bravo.com/es/team/"/>
-    </url>
-    <url>
-        <loc>https://ks-bravo.com/tools/</loc>
-        <lastmod>2026-08-20</lastmod>
-        <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="en" href="https://ks-bravo.com/tools/"/>
-        <xhtml:link rel="alternate" hreflang="es" href="https://ks-bravo.com/es/tools/"/>
-    </url>
-    <url>
         <loc>https://ks-bravo.com/work/</loc>
         <lastmod>2026-08-20</lastmod>
         <changefreq>daily</changefreq>
@@ -62,20 +48,6 @@
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="es" href="https://ks-bravo.com/es/progress/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://ks-bravo.com/progress/"/>
-    </url>
-    <url>
-        <loc>https://ks-bravo.com/es/team/</loc>
-        <lastmod>2026-08-20</lastmod>
-        <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="es" href="https://ks-bravo.com/es/team/"/>
-        <xhtml:link rel="alternate" hreflang="en" href="https://ks-bravo.com/team/"/>
-    </url>
-    <url>
-        <loc>https://ks-bravo.com/es/tools/</loc>
-        <lastmod>2026-08-20</lastmod>
-        <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="es" href="https://ks-bravo.com/es/tools/"/>
-        <xhtml:link rel="alternate" hreflang="en" href="https://ks-bravo.com/tools/"/>
     </url>
     <url>
         <loc>https://ks-bravo.com/es/work/</loc>
