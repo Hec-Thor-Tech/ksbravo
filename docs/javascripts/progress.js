@@ -30,8 +30,12 @@
         totalPct += pct;
         var cls = pct >= 100 ? "done" : (pct > 0 ? "" : "pending");
         var tag = pct >= 100 ? L.done : (pct > 0 ? L.progress : L.pending);
+        // imgv = sello de version que pone el Gestor (fecha del archivo):
+        // cambia cuando se reemplaza la foto y el navegador baja la nueva
+        // en vez de mostrar la vieja del cache.
+        var busca = m.imgv ? "?v=" + m.imgv : "";
         var ref = m.img
-          ? '<img class="ks-prog-ref" src="' + raiz + "img/" + m.img +
+          ? '<img class="ks-prog-ref" src="' + raiz + "img/" + m.img + busca +
             '" alt="' + m.name + '" loading="lazy">'
           : '<span class="ks-prog-ref vacia"></span>';
         rows +=
