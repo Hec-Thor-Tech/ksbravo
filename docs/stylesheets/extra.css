@@ -19,16 +19,53 @@
   padding-bottom: .3em;
 }
 
+/* Fondo de pagina: luz naranja arriba + montañas estilo Earthworm Jim abajo,
+   las dos fijas, para que la pagina tenga profundidad sin tapar el texto. */
+body {
+  background-image:
+    radial-gradient(60vw 40vw at 82% 4%, rgba(255, 90, 31, .10), rgba(255, 90, 31, 0) 70%),
+    url("../img/mountains.svg");
+  background-repeat: no-repeat, no-repeat;
+  background-position: center top, center bottom;
+  background-size: auto, 100% 300px;
+  background-attachment: fixed, fixed;
+}
+.md-main { background-color: transparent; }
+/* en celulares el fixed va lento y en iOS se rompe: que scrollee normal */
+@media screen and (max-width: 767px) {
+  body { background-attachment: scroll, scroll; background-size: auto, 160% 200px; }
+}
+
 /* Hero */
 .ks-hero {
-  display: flex; align-items: center; gap: 28px; flex-wrap: wrap;
-  padding: 24px; margin: 8px 0 32px;
-  background: var(--ks-panel); border: 1px solid var(--ks-border); border-radius: 8px;
+  position: relative; overflow: hidden;
+  display: flex; align-items: center; gap: 32px; flex-wrap: wrap;
+  padding: 34px 32px; margin: 8px 0 36px;
+  background:
+    radial-gradient(120% 150% at 86% 50%, rgba(255, 90, 31, .20) 0%, rgba(255, 90, 31, 0) 60%),
+    linear-gradient(135deg, rgba(255, 255, 255, .055), rgba(255, 255, 255, .015));
+  border: 1px solid var(--ks-border); border-radius: 14px;
 }
-.ks-hero img { width: 140px; height: 140px; border-radius: 12px; }
-.ks-hero h1 { margin: 0 0 6px !important; }
-.ks-hero p { margin: 4px 0; font-size: 1.05em; }
-.ks-hero-text { flex: 1; min-width: 260px; }
+/* filo naranja arriba, como el header */
+.ks-hero::before {
+  content: ""; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, var(--ks-orange), rgba(255, 90, 31, 0) 70%);
+}
+.ks-hero-text { flex: 1 1 320px; min-width: 260px; }
+.ks-hero h1 { margin: 0 0 10px !important; font-size: 2.4em; line-height: 1.05; }
+.ks-hero p { margin: 6px 0; font-size: 1.02em; }
+.ks-hero .ks-tagline {
+  font-size: 1.16em; font-weight: 600; color: #fff; margin: 0 0 12px;
+}
+.ks-hero-art {
+  flex: 0 0 auto; width: 250px; max-width: 44%; height: auto;
+  filter: drop-shadow(0 12px 34px rgba(0, 0, 0, .55));
+}
+@media screen and (max-width: 599px) {
+  .ks-hero { padding: 24px 20px; gap: 20px; }
+  .ks-hero h1 { font-size: 1.9em; }
+  .ks-hero-art { width: 160px; margin: 0 auto; }
+}
 
 /* Buttons */
 .ks-btn {
@@ -49,8 +86,14 @@
   margin: 16px 0 28px;
 }
 .ks-card {
-  background: var(--ks-panel); border: 1px solid var(--ks-border); border-radius: 8px;
+  background: var(--ks-panel); border: 1px solid var(--ks-border); border-radius: 10px;
   padding: 16px; display: flex; flex-direction: column; gap: 6px;
+  transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+.ks-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255, 90, 31, .45);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, .35);
 }
 .ks-card h3 { margin: 0 0 4px; font-size: 1.05em; color: #fff; }
 .ks-card p { margin: 0; font-size: .92em; opacity: .9; }
@@ -60,10 +103,11 @@
 /* Stats row */
 .ks-stats { display: flex; gap: 12px; flex-wrap: wrap; margin: 12px 0 24px; }
 .ks-stat {
-  flex: 1; min-width: 140px; text-align: center; padding: 14px 8px;
-  background: var(--ks-panel); border: 1px solid var(--ks-border); border-radius: 8px;
+  flex: 1; min-width: 140px; text-align: center; padding: 16px 8px;
+  background: linear-gradient(180deg, rgba(255, 90, 31, .07), var(--ks-panel));
+  border: 1px solid var(--ks-border); border-radius: 10px;
 }
-.ks-stat b { display: block; font-size: 1.6em; color: var(--ks-orange); }
+.ks-stat b { display: block; font-size: 1.75em; color: var(--ks-orange); line-height: 1.1; }
 .ks-stat span { font-size: .85em; opacity: .85; }
 
 /* Steps */

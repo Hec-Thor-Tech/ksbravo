@@ -4,16 +4,16 @@ description: KSBravo makes custom nextbots, NPCs, player models and server tools
 ---
 
 <div class="ks-hero" markdown>
-<img src="img/logo.webp" alt="KSBravo">
 <div class="ks-hero-text" markdown>
 # KSBravo
-**Custom nextbots, NPCs and tools for Garry's Mod and s&box.**
+<p class="ks-tagline">Custom nextbots, NPCs and tools for Garry's Mod and s&box.</p>
 
 A small family studio. We model, rig, animate and compile characters for Source and s&box, and we build the tools we use to do it fast.
 
 <a class="ks-btn" href="commissions/">Request a commission</a>
 <a class="ks-btn ghost" href="work/">See our work</a>
 </div>
+<img class="ks-hero-art" src="img/mascota.webp" alt="KSBravo mascot at a computer">
 </div>
 
 <div class="ks-stats" markdown>

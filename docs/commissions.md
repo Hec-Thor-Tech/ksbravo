@@ -22,7 +22,7 @@ Several characters with a shared theme, one addon, one Workshop page.
 </div>
 <div class="ks-card" markdown>
 ### Port to s&box
-Your character on SBHBase for s&box, with possession, factions and effects. Existing GMod characters port faster.
+Your character on SBHBase for s&box, with possession, factions and effects.
 <span class="ks-price">quoted per request</span>
 </div>
 <div class="ks-card" markdown>

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{#
+  Vista previa al compartir el link (Discord, WhatsApp, Twitter, Steam...).
+  Sin esto, pegar ks-bravo.com en un chat sale como texto pelado.
+  La imagen es el avatar completo; el titulo y la descripcion salen de cada pagina.
+#}
+{% block extrahead %}
+  {% set titulo = page.meta.title if page and page.meta and page.meta.title else config.site_name %}
+  {% set desc = page.meta.description if page and page.meta and page.meta.description else config.site_description %}
+  {% set imagen = config.site_url ~ 'img/social-card.jpg' %}
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="{{ config.site_name }}">
+  <meta property="og:title" content="{{ titulo }}">
+  <meta property="og:description" content="{{ desc }}">
+  <meta property="og:image" content="{{ imagen }}">
+  <meta property="og:url" content="{{ page.canonical_url }}">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ titulo }}">
+  <meta name="twitter:description" content="{{ desc }}">
+  <meta name="twitter:image" content="{{ imagen }}">
+
+  <meta name="theme-color" content="#ff5a1f">
+{% endblock %}

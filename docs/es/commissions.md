@@ -22,7 +22,7 @@ Varios personajes con un tema en común, un solo addon, una sola página del Wor
 </div>
 <div class="ks-card" markdown>
 ### Port a s&box
-Tu personaje sobre SBHBase para s&box, con posesión, facciones y efectos. Los personajes que ya existen en GMod se portean más rápido.
+Tu personaje sobre SBHBase para s&box, con posesión, facciones y efectos.
 <span class="ks-price">se cotiza por pedido</span>
 </div>
 <div class="ks-card" markdown>

@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 420" preserveAspectRatio="none">
+  <!-- Montañas estilo Earthworm Jim: picos altos de punta REDONDEADA y torcidos
+       para un lado, alturas muy desparejas, en tres capas de profundidad.
+       Los tonos son casi el fondo de la web para que no compitan con el texto. -->
+  <defs>
+    <linearGradient id="cielo" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#ff5a1f" stop-opacity="0"/>
+      <stop offset="65%"  stop-color="#ff5a1f" stop-opacity=".09"/>
+      <stop offset="100%" stop-color="#ff5a1f" stop-opacity=".17"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="0" y="60" width="1600" height="360" fill="url(#cielo)"/>
+
+  <!-- CAPA LEJANA: los picos altos, inclinados a la derecha -->
+  <path fill="#2f2f3a" d="M0,420 L0,262
+    Q40,250 66,236
+    Q112,150 158,120  Q196,152 214,214  Q232,252 262,260
+    Q300,264 322,236  Q352,120 398,86   Q438,124 458,200  Q474,246 508,258
+    Q548,262 570,242  Q596,196 626,206  Q650,216 664,254
+    Q700,264 726,240  Q772,132 822,104  Q862,146 880,212  Q896,250 928,258
+    Q968,262 992,238  Q1018,190 1048,202 Q1072,214 1086,252
+    Q1124,264 1150,238 Q1198,140 1248,112 Q1288,152 1306,216 Q1322,252 1354,260
+    Q1396,264 1420,240 Q1470,166 1524,178 Q1568,190 1600,232
+    L1600,420 Z"/>
+
+  <!-- CAPA MEDIA -->
+  <path fill="#212129" d="M0,420 L0,330
+    Q54,318 88,286  Q140,214 196,244  Q238,268 262,318  Q286,340 320,336
+    Q372,328 406,290 Q460,220 518,250  Q560,272 584,320  Q610,342 646,336
+    Q702,326 738,286 Q794,216 852,248  Q894,272 918,320  Q944,342 980,336
+    Q1038,326 1074,288 Q1130,218 1188,250 Q1230,274 1254,322 Q1280,342 1316,336
+    Q1376,324 1414,288 Q1470,238 1526,264 Q1566,282 1600,306
+    L1600,420 Z"/>
+
+  <!-- CAPA CERCANA: lomas anchas y bajas, casi negras -->
+  <path fill="#191920" d="M0,420 L0,388
+    Q80,376 140,344  Q214,304 292,338  Q346,362 396,384
+    Q466,398 530,368  Q606,332 686,362  Q740,382 792,392
+    Q866,398 928,370  Q1004,334 1084,364 Q1138,384 1190,392
+    Q1268,398 1332,368 Q1410,330 1490,360 Q1546,381 1600,390
+    L1600,420 Z"/>
+</svg>
