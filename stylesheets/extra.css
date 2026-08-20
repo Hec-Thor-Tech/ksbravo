@@ -19,18 +19,29 @@
   padding-bottom: .3em;
 }
 
-/* Fondo de pagina: el paisaje alienigena, fijo y bien oscurecido.
-   El velo de arriba es lo que hace que el texto se siga leyendo: si se aclara
-   mucho, la ilustracion (que tiene mucho detalle) se come al contenido. */
-body {
-  background-image:
-    linear-gradient(rgba(14, 13, 20, .80), rgba(14, 13, 20, .88)),
-    url("../img/fondo.webp");
-  background-repeat: no-repeat, no-repeat;
-  background-position: center, center bottom;
-  background-size: cover, cover;
-  background-attachment: fixed, fixed;
+/* Fondo de pagina con PARALAJE. Las 4 capas las inyecta javascripts/parallax.js
+   y son los niveles que dibujo Hector: 0 cielo, 1 luna, 2 lejano, 3 cercano.
+   El color base va en <html> y el body queda transparente: asi el contenedor
+   del fondo puede ir en z-index -1 y igual verse. */
+html { background-color: #0e0d14; }
+body { background: none; }
+
+.ks-bg {
+  position: fixed; inset: -70px;   /* margen de sobra: las capas se corren hasta 46px */
+  z-index: -1; overflow: hidden; pointer-events: none;
 }
+.ks-bg-capa {
+  position: absolute; inset: 0;
+  background-repeat: no-repeat; background-position: center; background-size: cover;
+  will-change: transform;
+}
+/* El velo va ultimo, o sea ARRIBA de las 4 capas: es lo que mantiene legible
+   el texto. Si se aclara mucho, la ilustracion se come al contenido. */
+.ks-bg-velo {
+  position: absolute; inset: 0;
+  background: linear-gradient(rgba(14, 13, 20, .78), rgba(14, 13, 20, .88));
+}
+
 .md-main { background-color: transparent; }
 /* Base translucida detras del texto: el paisaje se sigue viendo en los
    margenes y en los costados, pero el contenido nunca queda ilegible. */
@@ -42,10 +53,6 @@ body {
 }
 .md-sidebar--secondary .md-nav__title,
 .md-sidebar--primary .md-nav__title { background: transparent; }
-/* en celulares el fixed va lento y en iOS se rompe: que scrollee normal */
-@media screen and (max-width: 767px) {
-  body { background-attachment: scroll, scroll; }
-}
 
 /* Hero */
 .ks-hero {
