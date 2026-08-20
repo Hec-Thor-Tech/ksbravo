@@ -57,21 +57,6 @@ Sprunki characters, horror phase.
 Mini troops as nextbots (with Joelias_N1).
 [Workshop page](https://steamcommunity.com/sharedfiles/filedetails/?id=3757731482){target=_blank}
 </div>
-<div class="ks-card" markdown>
-### Kratos - 2D Nextbots
-Made with our Nextbot 2D Maker.
-[Workshop page](https://steamcommunity.com/sharedfiles/filedetails/?id=3784252981){target=_blank}
-</div>
-<div class="ks-card" markdown>
-### HecTool Armagedon
-Admin tool: chaos, teams, screen vs the rest.
-[Workshop page](https://steamcommunity.com/sharedfiles/filedetails/?id=3757875449){target=_blank}
-</div>
-<div class="ks-card" markdown>
-### MAP - Tesla PIT
-Arena map for NPC fights.
-[Workshop page](https://steamcommunity.com/sharedfiles/filedetails/?id=3587557186){target=_blank}
-</div>
 </div>
 
 ## Showcase videos

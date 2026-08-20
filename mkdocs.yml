@@ -53,6 +53,7 @@ extra_css:
   - stylesheets/extra.css
 
 extra_javascript:
+  - javascripts/parallax.js
   - javascripts/progress-data.js
   - javascripts/progress.js
 
