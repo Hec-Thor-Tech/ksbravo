@@ -21,9 +21,9 @@ theme:
 
 nav:
   - Home: index.md
+  - Work in Progress: progress.md
   - Commissions: commissions.md
   - Work: work.md
-  - Progress: progress.md
 
 plugins:
   - search
@@ -37,9 +37,9 @@ plugins:
           name: Español
           nav_translations:
             Home: Inicio
+            Work in Progress: Trabajo en Progreso
             Commissions: Encargos
             Work: Trabajos
-            Progress: Progreso
 
 markdown_extensions:
   - attr_list

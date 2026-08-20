@@ -17,6 +17,11 @@
     var d = window.KS_PROGRESS;
     var html = "";
 
+    // Raiz del sitio, sacada del CSS del tema: sirve igual en / y en /es/,
+    // y no se rompe si el sitio vuelve a vivir en un subdirectorio.
+    var css = document.querySelector('link[href*="stylesheets/extra.css"]');
+    var raiz = css ? css.href.replace(/stylesheets\/extra\.css.*$/, "") : "/";
+
     d.packs.forEach(function (pack) {
       var totalPct = 0;
       var rows = "";
@@ -25,14 +30,21 @@
         totalPct += pct;
         var cls = pct >= 100 ? "done" : (pct > 0 ? "" : "pending");
         var tag = pct >= 100 ? L.done : (pct > 0 ? L.progress : L.pending);
+        var ref = m.img
+          ? '<img class="ks-prog-ref" src="' + raiz + "img/" + m.img +
+            '" alt="' + m.name + '" loading="lazy">'
+          : '<span class="ks-prog-ref vacia"></span>';
         rows +=
           '<div class="ks-prog-row">' +
-            '<div class="ks-prog-head">' +
-              "<span>" + m.name + "</span>" +
-              '<span class="ks-prog-tag ' + cls + '">' + tag + "</span>" +
-              '<span class="ks-prog-num">' + m.steps + " / " + pack.total + " " + L.steps + "</span>" +
+            ref +
+            '<div class="ks-prog-body">' +
+              '<div class="ks-prog-head">' +
+                "<span>" + m.name + "</span>" +
+                '<span class="ks-prog-tag ' + cls + '">' + tag + "</span>" +
+                '<span class="ks-prog-num">' + m.steps + " / " + pack.total + " " + L.steps + "</span>" +
+              "</div>" +
+              '<div class="ks-prog-bar"><div class="ks-prog-fill ' + cls + '" style="width:' + pct + '%"></div></div>' +
             "</div>" +
-            '<div class="ks-prog-bar"><div class="ks-prog-fill ' + cls + '" style="width:' + pct + '%"></div></div>' +
           "</div>";
       });
       var packPct = pack.models.length ? Math.round(totalPct / pack.models.length) : 0;

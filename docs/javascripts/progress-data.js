@@ -17,13 +17,14 @@ window.KS_PROGRESS = {
       note: "Winners of the community poll on YouTube.",
       note_es: "Los ganadores de la encuesta de la comunidad en YouTube.",
       total: 31,
+      // "img" es la referencia 2D del personaje, en docs/img/ref-*.webp
       models: [
-        { name: "Pellow",    steps: 10 },
-        { name: "Umnidorid", steps: 2 },
-        { name: "Tim",       steps: 2 },
-        { name: "Megmen",    steps: 2 },
-        { name: "NubStir",   steps: 2 },
-        { name: "Nyoan Cot", steps: 2 }
+        { name: "Pellow",    steps: 10, img: "ref-pellow.webp"    },
+        { name: "Umnidorid", steps: 2,  img: "ref-umnidorid.webp" },
+        { name: "Tim",       steps: 2,  img: "ref-tim.webp"       },
+        { name: "Megmen",    steps: 2,  img: "ref-megmen.webp"    },
+        { name: "NubStir",   steps: 2,  img: "ref-nubstir.webp"   },
+        { name: "Nyoan Cot", steps: 2,  img: "ref-nyoancot.webp"  }
       ]
     }
   ]
