@@ -1,13 +1,15 @@
-/* Fondo con paralaje. Los 4 niveles los dibujó Héctor:
+/* Fondo con paralaje AL SCROLLEAR. Los 4 niveles los dibujó Héctor:
    0 = cielo (no se mueve) · 1 = la luna graciosa · 2 = paisaje lejano ·
-   3 = paisaje cercano. Cuanto más cerca, más se corre con el cursor.
+   3 = paisaje cercano. Cuanto más cerca, más se desplaza.
 
-   No se mueve en pantallas táctiles (no hay cursor) ni si el sistema pide
-   menos animación. El velo oscuro va ARRIBA de las capas para que el texto
-   se siga leyendo. */
+   Antes esto seguía al cursor y mareaba, así que ahora se mueve con la rueda:
+   el movimiento acompaña algo que la persona ya está haciendo.
+
+   El recorrido es un RANGO FIJO en px repartido sobre todo el scroll de la
+   página, no un múltiplo de scrollY. Así una página larga no empuja las capas
+   fuera del contenedor, y en una corta el efecto igual se nota. */
 (function () {
-  var conCursor = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
-  var quietud = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var quietud = window.matchMedia("(prefers-reduced-motion: reduce)");
 
   function armar() {
     if (document.querySelector(".ks-bg")) { return; }
@@ -34,33 +36,44 @@
 
     document.body.insertBefore(cont, document.body.firstChild);
 
-    if (!conCursor || quietud) { return; }
-
-    // px que se corre cada nivel entre un borde y el otro de la pantalla
-    var FUERZA = [0, 10, 24, 46];
-    var destinoX = 0, destinoY = 0, actualX = 0, actualY = 0, animando = false;
+    // px totales que recorre cada nivel entre el principio y el final de la página
+    var RANGO = [0, 16, 38, 76];
+    var pedido = false;
 
     function pintar() {
-      // suavizado: las capas persiguen al cursor en vez de saltar
-      actualX += (destinoX - actualX) * 0.08;
-      actualY += (destinoY - actualY) * 0.08;
+      pedido = false;
+      var doc = document.documentElement;
+      var scrolleable = (doc.scrollHeight - window.innerHeight) || 1;
+      var avance = Math.min(1, Math.max(0, window.pageYOffset / scrolleable));
       for (var i = 1; i < capas.length; i++) {
-        capas[i].style.transform = "translate3d(" +
-          (actualX * FUERZA[i]).toFixed(2) + "px," +
-          (actualY * FUERZA[i] * 0.55).toFixed(2) + "px,0)";
-      }
-      if (Math.abs(destinoX - actualX) > 0.002 || Math.abs(destinoY - actualY) > 0.002) {
-        requestAnimationFrame(pintar);
-      } else {
-        animando = false;
+        // negativo: al bajar, el fondo sube (más lento que el contenido)
+        capas[i].style.transform =
+          "translate3d(0," + (-avance * RANGO[i]).toFixed(2) + "px,0)";
       }
     }
 
-    window.addEventListener("mousemove", function (e) {
-      destinoX = (e.clientX / window.innerWidth) * 2 - 1;   // -1 .. 1
-      destinoY = (e.clientY / window.innerHeight) * 2 - 1;
-      if (!animando) { animando = true; requestAnimationFrame(pintar); }
-    }, { passive: true });
+    function alScrollear() {
+      if (!pedido) { pedido = true; requestAnimationFrame(pintar); }
+    }
+
+    function encender() {
+      window.addEventListener("scroll", alScrollear, { passive: true });
+      window.addEventListener("resize", alScrollear, { passive: true });
+      pintar();
+    }
+
+    function apagar() {
+      window.removeEventListener("scroll", alScrollear);
+      window.removeEventListener("resize", alScrollear);
+      for (var i = 1; i < capas.length; i++) { capas[i].style.transform = ""; }
+    }
+
+    if (!quietud.matches) { encender(); }
+    // si la persona cambia la preferencia del sistema, respetarlo en el momento
+    // (Safari viejo no tiene addEventListener en MediaQueryList: no es critico)
+    try {
+      quietud.addEventListener("change", function (e) { e.matches ? apagar() : encender(); });
+    } catch (err) { /* sin escucha de cambios, el estado inicial ya es correcto */ }
   }
 
   if (document.readyState === "loading") {
