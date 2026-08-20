@@ -1,0 +1,107 @@
+{
+  "version": 1,
+  "encargos": {
+    "abiertos": true,
+    "pie_abierto_en": "[ Commissions open ]",
+    "pie_abierto_es": "[ Encargos abiertos ]",
+    "pie_pausado_en": "[ Commissions paused ]",
+    "pie_pausado_es": "[ Encargos en pausa ]",
+    "aviso_titulo_en": "Commissions are paused right now",
+    "aviso_titulo_es": "Los encargos están en pausa",
+    "aviso_texto_en": "We are not taking new requests at the moment. Join the Discord to be notified when they open again.",
+    "aviso_texto_es": "Por ahora no estamos tomando pedidos nuevos. Entrá al Discord para enterarte cuando se abran de nuevo."
+  },
+  "servicios": [
+    {
+      "titulo_en": "Custom nextbot / NPC (Garry's Mod)",
+      "titulo_es": "Nextbot / NPC a medida (Garry's Mod)",
+      "texto_en": "DrGBase nextbot from your image or model. Includes rig, walk/run/attack animations, sounds, ragdoll and spawn menu entry.",
+      "texto_es": "Nextbot DrGBase a partir de tu imagen o modelo. Incluye rig, animaciones de caminar/correr/atacar, sonidos, ragdoll y entrada en el menú de spawn.",
+      "linea_en": "quoted per request",
+      "linea_es": "se cotiza por pedido"
+    },
+    {
+      "titulo_en": "Character pack",
+      "titulo_es": "Pack de personajes",
+      "texto_en": "Several characters with a shared theme, one addon, one Workshop page.",
+      "texto_es": "Varios personajes con un tema en común, un solo addon, una sola página del Workshop.",
+      "linea_en": "quote per pack",
+      "linea_es": "cotización por pack"
+    },
+    {
+      "titulo_en": "Port to s&box",
+      "titulo_es": "Port a s&box",
+      "texto_en": "Your character on SBHBase for s&box, with possession, factions and effects.",
+      "texto_es": "Tu personaje sobre SBHBase para s&box, con posesión, facciones y efectos.",
+      "linea_en": "quoted per request",
+      "linea_es": "se cotiza por pedido"
+    },
+    {
+      "titulo_en": "Player model / ragdoll",
+      "titulo_es": "Player model / ragdoll",
+      "texto_en": "Rig to the ValveBiped skeleton, compile for GMod, c_hands and bodygroups on request.",
+      "texto_es": "Rig al esqueleto ValveBiped, compilado para GMod, c_hands y bodygroups a pedido.",
+      "linea_en": "quoted per request",
+      "linea_es": "se cotiza por pedido"
+    },
+    {
+      "titulo_en": "2D nextbot",
+      "titulo_es": "Nextbot 2D",
+      "texto_en": "Classic PNG nextbot with your image and sounds. Also as a batch.",
+      "texto_es": "El clásico nextbot PNG con tu imagen y tus sonidos. También por tandas.",
+      "linea_en": "quoted per request",
+      "linea_es": "se cotiza por pedido"
+    },
+    {
+      "titulo_en": "Tools and scripts",
+      "titulo_es": "Herramientas y scripts",
+      "texto_en": "Sandbox tools, ranking systems, minigames for NPCs.",
+      "texto_es": "Tools de Sandbox, sistemas de ranking, minijuegos para NPCs.",
+      "linea_en": "quote per project",
+      "linea_es": "cotización por proyecto"
+    }
+  ],
+  "progreso": {
+    "updated": "2026-08-20",
+    "packs": [
+      {
+        "name": "3D Memes Bonus Pack 01",
+        "note": "Winners of the community poll on YouTube.",
+        "note_es": "Los ganadores de la encuesta de la comunidad en YouTube.",
+        "total": 30,
+        "models": [
+          {
+            "name": "Pellow",
+            "steps": 10,
+            "img": "ref-pellow.webp"
+          },
+          {
+            "name": "Umnidorid",
+            "steps": 2,
+            "img": "ref-umnidorid.webp"
+          },
+          {
+            "name": "Tim",
+            "steps": 2,
+            "img": "ref-tim.webp"
+          },
+          {
+            "name": "Megmen",
+            "steps": 2,
+            "img": "ref-megmen.webp"
+          },
+          {
+            "name": "NubStir",
+            "steps": 2,
+            "img": "ref-nubstir.webp"
+          },
+          {
+            "name": "Nyoan Cot",
+            "steps": 2,
+            "img": "ref-nyoancot.webp"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -7,8 +7,12 @@ description: Order a custom nextbot, NPC, player model or tool for Garry's Mod o
 
 We take requests. Here is what we make and how it works. Every request is quoted individually.
 
+<!-- KS:AVISO:INICIO  (lo escribe el Gestor Web KSBravo - no editar a mano) -->
+<!-- KS:AVISO:FIN -->
+
 ## Services
 
+<!-- KS:SERVICIOS:INICIO  (lo escribe el Gestor Web KSBravo - no editar a mano) -->
 <div class="ks-grid" markdown>
 <div class="ks-card" markdown>
 ### Custom nextbot / NPC (Garry's Mod)
@@ -41,6 +45,7 @@ Sandbox tools, ranking systems, minigames for NPCs.
 <span class="ks-price">quote per project</span>
 </div>
 </div>
+<!-- KS:SERVICIOS:FIN -->
 
 !!! note "Every request is quoted individually"
     Price and delivery date depend on the character (2D image vs finished 3D model), the number of animations, any special mechanics and our current workload. We do not publish fixed prices; you always get the exact number and date before we start, and nothing starts until you agree.

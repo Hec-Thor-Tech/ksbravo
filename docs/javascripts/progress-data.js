@@ -1,30 +1,33 @@
 /* =====================================================================
-   PROGRESO DE LOS PACKS — el UNICO archivo que se toca para actualizar.
-   Cambias "steps" del personaje, subis "updated", y corres
-   ActualizarPaginaOficial.bat. Nada mas.
+   PROGRESO DE LOS PACKS
 
-   steps = pasos completados de la checklist de produccion (0 a total).
-   El total es 31: files/downloads, modelado (10), animaciones (12),
-   QC/LUA/sonidos/foto/ingame/final (9)... el mismo orden de la hoja.
-   Un pack terminado se puede dejar un tiempo como "Done" y despues
-   borrarlo de la lista (o moverlo abajo de todo).
+   ESTE ARCHIVO LO ESCRIBE EL PROGRAMA "Gestor Web KSBravo".
+   No lo edites a mano: la proxima vez que guardes desde el programa se
+   vuelve a generar y perdes el cambio. Todo se toca desde el programa,
+   pestana "Trabajo en Progreso", y despues el boton Publicar.
+
+   steps = pasos completados de la checklist de produccion (0 al total).
+   El total por defecto es 31: files/downloads, modelado (10),
+   animaciones (12), QC/LUA/sonidos/foto/ingame/final (9); el mismo orden
+   de la hoja de Google.
    ===================================================================== */
+
 window.KS_PROGRESS = {
-  updated: "2026-08-19",
+  updated: "2026-08-20",
   packs: [
     {
       name: "3D Memes Bonus Pack 01",
       note: "Winners of the community poll on YouTube.",
       note_es: "Los ganadores de la encuesta de la comunidad en YouTube.",
-      total: 31,
-      // "img" es la referencia 2D del personaje, en docs/img/ref-*.webp
+      total: 30,
+      // img = la referencia 2D del personaje, en docs/img/
       models: [
-        { name: "Pellow",    steps: 10, img: "ref-pellow.webp"    },
-        { name: "Umnidorid", steps: 2,  img: "ref-umnidorid.webp" },
-        { name: "Tim",       steps: 2,  img: "ref-tim.webp"       },
-        { name: "Megmen",    steps: 2,  img: "ref-megmen.webp"    },
-        { name: "NubStir",   steps: 2,  img: "ref-nubstir.webp"   },
-        { name: "Nyoan Cot", steps: 2,  img: "ref-nyoancot.webp"  }
+        { name: "Pellow",    steps: 10, img: "ref-pellow.webp" },
+        { name: "Umnidorid", steps:  2, img: "ref-umnidorid.webp" },
+        { name: "Tim",       steps:  2, img: "ref-tim.webp" },
+        { name: "Megmen",    steps:  2, img: "ref-megmen.webp" },
+        { name: "NubStir",   steps:  2, img: "ref-nubstir.webp" },
+        { name: "Nyoan Cot", steps:  2, img: "ref-nyoancot.webp" }
       ]
     }
   ]
