@@ -19,7 +19,6 @@ Un pequeño estudio familiar. Modelamos, riggeamos, animamos y compilamos person
 <div class="ks-stats" markdown>
 <div class="ks-stat"><b>40+</b><span>publicaciones en el Steam Workshop</span></div>
 <div class="ks-stat"><b>22</b><span>packs de 3D Memes y contando</span></div>
-<div class="ks-stat"><b>100+</b><span>personajes entregados a clientes privados</span></div>
 <div class="ks-stat"><b>2</b><span>motores: Source (GMod) y s&box</span></div>
 </div>
 
@@ -34,10 +33,6 @@ Tu personaje, desde una imagen 2D o un modelo 3D, convertido en un nextbot DrGBa
 ### Ports a s&box
 Los mismos personajes corriendo sobre **SBHBase**, nuestra base de nextbots para s&box: posesión, facciones, jumpscares, sistemas de ritmo y más.
 </div>
-<div class="ks-card" markdown>
-### Herramientas para servidores y creadores
-Tools de Sandbox como la arena Force Meter, ranking y contrarreloj, y nuestras propias herramientas de producción que convierten un personaje en un nextbot funcional en un clic.
-</div>
 </div>
 
 ## Último showcase
@@ -51,7 +46,7 @@ Packs y showcases nuevos cada pocas semanas en [YouTube](https://www.youtube.com
 ## Cómo pedir
 
 <ol class="ks-steps">
-<li>Mandanos el personaje: una imagen, un video de referencia o un modelo 3D, y contanos qué tiene que hacer (caminar, correr, atacar, sonidos).</li>
+<li>Mandanos el personaje por el <a href="../es/commissions/">formulario</a> o por un ticket privado en <a href="https://discord.gg/bMudjAq2JR" target="_blank">Discord</a>: una imagen, un video de referencia o un modelo 3D, y contanos qué tiene que hacer (caminar, correr, atacar, sonidos).</li>
 <li>Te respondemos con precio y fecha de entrega para ese pedido. Nada arranca hasta que estés de acuerdo.</li>
 <li>Recibís un video del personaje funcionando en el juego antes de pagar.</li>
 <li>Recibís el addon, listo para instalar.</li>

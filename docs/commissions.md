@@ -37,7 +37,7 @@ Classic PNG nextbot with your image and sounds. Also as a batch.
 </div>
 <div class="ks-card" markdown>
 ### Tools and scripts
-Sandbox tools, ranking systems, minigames for NPCs. See [Tools](tools.md).
+Sandbox tools, ranking systems, minigames for NPCs.
 <span class="ks-price">quote per project</span>
 </div>
 </div>
@@ -63,11 +63,23 @@ Sandbox tools, ranking systems, minigames for NPCs. See [Tools](tools.md).
 - **What we need from you.** The clearest reference you have. A 3D model (FBX, Blend, OBJ) saves time and money; a good image is enough for a 2D nextbot or a simple 3D one.
 - **Sound.** Send your own sound files, or tell us the style and we source or record them.
 
-## Contact
+## How to send a request
 
-<a class="ks-btn" href="https://discord.gg/bMudjAq2JR" target="_blank">Join our Discord</a>
-<a class="ks-btn ghost" href="https://www.youtube.com/@KSBravo" target="_blank">Comment on YouTube</a>
-<a class="ks-btn ghost" href="https://www.gmodstore.com/users/ks_bravo" target="_blank">Gmodstore profile</a>
-<a class="ks-btn ghost" href="https://steamcommunity.com/id/KSBravo" target="_blank">Steam</a>
+There are two ways in, and only these two. Requests sent anywhere else can get lost, so we do not take them by YouTube comment, Steam message or Gmodstore.
 
-The fastest way is the Discord server: post in #commission-requests. A comment on YouTube or a message on Steam also works.
+<div class="ks-grid" markdown>
+<div class="ks-card" markdown>
+### Request form
+Fill in the form and we get everything we need in one go. Use this if you are not on Discord.
+
+<a class="ks-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSck1vwAOcUGXFrQgPmBfU3xFmRUgw8TtBlW7DfMpFpkwj7-dg/viewform" target="_blank">Open the request form</a>
+</div>
+<div class="ks-card" markdown>
+### Discord
+Join the server and open a private ticket in `#how-to-order`. Best if you want to talk it through, send files or follow the work as it goes.
+
+<a class="ks-btn ghost" href="https://discord.gg/bMudjAq2JR" target="_blank">Join our Discord</a>
+</div>
+</div>
+
+Both end up in the same place. You get a price and a delivery date for your request, and nothing starts until you agree.

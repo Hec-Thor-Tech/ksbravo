@@ -37,7 +37,7 @@ El clásico nextbot PNG con tu imagen y tus sonidos. También por tandas.
 </div>
 <div class="ks-card" markdown>
 ### Herramientas y scripts
-Tools de Sandbox, sistemas de ranking, minijuegos para NPCs. Ver [Herramientas](tools.md).
+Tools de Sandbox, sistemas de ranking, minijuegos para NPCs.
 <span class="ks-price">cotización por proyecto</span>
 </div>
 </div>
@@ -63,11 +63,23 @@ Tools de Sandbox, sistemas de ranking, minijuegos para NPCs. Ver [Herramientas](
 - **Qué necesitamos de vos.** La referencia más clara que tengas. Un modelo 3D (FBX, Blend, OBJ) ahorra tiempo y plata; una buena imagen alcanza para un nextbot 2D o uno 3D simple.
 - **Sonido.** Mandá tus propios archivos, o decinos el estilo y los conseguimos o grabamos.
 
-## Contacto
+## Cómo mandar un pedido
 
-<a class="ks-btn" href="https://discord.gg/bMudjAq2JR" target="_blank">Entrar al Discord</a>
-<a class="ks-btn ghost" href="https://www.youtube.com/@KSBravo" target="_blank">Comentar en YouTube</a>
-<a class="ks-btn ghost" href="https://www.gmodstore.com/users/ks_bravo" target="_blank">Perfil de Gmodstore</a>
-<a class="ks-btn ghost" href="https://steamcommunity.com/id/KSBravo" target="_blank">Steam</a>
+Hay dos caminos, y son los únicos. Los pedidos que llegan por otro lado se pierden, así que no los tomamos por comentario de YouTube, mensaje de Steam ni Gmodstore.
 
-Lo más rápido es el servidor de Discord: publicá en #commission-requests. Un comentario en YouTube o un mensaje por Steam también sirven.
+<div class="ks-grid" markdown>
+<div class="ks-card" markdown>
+### Formulario
+Completás el formulario y nos llega todo lo que necesitamos de una. Usalo si no estás en Discord.
+
+<a class="ks-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSck1vwAOcUGXFrQgPmBfU3xFmRUgw8TtBlW7DfMpFpkwj7-dg/viewform" target="_blank">Abrir el formulario</a>
+</div>
+<div class="ks-card" markdown>
+### Discord
+Entrás al servidor y abrís un ticket privado en `#how-to-order`. Mejor si querés charlarlo, mandar archivos o seguir el trabajo mientras se hace.
+
+<a class="ks-btn ghost" href="https://discord.gg/bMudjAq2JR" target="_blank">Entrar al Discord</a>
+</div>
+</div>
+
+Los dos terminan en el mismo lugar. Recibís precio y fecha de entrega para tu pedido, y nada arranca hasta que estés de acuerdo.

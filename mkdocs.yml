@@ -24,8 +24,6 @@ nav:
   - Commissions: commissions.md
   - Work: work.md
   - Progress: progress.md
-  - Tools: tools.md
-  - Team: team.md
 
 plugins:
   - search
@@ -42,8 +40,6 @@ plugins:
             Commissions: Encargos
             Work: Trabajos
             Progress: Progreso
-            Tools: Herramientas
-            Team: Equipo
 
 markdown_extensions:
   - attr_list

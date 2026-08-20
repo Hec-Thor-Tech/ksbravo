@@ -19,7 +19,6 @@ A small family studio. We model, rig, animate and compile characters for Source 
 <div class="ks-stats" markdown>
 <div class="ks-stat"><b>40+</b><span>Steam Workshop releases</span></div>
 <div class="ks-stat"><b>22</b><span>3D Memes packs and counting</span></div>
-<div class="ks-stat"><b>100+</b><span>characters delivered to private clients</span></div>
 <div class="ks-stat"><b>2</b><span>engines: Source (GMod) and s&box</span></div>
 </div>
 
@@ -34,10 +33,6 @@ Your character, from a 2D image or a 3D model, turned into a working DrGBase nex
 ### Ports to s&box
 The same characters running on **SBHBase**, our nextbot base for s&box: possession, factions, jumpscares, rhythm systems and more.
 </div>
-<div class="ks-card" markdown>
-### Tools for servers and creators
-Sandbox tools like the Force Meter arena, ranking and time-attack tools, and our own production tools that turn a character into a working nextbot in a click.
-</div>
 </div>
 
 ## Latest showcase
@@ -51,7 +46,7 @@ New packs and showcases every few weeks on [YouTube](https://www.youtube.com/@KS
 ## How to order
 
 <ol class="ks-steps">
-<li>Send us the character: an image, a reference video or a 3D model, and tell us what it should do (walk, run, attack, sounds).</li>
+<li>Send us the character through the <a href="commissions/">request form</a> or a private ticket on <a href="https://discord.gg/bMudjAq2JR" target="_blank">Discord</a>: an image, a reference video or a 3D model, and tell us what it should do (walk, run, attack, sounds).</li>
 <li>We reply with a price and a delivery date for that request. Nothing starts until you agree.</li>
 <li>You get a video of the character working in game before you pay.</li>
 <li>You receive the addon, ready to install.</li>

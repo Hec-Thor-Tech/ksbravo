@@ -84,7 +84,7 @@ Every pack gets a gameplay video. The whole series is in the playlist [Testing o
 
 ## s&box
 
-**SBHBase** is our nextbot base for s&box (Source 2): possession, factions, jumpscares, rhythm and dance systems, procedural effects. The sandbox game and the libraries are published on sbox.game under the `ksbravo` organisation. See [Tools](tools.md).
+**SBHBase** is our nextbot base for s&box (Source 2): possession, factions, jumpscares, rhythm and dance systems, procedural effects. The sandbox game and the libraries are published on sbox.game under the `ksbravo` organisation.
 
 ## Toy Zombies
 
