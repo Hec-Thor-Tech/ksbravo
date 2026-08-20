@@ -27,7 +27,7 @@ html { background-color: #0e0d14; }
 body { background: none; }
 
 .ks-bg {
-  position: fixed; inset: -70px;   /* margen de sobra: las capas se corren hasta 46px */
+  position: fixed; inset: -100px;  /* holgura: el nivel 3 recorre hasta 76px al scrollear */
   z-index: -1; overflow: hidden; pointer-events: none;
 }
 .ks-bg-capa {
