@@ -119,14 +119,31 @@ body { background: none; }
 .ks-card a { color: var(--ks-orange); }
 
 /* Stats row */
-.ks-stats { display: flex; gap: 12px; flex-wrap: wrap; margin: 12px 0 24px; }
-.ks-stat {
-  flex: 1; min-width: 140px; text-align: center; padding: 16px 8px;
+/* Accesos directos del home (YouTube / Workshop / Discord).
+   Reemplazan a los viejos .ks-stat: mismo lugar y misma silueta, pero clicables. */
+.ks-links { display: flex; gap: 12px; flex-wrap: wrap; margin: 12px 0 24px; }
+.ks-link {
+  --ks-link-color: var(--ks-orange);
+  flex: 1; min-width: 160px; text-align: center; padding: 16px 8px;
   background: linear-gradient(180deg, rgba(255, 90, 31, .07), var(--ks-panel));
   border: 1px solid var(--ks-border); border-radius: 10px;
+  display: block; text-decoration: none; color: inherit;
+  transition: border-color .18s ease, transform .18s ease, background .18s ease;
 }
-.ks-stat b { display: block; font-size: 1.75em; color: var(--ks-orange); line-height: 1.1; }
-.ks-stat span { font-size: .85em; opacity: .85; }
+/* Material pinta todos los <a> con su color de link: hay que ganarle en
+   especificidad o el texto de la tarjeta sale celeste. */
+.md-typeset a.ks-link { color: inherit; }
+.ks-link svg { width: 30px; height: 30px; display: block; margin: 0 auto 8px; fill: var(--ks-link-color); }
+.ks-link b { display: block; font-size: 1.15em; color: #fff; line-height: 1.2; }
+.ks-link span { font-size: .85em; opacity: .8; color: var(--md-typeset-color); }
+.ks-link:hover, .ks-link:focus-visible {
+  border-color: var(--ks-link-color); transform: translateY(-2px);
+  background: linear-gradient(180deg, rgba(255, 90, 31, .14), var(--ks-panel));
+}
+.ks-link:hover b, .ks-link:focus-visible b { color: var(--ks-link-color); }
+.ks-link.yt { --ks-link-color: #ff3d3d; }
+.ks-link.st { --ks-link-color: #66c0f4; }
+.ks-link.dc { --ks-link-color: #7d88f5; }
 
 /* Steps */
 .ks-steps { counter-reset: step; list-style: none; padding: 0; margin: 12px 0 24px; }
