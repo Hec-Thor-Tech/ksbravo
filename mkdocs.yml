@@ -49,6 +49,9 @@ markdown_extensions:
   - pymdownx.tabbed:
       alternate_style: true
 
+hooks:
+  - hooks/cache_bust.py
+
 extra_css:
   - stylesheets/extra.css
 
