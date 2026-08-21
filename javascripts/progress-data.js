@@ -26,7 +26,7 @@ window.KS_PROGRESS = {
         { name: "Umnidorid", steps: 15, img: "ref-umnidorid.webp", imgv: "1787253870" },
         { name: "Tim",       steps:  2, img: "ref-tim.webp", imgv: "1787199448" },
         { name: "Megmen",    steps:  2, img: "ref-megmen.webp", imgv: "1787199449" },
-        { name: "Noobstar",  steps:  2, img: "ref-nubstir.webp", imgv: "1787199450" },
+        { name: "Noobstar",  steps:  2, img: "ref-noobstar.webp", imgv: "1787199450" },
         { name: "Nyoan Cot", steps:  2, img: "ref-nyoancot.webp", imgv: "1787199451" }
       ]
     }
