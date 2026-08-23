@@ -24,3 +24,14 @@
 
   <meta name="theme-color" content="#ff5a1f">
 {% endblock %}
+
+{#
+  Cloudflare Web Analytics: cuenta visitas sin cookies, asi que no hace falta
+  cartel de consentimiento. El token identifica al sitio ks-bravo.com y no es
+  secreto (viaja en el HTML de cada pagina). Panel: dash.cloudflare.com.
+  Va en el bloque scripts para quedar al final del <body>, como pide Cloudflare.
+#}
+{% block scripts %}
+  {{ super() }}
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "0848f0e657dd4e6fb56c4df13deb5460"}'></script>
+{% endblock %}
