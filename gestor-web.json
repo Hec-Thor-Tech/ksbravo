@@ -62,7 +62,7 @@
     }
   ],
   "progreso": {
-    "updated": "2026-08-21",
+    "updated": "2026-08-23",
     "packs": [
       {
         "name": "3D Memes Bonus Pack 01",
@@ -77,7 +77,7 @@
           },
           {
             "name": "Umnidorid",
-            "steps": 17,
+            "steps": 22,
             "img": "ref-umnidorid.webp"
           },
           {
