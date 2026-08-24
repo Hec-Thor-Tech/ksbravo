@@ -13,7 +13,7 @@ Un pequeño estudio familiar. Modelamos, riggeamos, animamos y compilamos person
 <a class="ks-btn" href="../es/commissions/">Pedir un encargo</a>
 <a class="ks-btn ghost" href="../es/work/">Ver trabajos</a>
 </div>
-<img class="ks-hero-art" src="../img/mascota.webp" alt="Mascota de KSBravo frente a una computadora">
+<img class="ks-hero-art" src="../img/mascota.webp" width="900" height="901" alt="Mascota de KSBravo frente a una computadora">
 </div>
 
 <div class="ks-links">

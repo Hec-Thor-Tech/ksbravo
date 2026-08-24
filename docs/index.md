@@ -13,7 +13,7 @@ A small family studio. We model, rig, animate and compile characters for Source 
 <a class="ks-btn" href="commissions/">Request a commission</a>
 <a class="ks-btn ghost" href="work/">See our work</a>
 </div>
-<img class="ks-hero-art" src="img/mascota.webp" alt="KSBravo mascot at a computer">
+<img class="ks-hero-art" src="img/mascota.webp" width="900" height="901" alt="KSBravo mascot at a computer">
 </div>
 
 <div class="ks-links">

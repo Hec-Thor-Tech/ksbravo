@@ -51,6 +51,7 @@ markdown_extensions:
 
 hooks:
   - hooks/cache_bust.py
+  - hooks/prerender_progress.py
 
 extra_css:
   - stylesheets/extra.css
