@@ -22,12 +22,12 @@ window.KS_PROGRESS = {
       total: 30,
       // img = la referencia 2D del personaje, en docs/img/
       models: [
-        { name: "Pellow",    steps: 13, img: "ref-pellow.webp", imgv: "1787199448" },
+        { name: "Pellow",    steps: 15, img: "ref-pellow.webp", imgv: "1787199448" },
         { name: "Umnidorid", steps: 30, img: "ref-umnidorid.webp", imgv: "1787253870" },
         { name: "Tim",       steps:  2, img: "ref-tim.webp", imgv: "1787199448" },
         { name: "Megmen",    steps:  2, img: "ref-megmen.webp", imgv: "1787199449" },
         { name: "Noobstar",  steps:  2, img: "ref-noobstar.webp", imgv: "1787199450" },
-        { name: "Nyoan Cot", steps:  9, img: "ref-nyoancot.webp", imgv: "1787199451" }
+        { name: "Nyoan Cot", steps: 12, img: "ref-nyoancot.webp", imgv: "1787199451" }
       ]
     }
   ]

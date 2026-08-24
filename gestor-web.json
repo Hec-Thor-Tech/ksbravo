@@ -72,7 +72,7 @@
         "models": [
           {
             "name": "Pellow",
-            "steps": 13,
+            "steps": 15,
             "img": "ref-pellow.webp"
           },
           {
@@ -97,7 +97,7 @@
           },
           {
             "name": "Nyoan Cot",
-            "steps": 9,
+            "steps": 12,
             "img": "ref-nyoancot.webp"
           }
         ]
