@@ -122,9 +122,12 @@ def _dibujar(datos, idioma, raiz):
             nombre = escape(m.get("name", ""))
             if m.get("img"):
                 busca = "?v=" + escape(str(m["imgv"])) if m.get("imgv") else ""
+                # width/height van SIEMPRE: reservan la caja aunque el CSS
+                # todavia no haya llegado, asi la fila nunca cambia de alto.
+                # El tamano final lo sigue mandando el CSS (54px en celular).
                 ref = ('<img class="ks-prog-ref" src="' + raiz + "img/" +
                        escape(m["img"]) + busca + '" alt="' + nombre +
-                       '" loading="lazy">')
+                       '" width="72" height="72" loading="lazy">')
             else:
                 ref = '<span class="ks-prog-ref vacia"></span>'
             filas.append(

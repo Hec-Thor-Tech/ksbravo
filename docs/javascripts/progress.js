@@ -34,9 +34,11 @@
         // cambia cuando se reemplaza la foto y el navegador baja la nueva
         // en vez de mostrar la vieja del cache.
         var busca = m.imgv ? "?v=" + m.imgv : "";
+        // width/height igual que en el hook que pre-dibuja: reservan la caja
+        // para que la fila no cambie de alto cuando llega la foto.
         var ref = m.img
           ? '<img class="ks-prog-ref" src="' + raiz + "img/" + m.img + busca +
-            '" alt="' + m.name + '" loading="lazy">'
+            '" alt="' + m.name + '" width="72" height="72" loading="lazy">'
           : '<span class="ks-prog-ref vacia"></span>';
         rows +=
           '<div class="ks-prog-row">' +

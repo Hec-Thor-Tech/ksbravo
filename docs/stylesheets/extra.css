@@ -183,14 +183,21 @@ body { background: none; }
 .ks-prog-body { flex: 1; min-width: 0; }
 /* La referencia 2D va sobre una placa clara: los dibujos tienen contorno
    negro y sobre el fondo oscuro del sitio ese contorno se perdía. */
-.ks-prog-ref {
+/* El .md-typeset de adelante NO es decorativo: Material trae
+   ".md-typeset img { height: auto }", que le ganaba a ".ks-prog-ref" por peso
+   de selector. Con el alto en auto, la caja media 10px (relleno + borde, sin
+   imagen) hasta que la foto terminaba de bajar y ahi saltaba a 72: seis saltos
+   por carga en la pagina mas visitada, y era el CLS malo que marcaba Cloudflare.
+   Con .md-typeset adelante el peso empata y nuestro alto manda. Si algun dia se
+   toca esto, dejar los dos selectores o vuelve el salto. */
+.md-typeset .ks-prog-ref {
   flex: 0 0 auto; width: 72px; height: 72px; border-radius: 10px;
   background: #e9e9ec; border: 1px solid var(--ks-border);
   object-fit: contain; padding: 4px;
 }
-.ks-prog-ref.vacia { background: rgba(255, 255, 255, .05); }
+.md-typeset .ks-prog-ref.vacia { background: rgba(255, 255, 255, .05); }
 @media screen and (max-width: 599px) {
-  .ks-prog-ref { width: 54px; height: 54px; }
+  .md-typeset .ks-prog-ref { width: 54px; height: 54px; }
   .ks-prog-row { gap: 10px; }
 }
 .ks-prog-head { display: flex; align-items: baseline; gap: 10px; margin-bottom: 5px; font-size: .95em; }
