@@ -23,7 +23,19 @@
    y son los niveles que dibujo Hector: 0 cielo, 1 luna, 2 lejano, 3 cercano.
    El color base va en <html> y el body queda transparente: asi el contenedor
    del fondo puede ir en z-index -1 y igual verse. */
-html { background-color: #0e0d14; }
+/* overflow-y: scroll deja la barra de scroll SIEMPRE puesta.
+   Sin esto la pagina se dibuja primero sin barra y, cuando el HTML termina de
+   llegar y el contenido pasa el alto de la ventana, aparece la barra, el ancho
+   util baja 15px y TODO se corre a la izquierda de golpe: el selector de idioma
+   del encabezado, los botones del hero y la grilla de tarjetas. Medido: el ancho
+   pasaba de 1857 a 1842 px durante la carga. Ese era el CLS que quedaba, y por
+   eso solo pasaba en escritorio (en el celular la barra flota y no ocupa lugar).
+   Con la barra fija el ancho arranca en 1842 y no se mueve mas.
+   Se probo antes "scrollbar-gutter: stable", que es lo moderno para esto: el
+   navegador lo soporta y lo aplica, pero en la raiz NO reservaba el hueco (el
+   ancho seguia yendo de 1857 a 1842). Por eso quedo la via clasica, que ademas
+   anda en todos los navegadores. No cambiarlo sin volver a medir. */
+html { background-color: #0e0d14; overflow-y: scroll; }
 body { background: none; }
 
 .ks-bg {
