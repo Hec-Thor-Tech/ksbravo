@@ -35,3 +35,25 @@
   {{ super() }}
   <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "0848f0e657dd4e6fb56c4df13deb5460"}'></script>
 {% endblock %}
+
+{#
+  Fondo con paralaje EN EL HTML. Antes lo creaba parallax.js en DOMContentLoaded,
+  asi que bg0.webp -la imagen mas grande de la pagina, y lo que Cloudflare marcaba
+  como elemento del LCP- no empezaba a bajar hasta que corria el script: primero
+  HTML, despues JS, recien ahi la imagen. En una conexion lenta eso daba un LCP de
+  hasta 9 segundos.
+  Estando aca, el navegador encuentra las capas al leer el CSS y las baja en
+  paralelo con todo lo demas. Las imagenes las pone extra.css (las URL de una hoja
+  de estilos se resuelven contra la hoja, no contra la pagina, asi que anda igual
+  en / y en /es/). parallax.js ya no lo crea: solo le engancha el movimiento.
+#}
+{% block header %}
+  <div class="ks-bg" aria-hidden="true">
+    <div class="ks-bg-capa"></div>
+    <div class="ks-bg-capa"></div>
+    <div class="ks-bg-capa"></div>
+    <div class="ks-bg-capa"></div>
+    <div class="ks-bg-velo"></div>
+  </div>
+  {{ super() }}
+{% endblock %}

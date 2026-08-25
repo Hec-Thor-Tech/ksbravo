@@ -12,29 +12,43 @@
   var quietud = window.matchMedia("(prefers-reduced-motion: reduce)");
 
   function armar() {
-    if (document.querySelector(".ks-bg")) { return; }
+    // El caso normal: el fondo ya viene EN EL HTML (lo pone overrides/main.html)
+    // y las imágenes las declara extra.css. Así la imagen más grande de la página
+    // empieza a bajar apenas se lee el CSS, sin esperar a este script — antes el
+    // LCP se iba a 9 segundos en conexiones lentas. Acá solo le colgamos el
+    // movimiento a lo que ya está dibujado.
+    var cont = document.querySelector(".ks-bg");
+    var capas;
 
-    // raíz del sitio sacada del CSS del tema: sirve en / y en /es/
-    var css = document.querySelector('link[href*="stylesheets/extra.css"]');
-    var raiz = css ? css.href.replace(/stylesheets\/extra\.css.*$/, "") : "/";
+    if (cont) {
+      capas = [];
+      var puestas = cont.querySelectorAll(".ks-bg-capa");
+      for (var j = 0; j < puestas.length; j++) { capas.push(puestas[j]); }
+      if (!capas.length) { return; }
+    } else {
+      // Respaldo por si alguna página no trae el fondo en el HTML: se arma como
+      // antes. raíz del sitio sacada del CSS del tema: sirve en / y en /es/
+      var css = document.querySelector('link[href*="stylesheets/extra.css"]');
+      var raiz = css ? css.href.replace(/stylesheets\/extra\.css.*$/, "") : "/";
 
-    var cont = document.createElement("div");
-    cont.className = "ks-bg";
-    cont.setAttribute("aria-hidden", "true");
+      cont = document.createElement("div");
+      cont.className = "ks-bg";
+      cont.setAttribute("aria-hidden", "true");
 
-    var capas = [];
-    for (var i = 0; i < 4; i++) {
-      var capa = document.createElement("div");
-      capa.className = "ks-bg-capa";
-      capa.style.backgroundImage = 'url("' + raiz + "img/bg" + i + '.webp")';
-      cont.appendChild(capa);
-      capas.push(capa);
+      capas = [];
+      for (var i = 0; i < 4; i++) {
+        var capa = document.createElement("div");
+        capa.className = "ks-bg-capa";
+        capa.style.backgroundImage = 'url("' + raiz + "img/bg" + i + '.webp")';
+        cont.appendChild(capa);
+        capas.push(capa);
+      }
+      var velo = document.createElement("div");
+      velo.className = "ks-bg-velo";
+      cont.appendChild(velo);
+
+      document.body.insertBefore(cont, document.body.firstChild);
     }
-    var velo = document.createElement("div");
-    velo.className = "ks-bg-velo";
-    cont.appendChild(velo);
-
-    document.body.insertBefore(cont, document.body.firstChild);
 
     // px totales que recorre cada nivel entre el principio y el final de la página
     var RANGO = [0, 16, 38, 76];

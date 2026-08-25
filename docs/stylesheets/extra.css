@@ -35,6 +35,15 @@ body { background: none; }
   background-repeat: no-repeat; background-position: center; background-size: cover;
   will-change: transform;
 }
+/* Las 4 imagenes se declaran ACA y no desde parallax.js: puestas en el CSS, el
+   navegador las descubre apenas lee la hoja y las baja en paralelo, en vez de
+   esperar a que corra el script (bg0 era el elemento del LCP y llegaba tarde).
+   Las rutas se resuelven contra este archivo, no contra la pagina, asi que la
+   misma regla sirve en / y en /es/. */
+.ks-bg-capa:nth-child(1) { background-image: url("../img/bg0.webp"); }
+.ks-bg-capa:nth-child(2) { background-image: url("../img/bg1.webp"); }
+.ks-bg-capa:nth-child(3) { background-image: url("../img/bg2.webp"); }
+.ks-bg-capa:nth-child(4) { background-image: url("../img/bg3.webp"); }
 /* El velo va ultimo, o sea ARRIBA de las 4 capas: es lo que mantiene legible
    el texto. Si se aclara mucho, la ilustracion se come al contenido. */
 .ks-bg-velo {
