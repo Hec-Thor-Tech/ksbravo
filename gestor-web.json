@@ -62,7 +62,7 @@
     }
   ],
   "progreso": {
-    "updated": "2026-08-24",
+    "updated": "2026-08-25",
     "packs": [
       {
         "name": "3D Memes Bonus Pack 01",
@@ -87,17 +87,17 @@
           },
           {
             "name": "Megmen",
-            "steps": 2,
+            "steps": 10,
             "img": "ref-megmen.webp"
           },
           {
             "name": "Noobstar",
-            "steps": 2,
+            "steps": 3,
             "img": "ref-noobstar.webp"
           },
           {
             "name": "Nyoan Cot",
-            "steps": 12,
+            "steps": 13,
             "img": "ref-nyoancot.webp"
           }
         ]
