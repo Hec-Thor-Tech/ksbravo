@@ -15,6 +15,12 @@ Los enlaces son absolutos, asi que el mismo HTML sirve en / y en /es/ sin
 calcular rutas relativas.
 """
 
+import os
+import sys
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import contadores  # noqa: E402
+
 MARCA = "<!-- KS-ACCESOS -->"
 
 YT = 'M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z'
@@ -30,25 +36,41 @@ URLS = {
 TEXTOS = {
     "en": [
         ("yt", YT, "YouTube", "Showcases and devlogs", "KSBravo on YouTube"),
-        ("st", ST, "Steam Workshop", "40+ releases for Garry's Mod", "KS_Bravo Steam Workshop"),
+        ("st", ST, "Garry's Mod Workshop", "", "KS_Bravo on the Garry's Mod Workshop"),
         ("dc", DC, "Discord", "Community, help and requests", "KSBravo BASES Discord server"),
     ],
     "es": [
         ("yt", YT, "YouTube", "Showcases y devlogs", "KSBravo en YouTube"),
-        ("st", ST, "Workshop de Steam", "Más de 40 publicaciones", "Workshop de KS_Bravo en Steam"),
+        ("st", ST, "Workshop de Garry's Mod", "", "KS_Bravo en el Workshop de Garry's Mod"),
         ("dc", DC, "Discord", "Comunidad, ayuda y pedidos", "Servidor de Discord KSBravo BASES"),
     ],
 }
 
 
-def _bloque(idioma):
+# El texto que acompana a cada numero, por idioma.
+DATO = {
+    "yt": {"en": "subscribers", "es": "suscriptores"},
+    "st": {"en": "Add-ons",     "es": "Add-ons"},
+}
+
+
+def _bloque(idioma, raiz):
     filas = []
     for clave, icono, titulo, bajada, aria in TEXTOS[idioma]:
+        # Las tarjetas que tienen numero lo muestran debajo de la bajada.
+        # La bajada NO lleva cifras: si no, chocaria con el contador de abajo.
+        extra = ""
+        if clave in DATO:
+            n = contadores.numero(raiz, {"yt": "youtube", "st": "workshop"}[clave])
+            if n:
+                extra = ('<span class="ks-link-dato"><b>' + contadores.formatear(n) +
+                         "</b> " + DATO[clave][idioma] + "</span>")
         filas.append(
             '<a class="ks-link ' + clave + '" href="' + URLS[clave] + '" '
             'target="_blank" rel="noopener" aria-label="' + aria + '">'
             '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="' + icono + '"/></svg>'
-            "<b>" + titulo + "</b><span>" + bajada + "</span></a>"
+            "<b>" + titulo + "</b>" +
+            ("<span>" + bajada + "</span>" if bajada else "") + extra + "</a>"
         )
     return '<div class="ks-links">' + "".join(filas) + "</div>"
 
@@ -58,4 +80,5 @@ def on_page_content(html, page, config, files, **kwargs):
         return html
     ruta = page.file.src_uri if hasattr(page.file, "src_uri") else page.file.src_path
     idioma = "es" if ruta.replace("\\", "/").startswith("es/") else "en"
-    return html.replace(MARCA, _bloque(idioma))
+    raiz = os.path.dirname(config["docs_dir"])
+    return html.replace(MARCA, _bloque(idioma, raiz))

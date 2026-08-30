@@ -148,8 +148,12 @@ body { background: none; }
   flex: 1; min-width: 160px; text-align: center; padding: 16px 8px;
   background: linear-gradient(180deg, rgba(255, 90, 31, .07), var(--ks-panel));
   border: 1px solid var(--ks-border); border-radius: 10px;
-  display: block; text-decoration: none; color: inherit;
+  text-decoration: none; color: inherit;
   transition: border-color .18s ease, transform .18s ease, background .18s ease;
+  /* En columna y centrado: no todas las tarjetas tienen la misma cantidad de
+     renglones (la del Workshop no lleva bajada, Discord no lleva numero) y
+     asi el contenido queda centrado en vez de colgando arriba. */
+  display: flex; flex-direction: column; justify-content: center;
 }
 /* Material pinta todos los <a> con su color de link: hay que ganarle en
    especificidad o el texto de la tarjeta sale celeste. */
@@ -157,6 +161,13 @@ body { background: none; }
 .ks-link svg { width: 30px; height: 30px; display: block; margin: 0 auto 8px; fill: var(--ks-link-color); }
 .ks-link b { display: block; font-size: 1.15em; color: #fff; line-height: 1.2; }
 .ks-link span { font-size: .85em; opacity: .8; color: var(--md-typeset-color); }
+/* Contador de suscriptores: va solo en la tarjeta de YouTube y lo escribe el
+   hook al compilar, asi que el numero ya viene en el HTML y no mueve nada.
+   min-height reserva el renglon igual, para que si algun dia no se puede
+   consultar el numero las tres tarjetas sigan midiendo lo mismo. */
+.ks-link-dato { display: block; margin-top: 6px; font-size: .82em; opacity: .9; }
+.ks-link-dato b { display: inline; font-size: 1em; color: var(--ks-link-color); }
+.ks-links:has(.ks-link-dato) .ks-link { min-height: 132px; }
 .ks-link:hover, .ks-link:focus-visible {
   border-color: var(--ks-link-color); transform: translateY(-2px);
   background: linear-gradient(180deg, rgba(255, 90, 31, .14), var(--ks-panel));

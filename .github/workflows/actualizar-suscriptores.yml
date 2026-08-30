@@ -1,0 +1,53 @@
+# Republica la pagina una vez por dia para refrescar el contador de
+# suscriptores de YouTube.
+#
+# El numero se busca cuando se compila el sitio (hooks/youtube.py), asi que
+# alcanza con volver a compilar y publicar: no hace falta que Hector abra la
+# computadora. Compila SIEMPRE lo que hay en la rama main, o sea lo mismo que
+# publica el .bat, asi que no puede subir nada distinto de lo que ya aprobaste.
+#
+# Se puede correr a mano desde la pestana "Actions" de GitHub con el boton
+# "Run workflow" (eso es lo que habilita workflow_dispatch).
+
+name: Actualizar suscriptores
+
+on:
+  schedule:
+    # 09:00 UTC = 06:00 en Argentina. La hora exacta la decide GitHub y puede
+    # correrse unos minutos si estan con mucha carga; para esto da igual.
+    - cron: "0 9 * * *"
+  workflow_dispatch:
+
+# Sin esto el robot de GitHub solo puede leer, y publicar necesita escribir.
+permissions:
+  contents: write
+
+# Si por algo se solapan dos corridas, que la nueva espere en vez de pisarse.
+concurrency:
+  group: publicar-pagina
+  cancel-in-progress: false
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Bajar el proyecto
+        uses: actions/checkout@v4
+
+      - name: Preparar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Instalar lo que necesita el sitio
+        run: pip install -r requirements.txt
+
+      # gh-deploy hace un commit en la rama gh-pages, y para eso git pide saber
+      # quien firma. En una maquina de GitHub eso no viene configurado.
+      - name: Decirle a git quien publica
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Compilar y publicar
+        run: mkdocs gh-deploy --force
