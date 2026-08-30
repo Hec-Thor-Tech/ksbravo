@@ -29,6 +29,31 @@ window.KS_PROGRESS = {
         { name: "Noobstar",  steps: 11, img: "ref-noobstar.webp", imgv: "1787199450" },
         { name: "Nyoan Cot", steps: 15, img: "ref-nyoancot.webp", imgv: "1787199451" }
       ]
+    },
+    {
+      name: "3D Memes Pack 22",
+      note: "The next pack in the 3D Memes line for Garry's Mod.",
+      note_es: "El proximo pack de la linea 3D Memes para Garry's Mod.",
+      total: 30,
+      // img = la referencia 2D del personaje, en docs/img/
+      models: [
+        { name: "Tutweno Bonduy",   steps:  6, img: "ref-tutwenobonduy.webp", imgv: "1788108346" },
+        { name: "Whyti",            steps: 20, img: "ref-whyti.webp", imgv: "1788108347" },
+        { name: "Criim Teh Ribbit", steps:  6, img: "ref-criimtehribbit.webp", imgv: "1788108348" },
+        { name: "Ezzyne",           steps:  5, img: "ref-ezzyne.webp", imgv: "1788108349" },
+        { name: "Pellow V2",        steps: 20, img: "ref-pellowv2.webp", imgv: "1788108350" },
+        { name: "Desploy",          steps:  6, img: "ref-desploy.webp", imgv: "1788108351" }
+      ]
+    },
+    {
+      name: "Jeff The Killer",
+      note: "An advanced character with many new features. Developed by Joelias_N1.",
+      note_es: "Un personaje muy avanzado, con muchas caracteristicas nuevas. Desarrollado por Joelias_N1.",
+      total: 30,
+      // img = la referencia 2D del personaje, en docs/img/
+      models: [
+        { name: "Jeff", steps: 8, img: "ref-jeff.webp", imgv: "1788107303" }
+      ]
     }
   ]
 };

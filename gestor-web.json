@@ -101,6 +101,57 @@
             "img": "ref-nyoancot.webp"
           }
         ]
+      },
+      {
+        "name": "3D Memes Pack 22",
+        "note": "The next pack in the 3D Memes line for Garry's Mod.",
+        "note_es": "El proximo pack de la linea 3D Memes para Garry's Mod.",
+        "total": 30,
+        "models": [
+          {
+            "name": "Tutweno Bonduy",
+            "steps": 6,
+            "img": "ref-tutwenobonduy.webp"
+          },
+          {
+            "name": "Whyti",
+            "steps": 20,
+            "img": "ref-whyti.webp"
+          },
+          {
+            "name": "Criim Teh Ribbit",
+            "steps": 6,
+            "img": "ref-criimtehribbit.webp"
+          },
+          {
+            "name": "Ezzyne",
+            "steps": 5,
+            "img": "ref-ezzyne.webp"
+          },
+          {
+            "name": "Pellow V2",
+            "steps": 20,
+            "img": "ref-pellowv2.webp"
+          },
+          {
+            "name": "Desploy",
+            "steps": 6,
+            "img": "ref-desploy.webp"
+          }
+        ]
+      },
+      {
+        "name": "Jeff The Killer",
+        "note": "An advanced character with many new features. Developed by Joelias_N1.",
+        "note_es": "Un personaje muy avanzado, con muchas caracteristicas nuevas. Desarrollado por Joelias_N1.",
+        "total": 30,
+        "models": [
+          {
+            "name": "Jeff",
+            "steps": 8,
+            "img": "ref-jeff.webp"
+          }
+        ]
       }
     ]
   }
