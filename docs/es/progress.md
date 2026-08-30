@@ -10,3 +10,7 @@ Lo que estamos construyendo ahora. Cada modelo pasa por la checklist completa de
 <div id="ks-progress"></div>
 
 Queres un personaje propio? Mira [Encargos](commissions.md).
+
+## Seguí el trabajo
+
+<!-- KS-ACCESOS -->

@@ -28,10 +28,27 @@
   .ks-social svg, .ks-social img { width: 20px; height: 20px; fill: currentColor; }
   .ks-copy { font-size: .85em; color: #999; line-height: 1.6; }
   .ks-copy strong { color: #e0e0e0; }
+  /* El recuadro del pie siempre se ajusto a su contenido, y con la fila de
+     botones eso daba un ancho que quedaba bien. En Trabajo en Progreso, sin
+     botones, se encogia a la mitad y quedaba corrido a la izquierda. Ahi lo
+     estiramos al ancho completo para que se lea como una franja, no como una
+     caja achicada. Si el navegador no soporta :has(), simplemente queda como
+     estaba: angosto, pero nada se rompe. */
+  .md-footer-meta__inner:has(.ks-footer--simple) > .md-copyright { width: 100%; }
 </style>
 
 <div class="md-copyright">
-  <div class="ks-footer">
+  {% set fuente = page.file.src_uri if page and page.file else "" %}
+  {% set reducido = fuente.endswith("progress.md") %}
+  <div class="ks-footer{% if reducido %} ks-footer--simple{% endif %}">
+    {#
+      En Trabajo en Progreso los botones no van: esa pagina termina con las
+      tarjetas de accesos directos y aca abajo quedaban dos filas de los mismos
+      enlaces, una pegada a la otra. El copyright y el aviso de marcas que estan
+      mas abajo se muestran igual en todas las paginas.
+      src_uri es "progress.md" en ingles y "es/progress.md" en espanol.
+    #}
+    {% if not reducido %}
     <div class="ks-footer-title">
       {% if config.theme.language == 'es' %}DÓNDE ENCONTRARNOS{% else %}WHERE TO FIND US{% endif %}
     </div>
@@ -62,6 +79,7 @@
         Discord
       </a>
     </div>
+    {% endif %}
 
     <div class="ks-copy">
       <!-- KS:ESTADO:INICIO  (lo escribe el Gestor Web KSBravo - no editar a mano) -->

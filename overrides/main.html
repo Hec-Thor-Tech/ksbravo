@@ -57,3 +57,10 @@
   </div>
   {{ super() }}
 {% endblock %}
+
+{#
+  El pie va en todas las paginas. En Trabajo en Progreso sale recortado: se le
+  quitan los botones de redes, que ahi repetirian los mismos YouTube / Workshop
+  / Discord de las tarjetas que estan justo arriba. El copyright y el aviso de
+  marcas se conservan. Eso se decide en overrides/partials/copyright.html.
+#}

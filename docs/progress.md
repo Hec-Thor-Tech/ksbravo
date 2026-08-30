@@ -10,3 +10,7 @@ What we are building right now. Each model goes through the full production chec
 <div id="ks-progress"></div>
 
 Want a character of your own? See [Commissions](commissions.md).
+
+## Follow the work
+
+<!-- KS-ACCESOS -->
