@@ -28,10 +28,15 @@ MARCA = '<div id="ks-progress"></div>'
 
 TEXTOS = {
     "en": {"steps": "steps", "updated": "Last updated",
-           "done": "Done", "progress": "In progress", "pending": "Queued"},
+           "done": "Done", "progress": "In progress", "pending": "Queued",
+           "video": "Watch the test on YouTube", "video_corto": "Test"},
     "es": {"steps": "pasos", "updated": "Actualizado",
-           "done": "Terminado", "progress": "En progreso", "pending": "En cola"},
+           "done": "Terminado", "progress": "En progreso", "pending": "En cola",
+           "video": "Ver test en YouTube", "video_corto": "Test"},
 }
+
+PLAY = ('<svg viewBox="0 0 24 24" aria-hidden="true">'
+        '<path d="M8 5v14l11-7z"/></svg>')
 
 
 def _sin_comentarios(txt):
@@ -55,7 +60,7 @@ def _a_json(txt):
     i = 0
     en_texto = False
     claves = ("updated", "packs", "name", "note_es", "note", "total",
-              "models", "steps", "img", "imgv")
+              "models", "steps", "img", "imgv", "video")
     while i < len(txt):
         c = txt[i]
         if en_texto:
@@ -130,12 +135,25 @@ def _dibujar(datos, idioma, raiz):
                        '" width="72" height="72" loading="lazy">')
             else:
                 ref = '<span class="ks-prog-ref vacia"></span>'
+            # Si el personaje tiene un video de prueba, va el link al lado de la
+            # etiqueta. Se muestra tenga el estado que tenga: si hay test, se ve.
+            vid = m.get("video", "")
+            enlace = ""
+            if vid:
+                enlace = ('<a class="ks-prog-video" target="_blank" rel="noopener" '
+                          'href="https://www.youtube.com/watch?v=' + escape(str(vid)) +
+                          '" aria-label="' + escape(L["video"]) + " - " + nombre + '">' +
+                          PLAY + '<span class="ks-prog-video-largo">' +
+                          escape(L["video"]) + '</span>'
+                          '<span class="ks-prog-video-corto">' +
+                          escape(L["video_corto"]) + "</span></a>")
             filas.append(
                 '<div class="ks-prog-row">' + ref +
                 '<div class="ks-prog-body">'
                 '<div class="ks-prog-head">'
                 "<span>" + nombre + "</span>"
-                '<span class="ks-prog-tag ' + cls + '">' + escape(tag) + "</span>"
+                '<span class="ks-prog-tag ' + cls + '">' + escape(tag) + "</span>" +
+                enlace +
                 '<span class="ks-prog-num">' + str(m.get("steps", 0)) + " / " +
                 str(total) + " " + L["steps"] + "</span>"
                 "</div>"

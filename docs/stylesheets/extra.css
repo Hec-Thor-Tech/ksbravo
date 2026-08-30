@@ -226,6 +226,25 @@ body { background: none; }
 .ks-prog-head { display: flex; align-items: baseline; gap: 10px; margin-bottom: 5px; font-size: .95em; }
 .ks-prog-head > span:first-child { font-weight: 600; color: #fff; }
 .ks-prog-num { margin-left: auto; font-size: .85em; opacity: .75; }
+/* Link al video de prueba del personaje. Va al lado de la etiqueta de estado;
+   el contador de pasos tiene margin-left:auto, asi que sigue pegado a la
+   derecha sin importar cuanto ocupe esto. */
+.md-typeset a.ks-prog-video {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: .78em; text-decoration: none;
+  color: #ff3d3d; border: 1px solid rgba(255, 61, 61, .45);
+  padding: 1px 8px 1px 6px; border-radius: 10px; white-space: nowrap;
+  transition: background .18s ease, color .18s ease;
+}
+.md-typeset a.ks-prog-video:hover { background: #ff3d3d; color: #fff; }
+.ks-prog-video svg { width: 11px; height: 11px; fill: currentColor; flex: 0 0 auto; }
+.ks-prog-video-corto { display: none; }
+/* En pantallas angostas el renglon no da para la frase entera: queda el icono
+   con la palabra corta, que sigue diciendo de que se trata. */
+@media screen and (max-width: 699px) {
+  .ks-prog-video-largo { display: none; }
+  .ks-prog-video-corto { display: inline; }
+}
 .ks-prog-tag {
   font-size: .72em; padding: 1px 8px; border-radius: 10px; font-weight: 600;
   background: var(--ks-orange-soft); color: var(--ks-orange);

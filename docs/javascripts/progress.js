@@ -10,9 +10,14 @@
     var es = (document.documentElement.lang || "en").indexOf("es") === 0;
     var L = es
       ? { steps: "pasos", updated: "Actualizado", done: "Terminado",
-          progress: "En progreso", pending: "En cola" }
+          progress: "En progreso", pending: "En cola",
+          video: "Ver test en YouTube", videoCorto: "Test" }
       : { steps: "steps", updated: "Last updated", done: "Done",
-          progress: "In progress", pending: "Queued" };
+          progress: "In progress", pending: "Queued",
+          video: "Watch the test on YouTube", videoCorto: "Test" };
+
+    var PLAY = '<svg viewBox="0 0 24 24" aria-hidden="true">' +
+               '<path d="M8 5v14l11-7z"/></svg>';
 
     var d = window.KS_PROGRESS;
     var html = "";
@@ -40,6 +45,15 @@
           ? '<img class="ks-prog-ref" src="' + raiz + "img/" + m.img + busca +
             '" alt="' + m.name + '" width="72" height="72" loading="lazy">'
           : '<span class="ks-prog-ref vacia"></span>';
+        // Si el personaje tiene un test grabado, el link va al lado de la
+        // etiqueta de estado. El id lo escribe el Gestor Web.
+        var enlace = m.video
+          ? '<a class="ks-prog-video" target="_blank" rel="noopener" href="' +
+            "https://www.youtube.com/watch?v=" + m.video + '" aria-label="' +
+            L.video + " - " + m.name + '">' + PLAY +
+            '<span class="ks-prog-video-largo">' + L.video + "</span>" +
+            '<span class="ks-prog-video-corto">' + L.videoCorto + "</span></a>"
+          : "";
         rows +=
           '<div class="ks-prog-row">' +
             ref +
@@ -47,6 +61,7 @@
               '<div class="ks-prog-head">' +
                 "<span>" + m.name + "</span>" +
                 '<span class="ks-prog-tag ' + cls + '">' + tag + "</span>" +
+                enlace +
                 '<span class="ks-prog-num">' + m.steps + " / " + pack.total + " " + L.steps + "</span>" +
               "</div>" +
               '<div class="ks-prog-bar"><div class="ks-prog-fill ' + cls + '" style="width:' + pct + '%"></div></div>' +
