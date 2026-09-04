@@ -13,7 +13,7 @@
    ===================================================================== */
 
 window.KS_PROGRESS = {
-  updated: "2026-08-30",
+  updated: "2026-09-04",
   packs: [
     {
       name: "3D Memes Bonus Pack 01",
@@ -52,7 +52,7 @@ window.KS_PROGRESS = {
       total: 30,
       // img = la referencia 2D del personaje, en docs/img/
       models: [
-        { name: "Jeff", steps: 8, img: "ref-jeff.webp", imgv: "1788107303" }
+        { name: "Jeff", steps: 15, img: "ref-jeff.webp", imgv: "1788107303" }
       ]
     }
   ]
