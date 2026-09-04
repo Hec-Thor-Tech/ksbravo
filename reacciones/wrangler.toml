@@ -1,19 +1,23 @@
 # Configuracion del Worker de reacciones (Cloudflare).
 #
-# Para levantarlo la primera vez, desde esta carpeta:
-#   npx wrangler login                       (abre el navegador, una sola vez)
-#   npx wrangler kv namespace create REACCIONES
-#   -> copiar el id que imprime en la linea id = "..." de mas abajo
-#   npx wrangler deploy
-#
 # Para probarlo sin subir nada:
 #   npx wrangler dev --local
+# Para publicarlo:
+#   npx wrangler deploy
 
 name = "ksbravo-reacciones"
 main = "src/index.js"
 compatibility_date = "2026-08-01"
 
-# Almacen de los contadores. El id lo da el comando "kv namespace create".
-[[kv_namespaces]]
-binding = "REACCIONES"
-id = "2f5fcd39ff174cd7bce4244292089aec"
+# Los contadores viven en un Durable Object, no en KV. KV avisa de los cambios
+# "cuando puede", y con votos rapidos eso hacia que un cambio de opinion no
+# descontara el voto anterior: el personaje quedaba con 1 a favor Y 1 en contra
+# de la misma persona. El Durable Object atiende los votos de a uno y siempre
+# ve el estado real.
+[[durable_objects.bindings]]
+name = "CONTADORES"
+class_name = "Contadores"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["Contadores"]
