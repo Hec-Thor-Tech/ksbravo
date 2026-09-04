@@ -90,8 +90,14 @@ export default {
 
       // Ya voto desde esta conexion en las ultimas horas: se le devuelve el
       // numero actual y listo. No es un error, no hace falta avisarle nada.
-      if (await env.REACCIONES.get(marca)) {
-        return json({ clave, total: totales[clave] || 0, yaVotaste: true }, origen);
+      //
+      // La marca solo vale si el personaje TIENE votos. Si no figura en los
+      // totales es que los contadores se borraron y la marca quedo huerfana:
+      // bloquear por una marca asi deja al que vota viendo un corazon vacio
+      // que no reacciona. Paso de verdad al probar esto, con una marca de
+      // prueba mia que le bloqueo el voto a Hector.
+      if (clave in totales && await env.REACCIONES.get(marca)) {
+        return json({ clave, total: totales[clave], yaVotaste: true }, origen);
       }
       // Personaje nuevo, pero ya hay demasiados: no se agrega.
       if (!(clave in totales) && Object.keys(totales).length >= MAX_PERSONAJES) {
