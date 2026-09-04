@@ -38,14 +38,20 @@ TEXTOS = {
 PLAY = ('<svg viewBox="0 0 24 24" aria-hidden="true">'
         '<path d="M8 5v14l11-7z"/></svg>')
 
-# Corazon del boton de reacciones.
-CORAZON = ('<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32'
-           'C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09'
-           'C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 '
-           '11.54L12 21.35z"/></svg>')
+# Pulgares de los botones de reaccion.
+PULGAR_SI = ('<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M1 21h4V9H1v12zm22-11'
+             'c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 '
+             '7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 '
+             '1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2z"/></svg>')
+PULGAR_NO = ('<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3H6c-.83 0-1.54.5'
+             '-1.84 1.22l-3.02 7.05c-.09.23-.14.47-.14.73v2c0 1.1.9 2 2 2h6.31l-.95 '
+             '4.57-.03.32c0 .41.17.79.44 1.06L9.83 23l6.59-6.59c.36-.36.58-.86.58-1.41'
+             'V5c0-1.1-.9-2-2-2zm4 0v12h4V3h-4z"/></svg>')
 
-TEXTOS["en"]["reaccion"] = "I like this one"
-TEXTOS["es"]["reaccion"] = "Me gusta este"
+TEXTOS["en"]["like"] = "I like this one"
+TEXTOS["en"]["dislike"] = "Not for me"
+TEXTOS["es"]["like"] = "Me gusta este"
+TEXTOS["es"]["dislike"] = "No me convence"
 
 
 def _slug(nombre):
@@ -165,15 +171,21 @@ def _dibujar(datos, idioma, raiz):
                           escape(L["video"]) + '</span>'
                           '<span class="ks-prog-video-corto">' +
                           escape(L["video_corto"]) + "</span></a>")
-            # Boton de reaccion. Se dibuja aca, en el HTML, para que ocupe su
-            # lugar desde el primer pintado: si lo agregara el JS, la fila
-            # cambiaria de ancho al cargar. Nace deshabilitado y lo habilita
+            # Botones de reaccion. Se dibujan aca, en el HTML, para que ocupen
+            # su lugar desde el primer pintado: si los agregara el JS, la fila
+            # cambiaria de ancho al cargar. Nacen deshabilitados y los habilita
             # reacciones.js recien cuando pudo traer los numeros; si el
-            # servicio no responde, queda apagado en vez de fallar al tocarlo.
-            boton = ('<button class="ks-react" type="button" disabled'
-                     ' data-personaje="' + _slug(m.get("name", "")) + '"'
-                     ' aria-label="' + escape(L["reaccion"]) + " - " + nombre + '">' +
-                     CORAZON + '<span class="ks-react-n"></span></button>')
+            # servicio no responde, quedan apagados en vez de fallar al tocarlos.
+            # El 0 se muestra desde el HTML: Hector quiere ver el numero
+            # siempre, aunque sea cero, porque es el dato que esta buscando.
+            clave = _slug(m.get("name", ""))
+            boton = ""
+            for tipo, icono in (("like", PULGAR_SI), ("dislike", PULGAR_NO)):
+                boton += ('<button class="ks-react ks-react--' + tipo + '"'
+                          ' type="button" disabled data-personaje="' + clave + '"'
+                          ' data-voto="' + tipo + '"'
+                          ' aria-label="' + escape(L[tipo]) + " - " + nombre + '">' +
+                          icono + '<span class="ks-react-n">0</span></button>')
             filas.append(
                 '<div class="ks-prog-row">' + ref +
                 '<div class="ks-prog-body">'
