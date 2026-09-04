@@ -1,0 +1,19 @@
+# Configuracion del Worker de reacciones (Cloudflare).
+#
+# Para levantarlo la primera vez, desde esta carpeta:
+#   npx wrangler login                       (abre el navegador, una sola vez)
+#   npx wrangler kv namespace create REACCIONES
+#   -> copiar el id que imprime en la linea id = "..." de mas abajo
+#   npx wrangler deploy
+#
+# Para probarlo sin subir nada:
+#   npx wrangler dev --local
+
+name = "ksbravo-reacciones"
+main = "src/index.js"
+compatibility_date = "2026-08-01"
+
+# Almacen de los contadores. El id lo da el comando "kv namespace create".
+[[kv_namespaces]]
+binding = "REACCIONES"
+id = "2f5fcd39ff174cd7bce4244292089aec"

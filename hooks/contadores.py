@@ -26,6 +26,8 @@ NAVEGADOR = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
 
 CANAL_YT = "UCkH-xqSgGMWpOKX9ptm_MKw"                      # youtube.com/@KSBravo
 FUENTE_YT = "https://api.socialcounts.org/youtube-live-subscriber-count/" + CANAL_YT
+# El feed publico del canal: los 15 videos mas nuevos, sin clave de API.
+FEED_YT = "https://www.youtube.com/feeds/videos.xml?channel_id=" + CANAL_YT
 # La misma pagina publica que enlaza la tarjeta. Steam escribe ahi
 # "Showing 1-9 of 39 entries"; de ahi sale el total.
 FUENTE_WS = "https://steamcommunity.com/id/KSBravo/myworkshopfiles/"
@@ -100,3 +102,45 @@ def numero(raiz, clave):
 def formatear(n):
     """1234 -> 1,234."""
     return "{:,}".format(n)
+
+
+# ------------------------------------------------------------------ #
+#  El video mas nuevo del canal (para el "Ultimo showcase" de la portada)
+# ------------------------------------------------------------------ #
+def _traer_ultimo_video():
+    """Primera <entry> del feed: la mas nueva. Devuelve id y titulo.
+
+    Ojo con el orden de las etiquetas: dentro de cada <entry> el <yt:videoId>
+    viene ANTES que el <title>. Si se buscan por separado en todo el XML se
+    terminan cruzando el id de un video con el titulo de otro.
+    """
+    xml = _bajar(FEED_YT)
+    trozos = xml.split("<entry>")
+    if len(trozos) < 2:
+        raise ValueError("el feed no trae videos")
+    e = trozos[1]
+    vid = re.search(r"<yt:videoId>([A-Za-z0-9_-]{11})</yt:videoId>", e)
+    tit = re.search(r"<title>(.*?)</title>", e, flags=re.S)
+    if not vid:
+        raise ValueError("no encontre el id en la primera entrada")
+    titulo = (tit.group(1) if tit else "").strip()
+    for a, b in (("&amp;", "&"), ("&lt;", "<"), ("&gt;", ">"),
+                 ("&quot;", '"'), ("&#39;", "'")):
+        titulo = titulo.replace(a, b)
+    return {"id": vid.group(1), "titulo": titulo}
+
+
+def ultimo_video(raiz):
+    """El video mas nuevo, o None si no hay forma de saberlo."""
+    if "ultimo_video" in _memoria:
+        return _memoria["ultimo_video"]
+    try:
+        v = _traer_ultimo_video()
+        _cache_escribir(raiz, "ultimo_video", v)
+        print("  [contadores] ultimo video: %s (%s)" % (v["titulo"], v["id"]))
+    except Exception as e:                                    # noqa: BLE001
+        v = _cache_leer(raiz).get("ultimo_video")
+        print("  [contadores] ultimo video fallo (%s); uso el guardado: %s"
+              % (e, (v or {}).get("id")))
+    _memoria["ultimo_video"] = v
+    return v

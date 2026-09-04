@@ -33,9 +33,7 @@ The same characters running on **SBHBase**, our nextbot base for s&box: possessi
 
 ## Latest showcase
 
-<div class="ks-video">
-<iframe src="https://www.youtube-nocookie.com/embed/J8TZjflXbgc" title="3D Memes Pack 21 - Garry's Mod Ready" allowfullscreen loading="lazy"></iframe>
-</div>
+<!-- KS-SHOWCASE -->
 
 New packs and showcases every few weeks on [YouTube](https://www.youtube.com/@KSBravo){target=_blank}.
 

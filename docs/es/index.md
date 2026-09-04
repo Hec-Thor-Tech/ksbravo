@@ -33,9 +33,7 @@ Los mismos personajes corriendo sobre **SBHBase**, nuestra base de nextbots para
 
 ## Último showcase
 
-<div class="ks-video">
-<iframe src="https://www.youtube-nocookie.com/embed/J8TZjflXbgc" title="3D Memes Pack 21 - Garry's Mod Ready" allowfullscreen loading="lazy"></iframe>
-</div>
+<!-- KS-SHOWCASE -->
 
 Packs y showcases nuevos cada pocas semanas en [YouTube](https://www.youtube.com/@KSBravo){target=_blank}.
 

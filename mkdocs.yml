@@ -53,6 +53,7 @@ hooks:
   - hooks/cache_bust.py
   - hooks/prerender_progress.py
   - hooks/accesos.py
+  - hooks/showcase.py
 
 extra_css:
   - stylesheets/extra.css
@@ -61,4 +62,5 @@ extra_javascript:
   - javascripts/parallax.js
   - javascripts/progress-data.js
   - javascripts/progress.js
+  - javascripts/reacciones.js
 

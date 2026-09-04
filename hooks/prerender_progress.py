@@ -38,6 +38,24 @@ TEXTOS = {
 PLAY = ('<svg viewBox="0 0 24 24" aria-hidden="true">'
         '<path d="M8 5v14l11-7z"/></svg>')
 
+# Corazon del boton de reacciones.
+CORAZON = ('<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32'
+           'C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09'
+           'C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 '
+           '11.54L12 21.35z"/></svg>')
+
+TEXTOS["en"]["reaccion"] = "I like this one"
+TEXTOS["es"]["reaccion"] = "Me gusta este"
+
+
+def _slug(nombre):
+    """Mismo criterio que usa el Gestor Web para nombrar las imagenes."""
+    s = (nombre or "").lower().strip()
+    for a, b in (("á", "a"), ("é", "e"), ("í", "i"), ("ó", "o"),
+                 ("ú", "u"), ("ñ", "n"), ("ü", "u")):
+        s = s.replace(a, b)
+    return re.sub(r"[^a-z0-9]+", "", s) or "sinnombre"
+
 
 def _sin_comentarios(txt):
     """Saca el encabezado /* */ y las lineas que son solo //.
@@ -147,13 +165,22 @@ def _dibujar(datos, idioma, raiz):
                           escape(L["video"]) + '</span>'
                           '<span class="ks-prog-video-corto">' +
                           escape(L["video_corto"]) + "</span></a>")
+            # Boton de reaccion. Se dibuja aca, en el HTML, para que ocupe su
+            # lugar desde el primer pintado: si lo agregara el JS, la fila
+            # cambiaria de ancho al cargar. Nace deshabilitado y lo habilita
+            # reacciones.js recien cuando pudo traer los numeros; si el
+            # servicio no responde, queda apagado en vez de fallar al tocarlo.
+            boton = ('<button class="ks-react" type="button" disabled'
+                     ' data-personaje="' + _slug(m.get("name", "")) + '"'
+                     ' aria-label="' + escape(L["reaccion"]) + " - " + nombre + '">' +
+                     CORAZON + '<span class="ks-react-n"></span></button>')
             filas.append(
                 '<div class="ks-prog-row">' + ref +
                 '<div class="ks-prog-body">'
                 '<div class="ks-prog-head">'
                 "<span>" + nombre + "</span>"
                 '<span class="ks-prog-tag ' + cls + '">' + escape(tag) + "</span>" +
-                enlace +
+                enlace + boton +
                 '<span class="ks-prog-num">' + str(m.get("steps", 0)) + " / " +
                 str(total) + " " + L["steps"] + "</span>"
                 "</div>"
