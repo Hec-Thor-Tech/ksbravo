@@ -8,6 +8,8 @@ description: Order a custom nextbot, NPC, player model or tool for Garry's Mod o
 We take requests. Here is what we make and how it works. Every request is quoted individually.
 
 <!-- KS:AVISO:INICIO  (lo escribe el Gestor Web KSBravo - no editar a mano) -->
+!!! warning "Commissions are paused right now"
+    We are not taking new requests at the moment. Join the Discord to be notified when they open again.
 <!-- KS:AVISO:FIN -->
 
 ## Services

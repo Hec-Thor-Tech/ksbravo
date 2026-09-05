@@ -98,6 +98,18 @@ export class Contadores {
       return Response.json(await this.totales());
     }
 
+    // Resumen para Hector: de donde viene la gente que participa. Sirve para
+    // decidir si conviene agregar un idioma mas a la pagina. Son numeros
+    // sumados, no hay nada de nadie en particular.
+    if (peticion.method === "GET" && partes.length === 1 && partes[0] === "resumen") {
+      const meta = (await this.state.storage.get("meta")) || {};
+      return Response.json({
+        votantes: meta.total || 0,
+        paises: meta.paises || {},
+        idiomas: meta.idiomas || {},
+      });
+    }
+
     if (peticion.method === "POST" && partes.length === 2) {
       const [clave, tipo] = partes;
       const contrario = tipo === "like" ? "dislike" : "like";
@@ -127,11 +139,23 @@ export class Contadores {
       cuenta[tipo] += 1;
       totales[clave] = cuenta;
 
-      // Las dos escrituras juntas: o quedan las dos o no queda ninguna.
-      await this.state.storage.put({
-        totales: totales,
-        [marca]: { tipo: tipo, ts: Date.now() },
-      });
+      // De donde vino. Se suma UNA sola vez por persona y personaje: si despues
+      // cambia de opinion no vuelve a contar, asi el resumen mide gente que
+      // participa y no cantidad de clics.
+      const aEscribir = { totales: totales, [marca]: { tipo: tipo, ts: Date.now() } };
+      if (previo === null) {
+        const meta = (await this.state.storage.get("meta")) ||
+          { total: 0, paises: {}, idiomas: {} };
+        const pais = peticion.headers.get("X-Pais") || "??";
+        const idioma = peticion.headers.get("X-Idioma") || "??";
+        meta.total = (meta.total || 0) + 1;
+        meta.paises[pais] = (meta.paises[pais] || 0) + 1;
+        meta.idiomas[idioma] = (meta.idiomas[idioma] || 0) + 1;
+        aEscribir.meta = meta;
+      }
+
+      // Todo junto: o queda todo o no queda nada.
+      await this.state.storage.put(aEscribir);
       return Response.json({ clave, ...cuenta, tuVoto: tipo });
     }
 
@@ -153,10 +177,12 @@ export default {
     }
 
     const esLectura = peticion.method === "GET" && partes.length === 0;
+    const esResumen = peticion.method === "GET" && partes.length === 1 &&
+      partes[0] === "resumen";
     const esVoto = peticion.method === "POST" && partes.length === 2 &&
       CLAVE_OK.test(partes[0]) && TIPOS.includes(partes[1]);
 
-    if (!esLectura && !esVoto) {
+    if (!esLectura && !esResumen && !esVoto) {
       return json({ error: "no encontrado" }, origen, 404);
     }
 
@@ -172,6 +198,13 @@ export default {
     if (esVoto) {
       const ip = peticion.headers.get("CF-Connecting-IP") || "0.0.0.0";
       cabeceras.set("X-Huella", await huella(ip, partes[0]));
+      // Pais que informa Cloudflare, e idioma que pide el navegador. El idioma
+      // dice mas que el pais para decidir si sumar una traduccion: en Estados
+      // Unidos hay mucho hispanohablante y Brasil habla portugues.
+      cabeceras.set("X-Pais", (peticion.cf && peticion.cf.country) || "??");
+      const acepta = peticion.headers.get("Accept-Language") || "";
+      const idioma = (acepta.split(",")[0] || "").trim().slice(0, 5).toLowerCase();
+      cabeceras.set("X-Idioma", /^[a-z]{2}(-[a-z]{2})?$/.test(idioma) ? idioma : "??");
     }
     const r = await env.CONTADORES.get(id).fetch(new Request(peticion.url, {
       method: peticion.method,

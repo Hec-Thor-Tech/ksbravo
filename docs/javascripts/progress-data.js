@@ -13,7 +13,7 @@
    ===================================================================== */
 
 window.KS_PROGRESS = {
-  updated: "2026-09-04",
+  updated: "2026-09-05",
   packs: [
     {
       name: "3D Memes Bonus Pack 01",
@@ -27,7 +27,7 @@ window.KS_PROGRESS = {
         { name: "Tim",       steps: 11, img: "ref-tim.webp", imgv: "1787199448" },
         { name: "Megmen",    steps: 10, img: "ref-megmen.webp", imgv: "1787199449" },
         { name: "Noobstar",  steps: 11, img: "ref-noobstar.webp", imgv: "1787199450" },
-        { name: "Nyoan Cot", steps: 15, img: "ref-nyoancot.webp", imgv: "1787199451" }
+        { name: "Nyoan Cot", steps: 20, img: "ref-nyoancot.webp", imgv: "1787199451" }
       ]
     },
     {

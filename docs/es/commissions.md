@@ -8,6 +8,8 @@ description: Pedí un nextbot, NPC, player model o herramienta a medida para Gar
 Tomamos pedidos. Esto es lo que hacemos y cómo funciona. Cada pedido se cotiza aparte.
 
 <!-- KS:AVISO:INICIO  (lo escribe el Gestor Web KSBravo - no editar a mano) -->
+!!! warning "Los encargos están en pausa"
+    Por ahora no estamos tomando pedidos nuevos. Entrá al Discord para enterarte cuando se abran de nuevo.
 <!-- KS:AVISO:FIN -->
 
 ## Servicios

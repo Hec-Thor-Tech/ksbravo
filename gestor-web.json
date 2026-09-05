@@ -1,7 +1,7 @@
 {
   "version": 1,
   "encargos": {
-    "abiertos": true,
+    "abiertos": false,
     "pie_abierto_en": "[ Commissions open ]",
     "pie_abierto_es": "[ Encargos abiertos ]",
     "pie_pausado_en": "[ Commissions paused ]",
@@ -62,7 +62,7 @@
     }
   ],
   "progreso": {
-    "updated": "2026-09-04",
+    "updated": "2026-09-05",
     "packs": [
       {
         "name": "3D Memes Bonus Pack 01",
@@ -98,7 +98,7 @@
           },
           {
             "name": "Nyoan Cot",
-            "steps": 15,
+            "steps": 20,
             "img": "ref-nyoancot.webp"
           }
         ]
