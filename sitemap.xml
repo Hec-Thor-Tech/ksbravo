@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+    <url>
+        <loc>https://ks-bravo.com/</loc>
+        <lastmod>2026-09-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ks-bravo.com/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://ks-bravo.com/es/"/>
+    </url>
+    <url>
+        <loc>https://ks-bravo.com/commissions/</loc>
+        <lastmod>2026-09-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ks-bravo.com/commissions/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://ks-bravo.com/es/commissions/"/>
+    </url>
+    <url>
+        <loc>https://ks-bravo.com/progress/</loc>
+        <lastmod>2026-09-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ks-bravo.com/progress/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://ks-bravo.com/es/progress/"/>
+    </url>
+    <url>
+        <loc>https://ks-bravo.com/work/</loc>
+        <lastmod>2026-09-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ks-bravo.com/work/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://ks-bravo.com/es/work/"/>
+    </url>
+    <url>
+        <loc>https://ks-bravo.com/es/</loc>
+        <lastmod>2026-09-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="https://ks-bravo.com/es/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ks-bravo.com/"/>
+    </url>
+    <url>
+        <loc>https://ks-bravo.com/es/commissions/</loc>
+        <lastmod>2026-09-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="https://ks-bravo.com/es/commissions/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ks-bravo.com/commissions/"/>
+    </url>
+    <url>
+        <loc>https://ks-bravo.com/es/progress/</loc>
+        <lastmod>2026-09-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="https://ks-bravo.com/es/progress/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ks-bravo.com/progress/"/>
+    </url>
+    <url>
+        <loc>https://ks-bravo.com/es/work/</loc>
+        <lastmod>2026-09-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="https://ks-bravo.com/es/work/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ks-bravo.com/work/"/>
+    </url>
+</urlset>
