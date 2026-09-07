@@ -62,7 +62,7 @@
     }
   ],
   "progreso": {
-    "updated": "2026-09-05",
+    "updated": "2026-09-07",
     "packs": [
       {
         "name": "3D Memes Bonus Pack 01",
@@ -136,7 +136,7 @@
           },
           {
             "name": "Desploy",
-            "steps": 6,
+            "steps": 22,
             "img": "ref-desploy.webp"
           }
         ]
