@@ -149,7 +149,7 @@
         "models": [
           {
             "name": "Jeff",
-            "steps": 15,
+            "steps": 20,
             "img": "ref-jeff.webp"
           }
         ]

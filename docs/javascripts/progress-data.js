@@ -52,7 +52,7 @@ window.KS_PROGRESS = {
       total: 30,
       // img = la referencia 2D del personaje, en docs/img/
       models: [
-        { name: "Jeff", steps: 15, img: "ref-jeff.webp", imgv: "1788107303" }
+        { name: "Jeff", steps: 20, img: "ref-jeff.webp", imgv: "1788107303" }
       ]
     }
   ]
