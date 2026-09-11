@@ -42,7 +42,7 @@ window.KS_PROGRESS = {
         { name: "Criim Teh Ribbit", steps:  6, img: "ref-criimtehribbit.webp", imgv: "1788108348" },
         { name: "Ezzyne",           steps:  5, img: "ref-ezzyne.webp", imgv: "1788108349" },
         { name: "Pellow V2",        steps: 20, img: "ref-pellowv2.webp", imgv: "1788108350" },
-        { name: "Desploy",          steps: 30, img: "ref-desploy.webp", imgv: "1788108351" }
+        { name: "Desploy",          steps: 30, img: "ref-desploy.webp", imgv: "1788108351", video: "hvQj4yjAmQs" }
       ]
     },
     {
