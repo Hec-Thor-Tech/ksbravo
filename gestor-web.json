@@ -62,7 +62,7 @@
     }
   ],
   "progreso": {
-    "updated": "2026-09-11",
+    "updated": "2026-09-12",
     "packs": [
       {
         "name": "3D Memes Bonus Pack 01",
@@ -72,7 +72,7 @@
         "models": [
           {
             "name": "Pellow",
-            "steps": 20,
+            "steps": 27,
             "img": "ref-pellow.webp"
           },
           {
@@ -88,17 +88,17 @@
           },
           {
             "name": "Megmen",
-            "steps": 10,
+            "steps": 14,
             "img": "ref-megmen.webp"
           },
           {
             "name": "Noobstar",
-            "steps": 11,
+            "steps": 16,
             "img": "ref-noobstar.webp"
           },
           {
             "name": "Nyoan Cot",
-            "steps": 20,
+            "steps": 24,
             "img": "ref-nyoancot.webp"
           }
         ]

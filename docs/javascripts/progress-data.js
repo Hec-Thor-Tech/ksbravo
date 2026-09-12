@@ -13,7 +13,7 @@
    ===================================================================== */
 
 window.KS_PROGRESS = {
-  updated: "2026-09-11",
+  updated: "2026-09-12",
   packs: [
     {
       name: "3D Memes Bonus Pack 01",
@@ -22,12 +22,12 @@ window.KS_PROGRESS = {
       total: 30,
       // img = la referencia 2D del personaje, en docs/img/
       models: [
-        { name: "Pellow",    steps: 20, img: "ref-pellow.webp", imgv: "1787199448" },
+        { name: "Pellow",    steps: 27, img: "ref-pellow.webp", imgv: "1787199448" },
         { name: "Umnidorid", steps: 30, img: "ref-umnidorid.webp", imgv: "1787253870", video: "a6VqXX8Njzk" },
         { name: "Tim",       steps: 27, img: "ref-tim.webp", imgv: "1787199448" },
-        { name: "Megmen",    steps: 10, img: "ref-megmen.webp", imgv: "1787199449" },
-        { name: "Noobstar",  steps: 11, img: "ref-noobstar.webp", imgv: "1787199450" },
-        { name: "Nyoan Cot", steps: 20, img: "ref-nyoancot.webp", imgv: "1787199451" }
+        { name: "Megmen",    steps: 14, img: "ref-megmen.webp", imgv: "1787199449" },
+        { name: "Noobstar",  steps: 16, img: "ref-noobstar.webp", imgv: "1787199450" },
+        { name: "Nyoan Cot", steps: 24, img: "ref-nyoancot.webp", imgv: "1787199451" }
       ]
     },
     {
