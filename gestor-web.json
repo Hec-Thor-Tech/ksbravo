@@ -84,21 +84,22 @@
           {
             "name": "Tim",
             "steps": 30,
-            "img": "ref-tim.webp"
+            "img": "ref-tim.webp",
+            "video": "COssIbk5HGw"
           },
           {
             "name": "Megmen",
-            "steps": 14,
+            "steps": 25,
             "img": "ref-megmen.webp"
           },
           {
             "name": "Noobstar",
-            "steps": 24,
+            "steps": 25,
             "img": "ref-noobstar.webp"
           },
           {
             "name": "Nyoan Cot",
-            "steps": 24,
+            "steps": 30,
             "img": "ref-nyoancot.webp"
           }
         ]
