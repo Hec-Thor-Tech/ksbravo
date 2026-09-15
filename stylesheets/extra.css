@@ -1,0 +1,294 @@
+/* KSBravo - dark theme with orange accent (matches the channel avatar) */
+:root {
+  --ks-orange: #ff5a1f;
+  --ks-orange-soft: rgba(255, 90, 31, 0.15);
+  --ks-panel: rgba(255, 255, 255, 0.04);
+  --ks-border: rgba(255, 255, 255, 0.10);
+}
+
+.md-header { border-bottom: 2px solid var(--ks-orange); }
+
+.md-content h1 {
+  color: var(--ks-orange) !important;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+.md-content h2 {
+  border-bottom: 1px solid var(--ks-border);
+  padding-bottom: .3em;
+}
+
+/* Fondo de pagina con PARALAJE. Las 4 capas las inyecta javascripts/parallax.js
+   y son los niveles que dibujo Hector: 0 cielo, 1 luna, 2 lejano, 3 cercano.
+   El color base va en <html> y el body queda transparente: asi el contenedor
+   del fondo puede ir en z-index -1 y igual verse. */
+/* overflow-y: scroll deja la barra de scroll SIEMPRE puesta.
+   Sin esto la pagina se dibuja primero sin barra y, cuando el HTML termina de
+   llegar y el contenido pasa el alto de la ventana, aparece la barra, el ancho
+   util baja 15px y TODO se corre a la izquierda de golpe: el selector de idioma
+   del encabezado, los botones del hero y la grilla de tarjetas. Medido: el ancho
+   pasaba de 1857 a 1842 px durante la carga. Ese era el CLS que quedaba, y por
+   eso solo pasaba en escritorio (en el celular la barra flota y no ocupa lugar).
+   Con la barra fija el ancho arranca en 1842 y no se mueve mas.
+   Se probo antes "scrollbar-gutter: stable", que es lo moderno para esto: el
+   navegador lo soporta y lo aplica, pero en la raiz NO reservaba el hueco (el
+   ancho seguia yendo de 1857 a 1842). Por eso quedo la via clasica, que ademas
+   anda en todos los navegadores. No cambiarlo sin volver a medir. */
+html { background-color: #0e0d14; overflow-y: scroll; }
+body { background: none; }
+
+.ks-bg {
+  position: fixed; inset: -100px;  /* holgura: el nivel 3 recorre hasta 76px al scrollear */
+  z-index: -1; overflow: hidden; pointer-events: none;
+}
+.ks-bg-capa {
+  position: absolute; inset: 0;
+  background-repeat: no-repeat; background-position: center; background-size: cover;
+  will-change: transform;
+}
+/* Las 4 imagenes se declaran ACA y no desde parallax.js: puestas en el CSS, el
+   navegador las descubre apenas lee la hoja y las baja en paralelo, en vez de
+   esperar a que corra el script (bg0 era el elemento del LCP y llegaba tarde).
+   Las rutas se resuelven contra este archivo, no contra la pagina, asi que la
+   misma regla sirve en / y en /es/. */
+.ks-bg-capa:nth-child(1) { background-image: url("../img/bg0.webp"); }
+.ks-bg-capa:nth-child(2) { background-image: url("../img/bg1.webp"); }
+.ks-bg-capa:nth-child(3) { background-image: url("../img/bg2.webp"); }
+.ks-bg-capa:nth-child(4) { background-image: url("../img/bg3.webp"); }
+/* El velo va ultimo, o sea ARRIBA de las 4 capas: es lo que mantiene legible
+   el texto. Si se aclara mucho, la ilustracion se come al contenido. */
+.ks-bg-velo {
+  position: absolute; inset: 0;
+  background: linear-gradient(rgba(14, 13, 20, .78), rgba(14, 13, 20, .88));
+}
+
+.md-main { background-color: transparent; }
+/* Base translucida detras del texto: el paisaje se sigue viendo en los
+   margenes y en los costados, pero el contenido nunca queda ilegible. */
+.md-content {
+  background: rgba(15, 15, 19, .62);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  border-radius: 12px;
+}
+.md-sidebar--secondary .md-nav__title,
+.md-sidebar--primary .md-nav__title { background: transparent; }
+
+/* Hero */
+.ks-hero {
+  position: relative; overflow: hidden;
+  display: flex; align-items: center; gap: 32px; flex-wrap: wrap;
+  padding: 34px 32px; margin: 8px 0 36px;
+  background:
+    radial-gradient(120% 150% at 86% 50%, rgba(255, 90, 31, .20) 0%, rgba(255, 90, 31, 0) 60%),
+    linear-gradient(135deg, rgba(255, 255, 255, .055), rgba(255, 255, 255, .015));
+  border: 1px solid var(--ks-border); border-radius: 14px;
+}
+/* filo naranja arriba, como el header */
+.ks-hero::before {
+  content: ""; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, var(--ks-orange), rgba(255, 90, 31, 0) 70%);
+}
+.ks-hero-text { flex: 1 1 320px; min-width: 260px; }
+.ks-hero h1 { margin: 0 0 10px !important; font-size: 2.4em; line-height: 1.05; }
+.ks-hero p { margin: 6px 0; font-size: 1.02em; }
+.ks-hero .ks-tagline {
+  font-size: 1.16em; font-weight: 600; color: #fff; margin: 0 0 12px;
+}
+.ks-hero-art {
+  flex: 0 0 auto; width: 250px; max-width: 44%; height: auto;
+  filter: drop-shadow(0 12px 34px rgba(0, 0, 0, .55));
+}
+@media screen and (max-width: 599px) {
+  .ks-hero { padding: 24px 20px; gap: 20px; }
+  .ks-hero h1 { font-size: 1.9em; }
+  .ks-hero-art { width: 160px; margin: 0 auto; }
+}
+
+/* Buttons */
+.ks-btn {
+  display: inline-block; padding: 10px 18px; margin: 6px 8px 6px 0;
+  border: 1px solid var(--ks-orange); border-radius: 6px;
+  color: #fff !important; background: var(--ks-orange);
+  text-decoration: none !important; font-weight: 600;
+  transition: all .2s ease;
+}
+.ks-btn:hover { background: #ff7a45; box-shadow: 0 0 12px rgba(255, 90, 31, .45); }
+.ks-btn.ghost { background: transparent; color: var(--ks-orange) !important; }
+.ks-btn.ghost:hover { background: var(--ks-orange-soft); }
+
+/* Card grid */
+.ks-grid {
+  display: grid; gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  margin: 16px 0 28px;
+}
+.ks-card {
+  background: var(--ks-panel); border: 1px solid var(--ks-border); border-radius: 10px;
+  padding: 16px; display: flex; flex-direction: column; gap: 6px;
+  transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+.ks-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255, 90, 31, .45);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, .35);
+}
+.ks-card h3 { margin: 0 0 4px; font-size: 1.05em; color: #fff; }
+.ks-card p { margin: 0; font-size: .92em; opacity: .9; }
+.ks-card .ks-price { display: block; color: var(--ks-orange); font-weight: 700; margin-top: 8px; }
+.ks-card a { color: var(--ks-orange); }
+
+/* Stats row */
+/* Accesos directos del home (YouTube / Workshop / Discord).
+   Reemplazan a los viejos .ks-stat: mismo lugar y misma silueta, pero clicables. */
+.ks-links { display: flex; gap: 12px; flex-wrap: wrap; margin: 12px 0 24px; }
+.ks-link {
+  --ks-link-color: var(--ks-orange);
+  flex: 1; min-width: 160px; text-align: center; padding: 16px 8px;
+  background: linear-gradient(180deg, rgba(255, 90, 31, .07), var(--ks-panel));
+  border: 1px solid var(--ks-border); border-radius: 10px;
+  text-decoration: none; color: inherit;
+  transition: border-color .18s ease, transform .18s ease, background .18s ease;
+  /* En columna y centrado: no todas las tarjetas tienen la misma cantidad de
+     renglones (la del Workshop no lleva bajada, Discord no lleva numero) y
+     asi el contenido queda centrado en vez de colgando arriba. */
+  display: flex; flex-direction: column; justify-content: center;
+}
+/* Material pinta todos los <a> con su color de link: hay que ganarle en
+   especificidad o el texto de la tarjeta sale celeste. */
+.md-typeset a.ks-link { color: inherit; }
+.ks-link svg { width: 30px; height: 30px; display: block; margin: 0 auto 8px; fill: var(--ks-link-color); }
+.ks-link b { display: block; font-size: 1.15em; color: #fff; line-height: 1.2; }
+.ks-link span { font-size: .85em; opacity: .8; color: var(--md-typeset-color); }
+/* Contador de suscriptores: va solo en la tarjeta de YouTube y lo escribe el
+   hook al compilar, asi que el numero ya viene en el HTML y no mueve nada.
+   min-height reserva el renglon igual, para que si algun dia no se puede
+   consultar el numero las tres tarjetas sigan midiendo lo mismo. */
+.ks-link-dato { display: block; margin-top: 6px; font-size: .82em; opacity: .9; }
+.ks-link-dato b { display: inline; font-size: 1em; color: var(--ks-link-color); }
+.ks-links:has(.ks-link-dato) .ks-link { min-height: 132px; }
+.ks-link:hover, .ks-link:focus-visible {
+  border-color: var(--ks-link-color); transform: translateY(-2px);
+  background: linear-gradient(180deg, rgba(255, 90, 31, .14), var(--ks-panel));
+}
+.ks-link:hover b, .ks-link:focus-visible b { color: var(--ks-link-color); }
+.ks-link.yt { --ks-link-color: #ff3d3d; }
+.ks-link.st { --ks-link-color: #66c0f4; }
+.ks-link.dc { --ks-link-color: #7d88f5; }
+
+/* Steps */
+.ks-steps { counter-reset: step; list-style: none; padding: 0; margin: 12px 0 24px; }
+.ks-steps li {
+  counter-increment: step; position: relative; padding: 10px 0 10px 48px; margin: 0;
+  border-bottom: 1px dashed var(--ks-border);
+}
+.ks-steps li::before {
+  content: counter(step); position: absolute; left: 0; top: 8px;
+  width: 32px; height: 32px; line-height: 32px; text-align: center; border-radius: 50%;
+  background: var(--ks-orange); color: #fff; font-weight: 700;
+}
+
+/* Video embed */
+.ks-video { position: relative; padding-bottom: 56.25%; height: 0; margin: 12px 0 24px; border-radius: 8px; overflow: hidden; border: 1px solid var(--ks-border); }
+.ks-video iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+
+/* Progress bars */
+.ks-prog-pack {
+  background: var(--ks-panel); border: 1px solid var(--ks-border); border-radius: 8px;
+  padding: 18px; margin: 16px 0 24px;
+}
+.ks-prog-pack > p { margin: 0 0 14px; font-size: .92em; opacity: .85; }
+.ks-prog-title { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+.ks-prog-title h3 { margin: 0 0 6px; color: #fff; }
+.ks-prog-title b { color: var(--ks-orange); font-size: 1.4em; }
+.ks-prog-row { margin: 14px 0; display: flex; align-items: center; gap: 14px; }
+.ks-prog-body { flex: 1; min-width: 0; }
+/* La referencia 2D va sobre una placa clara: los dibujos tienen contorno
+   negro y sobre el fondo oscuro del sitio ese contorno se perdía. */
+/* El .md-typeset de adelante NO es decorativo: Material trae
+   ".md-typeset img { height: auto }", que le ganaba a ".ks-prog-ref" por peso
+   de selector. Con el alto en auto, la caja media 10px (relleno + borde, sin
+   imagen) hasta que la foto terminaba de bajar y ahi saltaba a 72: seis saltos
+   por carga en la pagina mas visitada, y era el CLS malo que marcaba Cloudflare.
+   Con .md-typeset adelante el peso empata y nuestro alto manda. Si algun dia se
+   toca esto, dejar los dos selectores o vuelve el salto. */
+.md-typeset .ks-prog-ref {
+  flex: 0 0 auto; width: 72px; height: 72px; border-radius: 10px;
+  background: #e9e9ec; border: 1px solid var(--ks-border);
+  object-fit: contain; padding: 4px;
+}
+.md-typeset .ks-prog-ref.vacia { background: rgba(255, 255, 255, .05); }
+@media screen and (max-width: 599px) {
+  .md-typeset .ks-prog-ref { width: 54px; height: 54px; }
+  .ks-prog-row { gap: 10px; }
+}
+.ks-prog-head { display: flex; align-items: baseline; gap: 10px; margin-bottom: 5px; font-size: .95em; }
+.ks-prog-head > span:first-child { font-weight: 600; color: #fff; }
+.ks-prog-num { margin-left: auto; font-size: .85em; opacity: .75; }
+/* Link al video de prueba del personaje. Va al lado de la etiqueta de estado;
+   el contador de pasos tiene margin-left:auto, asi que sigue pegado a la
+   derecha sin importar cuanto ocupe esto. */
+.md-typeset a.ks-prog-video {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: .78em; text-decoration: none;
+  color: #ff3d3d; border: 1px solid rgba(255, 61, 61, .45);
+  padding: 1px 8px 1px 6px; border-radius: 10px; white-space: nowrap;
+  transition: background .18s ease, color .18s ease;
+}
+.md-typeset a.ks-prog-video:hover { background: #ff3d3d; color: #fff; }
+.ks-prog-video svg { width: 11px; height: 11px; fill: currentColor; flex: 0 0 auto; }
+/* Botones de me gusta / no me gusta por personaje. Salen dibujados desde el
+   HTML (apagados) y los enciende reacciones.js: asi la fila no cambia de ancho
+   al cargar la pagina. El numero tiene min-width para que pasar de 9 a 10 no
+   corra el resto de la fila. */
+.md-typeset button.ks-react {
+  display: inline-flex; align-items: center; gap: 4px;
+  font-size: .78em; font-family: inherit; cursor: pointer;
+  color: var(--md-typeset-color); background: transparent;
+  border: 1px solid var(--ks-border);
+  padding: 1px 7px 1px 5px; border-radius: 10px;
+  transition: color .18s ease, border-color .18s ease, opacity .18s ease;
+}
+/* Los dos van juntos, como un par. */
+.md-typeset button.ks-react--like { margin-left: 2px; }
+.md-typeset button.ks-react--dislike { margin-left: 4px; }
+.ks-react svg { width: 12px; height: 12px; fill: currentColor; flex: 0 0 auto; }
+.ks-react-n { min-width: 1.1em; text-align: left; font-variant-numeric: tabular-nums; }
+.md-typeset button.ks-react:disabled { cursor: default; opacity: .4; }
+.md-typeset button.ks-react--like:not(:disabled):hover,
+.md-typeset button.ks-react--like.votado { color: #6fcf73; border-color: #6fcf73; }
+.md-typeset button.ks-react--dislike:not(:disabled):hover,
+.md-typeset button.ks-react--dislike.votado { color: #ff5f5f; border-color: #ff5f5f; }
+/* Ya votaste: queda encendido y sin opacar. */
+.md-typeset button.ks-react.votado { opacity: 1; }
+/* El pulgar abajo va girado para que el icono no se lea al reves. */
+.ks-react--dislike svg { transform: translateY(1px); }
+
+.ks-prog-video-corto { display: none; }
+/* En pantallas angostas el renglon no da para la frase entera: queda el icono
+   con la palabra corta, que sigue diciendo de que se trata. */
+@media screen and (max-width: 699px) {
+  .ks-prog-video-largo { display: none; }
+  .ks-prog-video-corto { display: inline; }
+}
+.ks-prog-tag {
+  font-size: .72em; padding: 1px 8px; border-radius: 10px; font-weight: 600;
+  background: var(--ks-orange-soft); color: var(--ks-orange);
+}
+.ks-prog-tag.done { background: rgba(76, 175, 80, .18); color: #6fcf73; }
+.ks-prog-tag.pending { background: rgba(255, 255, 255, .08); color: #bbb; }
+.ks-prog-bar {
+  height: 10px; border-radius: 5px; overflow: hidden;
+  background: rgba(255, 255, 255, .07); border: 1px solid var(--ks-border);
+}
+.ks-prog-fill { height: 100%; background: var(--ks-orange); border-radius: 5px; transition: width .6s ease; }
+.ks-prog-fill.done { background: #4caf50; }
+.ks-prog-updated { font-size: .82em; opacity: .6; margin-top: 4px; }
+
+/* Team */
+.ks-team { display: grid; gap: 16px; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); margin: 16px 0 28px; }
+.ks-member { background: var(--ks-panel); border: 1px solid var(--ks-border); border-radius: 8px; padding: 18px; }
+.ks-member h3 { margin: 0; color: #fff; }
+.ks-member .ks-role { color: var(--ks-orange); font-size: .9em; margin: 2px 0 8px; }
+.ks-member p { margin: 0; font-size: .92em; }
