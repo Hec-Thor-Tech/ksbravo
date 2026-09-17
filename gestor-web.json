@@ -62,7 +62,7 @@
     }
   ],
   "progreso": {
-    "updated": "2026-09-14",
+    "updated": "2026-09-17",
     "packs": [
       {
         "name": "3D Memes Bonus Pack 01",
@@ -72,7 +72,7 @@
         "models": [
           {
             "name": "Pellow",
-            "steps": 29,
+            "steps": 30,
             "img": "ref-pellow.webp"
           },
           {
@@ -94,7 +94,7 @@
           },
           {
             "name": "Noobstar",
-            "steps": 25,
+            "steps": 29,
             "img": "ref-noobstar.webp"
           },
           {
