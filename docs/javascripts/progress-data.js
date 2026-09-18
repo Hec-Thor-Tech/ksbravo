@@ -13,7 +13,7 @@
    ===================================================================== */
 
 window.KS_PROGRESS = {
-  updated: "2026-09-17",
+  updated: "2026-09-18",
   packs: [
     {
       name: "3D Memes Bonus Pack 01",
@@ -41,7 +41,7 @@ window.KS_PROGRESS = {
         { name: "Whyti",            steps: 20, img: "ref-whyti.webp", imgv: "1788108347" },
         { name: "Criim Teh Ribbit", steps:  6, img: "ref-criimtehribbit.webp", imgv: "1788108348" },
         { name: "Ezzyne",           steps:  5, img: "ref-ezzyne.webp", imgv: "1788108349" },
-        { name: "Pellow V2",        steps: 29, img: "ref-pellowv2.webp", imgv: "1788108350" },
+        { name: "Pellow V2",        steps: 30, img: "ref-pellowv2.webp", imgv: "1788108350" },
         { name: "Desploy",          steps: 30, img: "ref-desploy.webp", imgv: "1788108351", video: "hvQj4yjAmQs" }
       ]
     },

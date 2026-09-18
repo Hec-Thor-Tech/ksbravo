@@ -62,7 +62,7 @@
     }
   ],
   "progreso": {
-    "updated": "2026-09-17",
+    "updated": "2026-09-18",
     "packs": [
       {
         "name": "3D Memes Bonus Pack 01",
@@ -132,7 +132,7 @@
           },
           {
             "name": "Pellow V2",
-            "steps": 29,
+            "steps": 30,
             "img": "ref-pellowv2.webp"
           },
           {
