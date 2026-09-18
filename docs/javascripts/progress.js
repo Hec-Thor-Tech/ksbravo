@@ -11,10 +11,10 @@
     var L = es
       ? { steps: "pasos", updated: "Actualizado", done: "Terminado",
           progress: "En progreso", pending: "En cola",
-          video: "Ver test en YouTube", videoCorto: "Test" }
+          video: "Ver test en YouTube", videoCorto: "Test", paused: "Pausado" }
       : { steps: "steps", updated: "Last updated", done: "Done",
           progress: "In progress", pending: "Queued",
-          video: "Watch the test on YouTube", videoCorto: "Test" };
+          video: "Watch the test on YouTube", videoCorto: "Test", paused: "Paused" };
 
     var PLAY = '<svg viewBox="0 0 24 24" aria-hidden="true">' +
                '<path d="M8 5v14l11-7z"/></svg>';
@@ -70,9 +70,12 @@
       });
       var packPct = pack.models.length ? Math.round(totalPct / pack.models.length) : 0;
       var note = es ? (pack.note_es || pack.note || "") : (pack.note || "");
+      // Sello de pausa: mismo criterio que el hook que pre-dibuja la pagina.
+      var sello = pack.paused ? '<span class="ks-prog-sello">' + L.paused + "</span>" : "";
       html +=
-        '<div class="ks-prog-pack">' +
-          '<div class="ks-prog-title"><h3>' + pack.name + "</h3><b>" + packPct + "%</b></div>" +
+        '<div class="ks-prog-pack' + (pack.paused ? " pausado" : "") + '">' +
+          '<div class="ks-prog-title"><h3>' + pack.name + "</h3>" + sello +
+            "<b>" + packPct + "%</b></div>" +
           (note ? "<p>" + note + "</p>" : "") +
           rows +
         "</div>";

@@ -25,7 +25,7 @@ window.KS_PROGRESS = {
         { name: "Pellow",    steps: 30, img: "ref-pellow.webp", imgv: "1787199448" },
         { name: "Umnidorid", steps: 30, img: "ref-umnidorid.webp", imgv: "1787253870", video: "a6VqXX8Njzk" },
         { name: "Tim",       steps: 30, img: "ref-tim.webp", imgv: "1787199448", video: "COssIbk5HGw" },
-        { name: "Megmen",    steps: 25, img: "ref-megmen.webp", imgv: "1787199449" },
+        { name: "Megmen",    steps: 27, img: "ref-megmen.webp", imgv: "1787199449" },
         { name: "Noobstar",  steps: 29, img: "ref-noobstar.webp", imgv: "1787199450" },
         { name: "Nyoan Cot", steps: 30, img: "ref-nyoancot.webp", imgv: "1787199451" }
       ]
@@ -50,6 +50,7 @@ window.KS_PROGRESS = {
       note: "An advanced character with many new features. Developed by Joelias_N1.",
       note_es: "Un personaje muy avanzado, con muchas caracteristicas nuevas. Desarrollado por Joelias_N1.",
       total: 30,
+      paused: true,
       // img = la referencia 2D del personaje, en docs/img/
       models: [
         { name: "Jeff", steps: 20, img: "ref-jeff.webp", imgv: "1788107303" }

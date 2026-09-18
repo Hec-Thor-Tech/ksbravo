@@ -89,7 +89,7 @@
           },
           {
             "name": "Megmen",
-            "steps": 25,
+            "steps": 27,
             "img": "ref-megmen.webp"
           },
           {
@@ -154,7 +154,8 @@
             "steps": 20,
             "img": "ref-jeff.webp"
           }
-        ]
+        ],
+        "paused": true
       }
     ]
   }

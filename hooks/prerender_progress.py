@@ -53,6 +53,12 @@ TEXTOS["en"]["dislike"] = "Not for me"
 TEXTOS["es"]["like"] = "Me gusta este"
 TEXTOS["es"]["dislike"] = "No me convence"
 
+# Sello de goma para un pack frenado. Es texto con CSS, no una imagen: pesa
+# cero bytes, se traduce solo segun el idioma de la pagina y se ve nitido en
+# cualquier pantalla. Con un PNG harian falta dos archivos, uno por idioma.
+TEXTOS["en"]["paused"] = "Paused"
+TEXTOS["es"]["paused"] = "Pausado"
+
 
 def _slug(nombre):
     """Mismo criterio que usa el Gestor Web para nombrar las imagenes."""
@@ -84,7 +90,7 @@ def _a_json(txt):
     i = 0
     en_texto = False
     claves = ("updated", "packs", "name", "note_es", "note", "total",
-              "models", "steps", "img", "imgv", "video")
+              "paused", "models", "steps", "img", "imgv", "video")
     while i < len(txt):
         c = txt[i]
         if en_texto:
@@ -203,10 +209,15 @@ def _dibujar(datos, idioma, raiz):
         pack_pct = _redondear(suma / len(modelos)) if modelos else 0
         nota = pack.get("note_es") or pack.get("note", "") if idioma == "es" \
             else pack.get("note", "")
+        # Pack frenado: va el sello entre el titulo y el porcentaje. El
+        # porcentaje se sigue mostrando porque el trabajo hecho no se borra;
+        # el sello solo avisa que por ahora no avanza.
+        sello = ('<span class="ks-prog-sello">' + escape(L["paused"]) +
+                 "</span>") if pack.get("paused") else ""
         partes.append(
-            '<div class="ks-prog-pack">'
+            '<div class="ks-prog-pack' + (" pausado" if pack.get("paused") else "") + '">'
             '<div class="ks-prog-title"><h3>' + escape(pack.get("name", "")) +
-            "</h3><b>" + str(pack_pct) + "%</b></div>" +
+            "</h3>" + sello + "<b>" + str(pack_pct) + "%</b></div>" +
             ("<p>" + escape(nota) + "</p>" if nota else "") +
             "".join(filas) +
             "</div>"

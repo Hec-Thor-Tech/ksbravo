@@ -202,6 +202,39 @@ body { background: none; }
 .ks-prog-title { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
 .ks-prog-title h3 { margin: 0 0 6px; color: #fff; }
 .ks-prog-title b { color: var(--ks-orange); font-size: 1.4em; }
+/* Sello de goma "PAUSADO / PAUSED" para un pack que quedo frenado.
+   Va entre el nombre del pack y el porcentaje: el titulo reparte el espacio,
+   asi que el sello queda flotando en el medio como estampado sobre la ficha.
+   Esta hecho con CSS a proposito y no con un PNG: no pesa nada, se ve nitido
+   en cualquier pantalla y el texto cambia solo entre ingles y espanol. El
+   porcentaje se sigue viendo, porque lo hecho no se borra: el sello solo
+   avisa que por ahora no avanza. */
+.ks-prog-sello {
+  flex: 0 0 auto;
+  align-self: center;
+  font-size: .68em;
+  font-weight: 800;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: #d95c5c;
+  border: 3px double #d95c5c;
+  border-radius: 5px;
+  padding: 3px 10px 2px 13px;          /* de mas a la izquierda: lo compensa el letter-spacing del final */
+  background: rgba(217, 92, 92, .09);
+  box-shadow: inset 0 0 8px rgba(217, 92, 92, .18);
+  transform: rotate(-7deg);
+  white-space: nowrap;
+  user-select: none;
+}
+/* El sello ya dice que esta frenado: la barra naranja gritaria "en marcha".
+   Se apaga un poco para que la ficha entera se lea como pausada. */
+.ks-prog-pack.pausado .ks-prog-fill:not(.done) { background: #8b8794; }
+@media screen and (max-width: 499px) {
+  /* En pantallas angostas el titulo, el sello y el porcentaje no entran en un
+     renglon: el sello pasa abajo del nombre en vez de apretar todo. */
+  .ks-prog-title { flex-wrap: wrap; }
+  .ks-prog-sello { order: 3; margin: 2px 0 6px 4px; }
+}
 .ks-prog-row { margin: 14px 0; display: flex; align-items: center; gap: 14px; }
 .ks-prog-body { flex: 1; min-width: 0; }
 /* La referencia 2D va sobre una placa clara: los dibujos tienen contorno
