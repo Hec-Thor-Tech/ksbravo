@@ -63,4 +63,5 @@ extra_javascript:
   - javascripts/progress-data.js
   - javascripts/progress.js
   - javascripts/reacciones.js
+  - javascripts/vinculos.js
 

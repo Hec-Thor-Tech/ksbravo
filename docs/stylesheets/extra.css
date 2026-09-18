@@ -311,13 +311,93 @@ body { background: none; }
 }
 .ks-prog-tag.done { background: rgba(76, 175, 80, .18); color: #6fcf73; }
 .ks-prog-tag.pending { background: rgba(255, 255, 255, .08); color: #bbb; }
+/* Personaje de un pack frenado: gris y con las dos barritas de pausa. En
+   naranja decia "en progreso" justo al lado del sello que dice lo contrario. */
+.ks-prog-tag.pausado {
+  background: rgba(255, 255, 255, .08); color: #b9b5c2;
+  display: inline-flex; align-items: center; gap: 4px;
+}
+.ks-icono-pausa { width: 9px; height: 9px; fill: currentColor; flex: 0 0 auto; }
 .ks-prog-bar {
   height: 10px; border-radius: 5px; overflow: hidden;
   background: rgba(255, 255, 255, .07); border: 1px solid var(--ks-border);
 }
 .ks-prog-fill { height: 100%; background: var(--ks-orange); border-radius: 5px; transition: width .6s ease; }
 .ks-prog-fill.done { background: #4caf50; }
+/* En pantallas angostas el renglon del nombre no da para el nombre, la
+   etiqueta, el test, los dos pulgares Y el contador de pasos: el contador
+   quedaba espichado en una columna de 30px y "30 / 30 steps" se partia en tres
+   lineas, estirando la fila al doble de alto.
+   Aca el contador se baja al lado de la barra, que es lo que cuenta.
+
+   El display:contents del renglon es lo que lo hace posible: disuelve la caja
+   del renglon y sus hijos pasan a ser hijos directos del cuerpo de la fila,
+   que es flex. Recien ahi se les puede dar orden, porque "order" solo funciona
+   entre hermanos y el contador estaba un nivel mas adentro que la barra.
+   En un navegador viejo que no lo entienda no se rompe nada: queda la fila
+   apretada de antes. */
+@media screen and (max-width: 699px) {
+  .ks-prog-body { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; }
+  .ks-prog-head { display: contents; }
+  /* Corta el renglon: sin esto, cuando el nombre es largo, un pulgar se caia
+     al renglon de abajo y se plantaba al lado de la barra. Este pedacito vacio
+     ocupa el ancho entero, asi que la barra y el contador arrancan siempre
+     limpios en su propio renglon. */
+  .ks-prog-body::before { content: ""; order: 6; flex: 0 0 100%; height: 0; }
+  .ks-mismo-nota { order: 7; flex: 0 0 100%; margin: 0; }
+  .ks-prog-bar { order: 8; flex: 1 1 110px; }
+  .ks-prog-num { order: 9; margin-left: 0; flex: 0 0 auto; white-space: nowrap; }
+  /* Ni el nombre ni la etiqueta se parten al medio: quedaban cosas como
+     "Nyoan / Cot" y un "In / progress" apilado adentro de su propia pildora.
+     Si no entran en el renglon, pasan enteros al de abajo.
+     Los nombres de esta pagina son cortos; si alguna vez entra uno muy largo
+     va a haber que dejarlo partir de nuevo. */
+  .ks-prog-head > span:first-child, .ks-prog-tag { white-space: nowrap; }
+}
 .ks-prog-updated { font-size: .82em; opacity: .6; margin-top: 4px; }
+
+/* Personajes que son EL MISMO en packs distintos (los dos Pellow).
+   La linea la posiciona vinculos.js, porque las dos filas viven en tarjetas
+   distintas y el CSS no puede dibujar entre elementos sin padre comun.
+   El margen de aca abajo se reserva DESDE EL HTML (la clase ks-con-vinculos
+   la pone el hook al compilar): si lo agregara el JS, toda la pagina se
+   correria al cargar y volveria el salto que costo tanto sacar. */
+#ks-progress { position: relative; }
+@media screen and (min-width: 900px) {
+  #ks-progress.ks-con-vinculos { padding-left: 34px; }
+}
+.ks-vinculo {
+  position: absolute; left: 4px; width: 10px;
+  border: 2px solid rgba(255, 90, 31, .55);
+  border-right: 0; border-radius: 8px 0 0 8px;
+  pointer-events: none;                 /* es un dibujo: no se puede tocar */
+  opacity: 0; transition: opacity .35s ease;
+}
+.ks-vinculo.visible { opacity: 1; }
+.ks-vinculo-txt {
+  position: absolute; left: 13px; top: 50%; transform: translateY(-50%);
+  writing-mode: vertical-rl;            /* el texto de canto, como pidio Hector */
+  font-size: 9px; letter-spacing: .14em; text-transform: uppercase;
+  color: rgba(255, 90, 31, .75); white-space: nowrap;
+}
+.ks-vinculo.sin-texto .ks-vinculo-txt { display: none; }
+/* En pantallas angostas las dos filas quedan a paginas de distancia: la linea
+   no se veria entera y solo comeria ancho. Se va, y el margen tambien. */
+@media screen and (max-width: 899px) {
+  .ks-vinculo { display: none; }
+}
+/* El reemplazo de la linea en pantallas chicas: un cartelito en cada una de
+   las dos filas. Va en el HTML desde el principio y se esconde donde manda la
+   linea, asi la fila no cambia de alto al cargar la pagina. */
+.ks-mismo-nota { display: none; }
+@media screen and (max-width: 899px) {
+  .ks-mismo-nota {
+    display: inline-flex; align-items: center; gap: 4px;
+    font-size: .72em; color: rgba(255, 90, 31, .8);
+    margin: 0 0 5px; line-height: 1;
+  }
+  .ks-mismo-nota svg { width: 11px; height: 11px; fill: currentColor; flex: 0 0 auto; }
+}
 
 /* Team */
 .ks-team { display: grid; gap: 16px; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); margin: 16px 0 28px; }

@@ -38,6 +38,16 @@ TEXTOS = {
 PLAY = ('<svg viewBox="0 0 24 24" aria-hidden="true">'
         '<path d="M8 5v14l11-7z"/></svg>')
 
+# Las dos barritas de pausa, para la etiqueta de estado de un pack frenado.
+PAUSA = ('<svg class="ks-icono-pausa" viewBox="0 0 24 24" aria-hidden="true">'
+         '<path d="M7 5h3.2v14H7zM13.8 5H17v14h-3.2z"/></svg>')
+
+# Eslabon de cadena, para el cartelito de "el mismo personaje" en celular.
+ENLACE = ('<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 7h-4v2h4c1.65 0 3 '
+          '1.35 3 3s-1.35 3-3 3h-4v2h4c2.76 0 5-2.24 5-5s-2.24-5-5-5zm-6 8H7c-1.65 '
+          '0-3-1.35-3-3s1.35-3 3-3h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-2zM8 11h8v2H8v-2z"/>'
+          "</svg>")
+
 # Pulgares de los botones de reaccion.
 PULGAR_SI = ('<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M1 21h4V9H1v12zm22-11'
              'c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 '
@@ -58,6 +68,8 @@ TEXTOS["es"]["dislike"] = "No me convence"
 # cualquier pantalla. Con un PNG harian falta dos archivos, uno por idioma.
 TEXTOS["en"]["paused"] = "Paused"
 TEXTOS["es"]["paused"] = "Pausado"
+TEXTOS["en"]["mismo"] = "Same character"
+TEXTOS["es"]["mismo"] = "El mismo personaje"
 
 
 def _slug(nombre):
@@ -90,7 +102,8 @@ def _a_json(txt):
     i = 0
     en_texto = False
     claves = ("updated", "packs", "name", "note_es", "note", "total",
-              "paused", "models", "steps", "img", "imgv", "video")
+              "paused", "models", "steps", "img", "imgv", "video",
+              "key", "group")
     while i < len(txt):
         c = txt[i]
         if en_texto:
@@ -145,6 +158,7 @@ def _dibujar(datos, idioma, raiz):
     L = TEXTOS["es" if idioma == "es" else "en"]
     partes = []
     for pack in datos.get("packs", []):
+        pausado = bool(pack.get("paused"))
         total = pack.get("total") or 1
         modelos = pack.get("models", [])
         suma = 0
@@ -154,6 +168,13 @@ def _dibujar(datos, idioma, raiz):
             suma += pct
             cls = "done" if pct >= 100 else ("" if pct > 0 else "pending")
             tag = L["done"] if pct >= 100 else (L["progress"] if pct > 0 else L["pending"])
+            # Pack frenado: el personaje que no esta terminado no dice "en
+            # progreso", porque no lo esta. Dice pausa, en gris y con las dos
+            # barritas. Lo que si esta terminado conserva su verde: eso ya
+            # quedo hecho y la pausa no se lo saca.
+            cls_tag, tag_html = cls, escape(tag)
+            if pausado and pct < 100:
+                cls_tag, tag_html = "pausado", PAUSA + escape(L["paused"])
             nombre = escape(m.get("name", ""))
             if m.get("img"):
                 busca = "?v=" + escape(str(m["imgv"])) if m.get("imgv") else ""
@@ -184,7 +205,10 @@ def _dibujar(datos, idioma, raiz):
             # servicio no responde, quedan apagados en vez de fallar al tocarlos.
             # El 0 se muestra desde el HTML: Hector quiere ver el numero
             # siempre, aunque sea cero, porque es el dato que esta buscando.
-            clave = _slug(m.get("name", ""))
+            # La clave de las reacciones normalmente sale del nombre, pero se
+            # puede fijar a mano: los dos Pellow se llaman igual y sin esto
+            # compartirian los votos, que son de cada uno.
+            clave = (m.get("key") or "").strip() or _slug(m.get("name", ""))
             boton = ""
             for tipo, icono in (("like", PULGAR_SI), ("dislike", PULGAR_NO)):
                 boton += ('<button class="ks-react ks-react--' + tipo + '"'
@@ -192,16 +216,28 @@ def _dibujar(datos, idioma, raiz):
                           ' data-voto="' + tipo + '"'
                           ' aria-label="' + escape(L[tipo]) + " - " + nombre + '">' +
                           icono + '<span class="ks-react-n">0</span></button>')
+            # Personajes que son EL MISMO en packs distintos: la marca la lee
+            # vinculos.js para dibujar la linea que los une.
+            grupo = (m.get("group") or "").strip()
+            marca = (' data-grupo="' + escape(grupo) + '"') if grupo else ""
+            # En celular la linea no se dibuja (las dos filas quedan a
+            # pantallazos de distancia), asi que el aviso va aca adentro. Sale
+            # siempre en el HTML y lo esconde el CSS en pantallas grandes: si
+            # lo prendiera el JS, la fila cambiaria de alto al cargar.
+            nota = ""
+            if grupo:
+                nota = ('<span class="ks-mismo-nota">' + ENLACE +
+                        escape(L["mismo"]) + "</span>")
             filas.append(
-                '<div class="ks-prog-row">' + ref +
+                '<div class="ks-prog-row"' + marca + '>' + ref +
                 '<div class="ks-prog-body">'
                 '<div class="ks-prog-head">'
                 "<span>" + nombre + "</span>"
-                '<span class="ks-prog-tag ' + cls + '">' + escape(tag) + "</span>" +
+                '<span class="ks-prog-tag ' + cls_tag + '">' + tag_html + "</span>" +
                 enlace + boton +
                 '<span class="ks-prog-num">' + str(m.get("steps", 0)) + " / " +
                 str(total) + " " + L["steps"] + "</span>"
-                "</div>"
+                "</div>" + nota +
                 '<div class="ks-prog-bar"><div class="ks-prog-fill ' + cls +
                 '" style="width:' + str(pct) + '%"></div></div>'
                 "</div></div>"
@@ -247,4 +283,15 @@ def on_page_content(html, page, config, files, **kwargs):
         # Si algo sale mal dejamos el div vacio: progress.js lo llena igual.
         print("  [prerender_progress] sin pre-dibujar (" + str(e) + ")")
         return html
-    return html.replace(MARCA, '<div id="ks-progress" data-done="1">' + cuerpo + "</div>")
+    # Si hay personajes unidos, el contenedor sale marcado DESDE EL HTML: el
+    # margen de la izquierda donde vive la linea queda reservado en el primer
+    # pintado. Si lo agregara el JS, la pagina entera se correria al cargar y
+    # volveria el salto que costo tanto sacar.
+    hay = any(m.get("group") for pk in datos.get("packs", [])
+              for m in pk.get("models", []))
+    extra = ""
+    if hay:
+        L = TEXTOS["es" if idioma == "es" else "en"]
+        extra = ' class="ks-con-vinculos" data-mismo="' + escape(L["mismo"]) + '"'
+    return html.replace(MARCA, '<div id="ks-progress" data-done="1"' + extra +
+                        ">" + cuerpo + "</div>")

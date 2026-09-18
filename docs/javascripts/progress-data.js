@@ -22,7 +22,7 @@ window.KS_PROGRESS = {
       total: 30,
       // img = la referencia 2D del personaje, en docs/img/
       models: [
-        { name: "Pellow",    steps: 30, img: "ref-pellow.webp", imgv: "1787199448" },
+        { name: "Pellow",    steps: 30, img: "ref-pellow.webp", imgv: "1787199448", group: "pellow" },
         { name: "Umnidorid", steps: 30, img: "ref-umnidorid.webp", imgv: "1787253870", video: "a6VqXX8Njzk" },
         { name: "Tim",       steps: 30, img: "ref-tim.webp", imgv: "1787199448", video: "COssIbk5HGw" },
         { name: "Megmen",    steps: 27, img: "ref-megmen.webp", imgv: "1787199449" },
@@ -41,8 +41,9 @@ window.KS_PROGRESS = {
         { name: "Whyti",            steps: 20, img: "ref-whyti.webp", imgv: "1788108347" },
         { name: "Criim Teh Ribbit", steps:  6, img: "ref-criimtehribbit.webp", imgv: "1788108348" },
         { name: "Ezzyne",           steps:  5, img: "ref-ezzyne.webp", imgv: "1788108349" },
-        { name: "Pellow V2",        steps: 30, img: "ref-pellowv2.webp", imgv: "1788108350" },
-        { name: "Desploy",          steps: 30, img: "ref-desploy.webp", imgv: "1788108351", video: "hvQj4yjAmQs" }
+        { name: "Pellow",           steps: 30, img: "ref-pellowv2.webp", imgv: "1789771446", key: "pellowv2", group: "pellow" },
+        { name: "Desploy",          steps: 30, img: "ref-desploy.webp", imgv: "1788108351", video: "hvQj4yjAmQs" },
+        { name: "Cerrut",           steps:  6, img: "ref-cerrut.webp", imgv: "1789772221" }
       ]
     },
     {

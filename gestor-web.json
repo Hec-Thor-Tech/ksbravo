@@ -73,7 +73,8 @@
           {
             "name": "Pellow",
             "steps": 30,
-            "img": "ref-pellow.webp"
+            "img": "ref-pellow.webp",
+            "group": "pellow"
           },
           {
             "name": "Umnidorid",
@@ -131,15 +132,22 @@
             "img": "ref-ezzyne.webp"
           },
           {
-            "name": "Pellow V2",
+            "name": "Pellow",
             "steps": 30,
-            "img": "ref-pellowv2.webp"
+            "img": "ref-pellowv2.webp",
+            "key": "pellowv2",
+            "group": "pellow"
           },
           {
             "name": "Desploy",
             "steps": 30,
             "img": "ref-desploy.webp",
             "video": "hvQj4yjAmQs"
+          },
+          {
+            "name": "Cerrut",
+            "steps": 6,
+            "img": "ref-cerrut.webp"
           }
         ]
       },
