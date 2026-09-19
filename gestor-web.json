@@ -74,7 +74,8 @@
             "name": "Pellow",
             "steps": 30,
             "img": "ref-pellow.webp",
-            "group": "pellow"
+            "group": "pellow",
+            "video": "y4T2OjN7Lj8"
           },
           {
             "name": "Umnidorid",
@@ -101,7 +102,8 @@
           {
             "name": "Nyoan Cot",
             "steps": 30,
-            "img": "ref-nyoancot.webp"
+            "img": "ref-nyoancot.webp",
+            "video": "y4T2OjN7Lj8"
           }
         ]
       },
@@ -136,7 +138,8 @@
             "steps": 30,
             "img": "ref-pellow.webp",
             "key": "pellowv2",
-            "group": "pellow"
+            "group": "pellow",
+            "video": "y4T2OjN7Lj8"
           },
           {
             "name": "Desploy",
