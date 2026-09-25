@@ -1,5 +1,5 @@
 ﻿site_name: KSBravo
-site_description: KSBravo - custom nextbots, NPCs and tools for Garry's Mod and s&box. Commissions open.
+site_description: KSBravo - custom nextbots, NPCs and tools for Garry's Mod and s&box.
 site_url: https://ks-bravo.com/
 
 theme:
@@ -7,7 +7,7 @@ theme:
   custom_dir: overrides
   language: en
   logo: img/logo.webp
-  favicon: img/icono.webp
+  favicon: img/favicon.png
   font:
     text: Roboto
     code: Roboto Mono
@@ -54,6 +54,7 @@ hooks:
   - hooks/prerender_progress.py
   - hooks/accesos.py
   - hooks/showcase.py
+  - hooks/accesibilidad.py
 
 extra_css:
   - stylesheets/extra.css
@@ -64,4 +65,5 @@ extra_javascript:
   - javascripts/progress.js
   - javascripts/reacciones.js
   - javascripts/vinculos.js
+  - javascripts/video.js
 

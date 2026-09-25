@@ -19,7 +19,7 @@ git push origin main
 echo.
 echo ===================================================
 echo   Todo actualizado. Recorda Ctrl + F5 en el navegador.
-echo   https://hec-thor-tech.github.io/ksbravo/
+echo   https://ks-bravo.com/
 echo ===================================================
 echo.
 pause

@@ -79,13 +79,13 @@ There are two ways in, and only these two. Requests sent anywhere else can get l
 ### Request form
 Fill in the form and we get everything we need in one go. Use this if you are not on Discord.
 
-<a class="ks-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSck1vwAOcUGXFrQgPmBfU3xFmRUgw8TtBlW7DfMpFpkwj7-dg/viewform" target="_blank">Open the request form</a>
+<a class="ks-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSck1vwAOcUGXFrQgPmBfU3xFmRUgw8TtBlW7DfMpFpkwj7-dg/viewform" target="_blank" rel="noopener">Open the request form</a>
 </div>
 <div class="ks-card" markdown>
 ### Discord
 Join the server and open a private ticket in `#how-to-order`. Best if you want to talk it through, send files or follow the work as it goes.
 
-<a class="ks-btn ghost" href="https://discord.gg/bMudjAq2JR" target="_blank">Join our Discord</a>
+<a class="ks-btn ghost" href="https://discord.gg/bMudjAq2JR" target="_blank" rel="noopener">Join our Discord</a>
 </div>
 </div>
 

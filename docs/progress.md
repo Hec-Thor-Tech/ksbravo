@@ -5,7 +5,7 @@ description: Live production progress of the current KSBravo nextbot packs, chos
 
 # Work in Progress
 
-What we are building right now. Each model goes through the full production checklist: files, modelling, rigging, animations, compile and in-game testing. Models are chosen by community polls on [YouTube](https://www.youtube.com/@KSBravo){target=_blank}.
+What we are building right now. Each model goes through the full production checklist: files, modelling, rigging, animations, compile and in-game testing. Models are chosen by community polls on [YouTube](https://www.youtube.com/@KSBravo){target=_blank rel=noopener}.
 
 <div id="ks-progress"></div>
 
