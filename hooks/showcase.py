@@ -14,7 +14,7 @@ mantiene al dia sin que nadie toque nada.
 Si la consulta falla se usa el ultimo video guardado en contadores-cache.json.
 Si tampoco hay, no se dibuja nada: mejor un hueco que un reproductor roto.
 
-El alto del reproductor lo reserva el CSS (.ks-video, con padding-bottom al
+El alto del bloque lo reserva el CSS (.ks-video, con padding-bottom al
 56.25%), asi que aparecer o no aparecer nunca mueve el resto de la pagina.
 """
 
@@ -36,10 +36,22 @@ def on_page_content(html, page, config, files, **kwargs):
     if not v or not v.get("id"):
         print("  [showcase] sin video para mostrar")
         return html.replace(MARCA, "")
-    # youtube-nocookie: no deja cookies de seguimiento hasta que la persona
-    # le da play. Era asi antes y se mantiene.
+    # "Fachada": en vez del reproductor de YouTube (mas de 1 MB de scripts que
+    # se bajaban aunque nadie le diera play) va la miniatura del video con un
+    # boton de play. Recien al tocarla javascripts/video.js la cambia por el
+    # reproductor de youtube-nocookie, que arranca solo. Sin JavaScript el
+    # boton es un link comun al video en YouTube, asi que nunca queda roto.
+    vid = escape(v["id"])
+    titulo = escape(v.get("titulo", ""))
     bloque = ('<div class="ks-video">'
-              '<iframe src="https://www.youtube-nocookie.com/embed/' +
-              escape(v["id"]) + '" title="' + escape(v.get("titulo", "")) +
-              '" allowfullscreen loading="lazy"></iframe></div>')
+              '<a class="ks-video-cara" href="https://www.youtube.com/watch?v=' +
+              vid + '" data-video="' + vid + '" data-titulo="' + titulo +
+              '" target="_blank" rel="noopener" aria-label="Play: ' + titulo + '">'
+              '<img src="https://i.ytimg.com/vi/' + vid + '/hqdefault.jpg" alt="" '
+              'width="480" height="360" loading="lazy">'
+              '<span class="ks-video-play" aria-hidden="true">'
+              '<svg viewBox="0 0 68 48"><path d="M66.5 7.7a8.5 8.5 0 0 0-6-6C55.2.3 34 .3 34 .3S12.8.3 7.5 1.7a8.5 8.5 0 0 0-6 6C.2 13 .2 24 .2 24s0 11 1.3 16.3a8.5 8.5 0 0 0 6 6c5.3 1.4 26.5 1.4 26.5 1.4s21.2 0 26.5-1.4a8.5 8.5 0 0 0 6-6C67.8 35 67.8 24 67.8 24s0-11-1.3-16.3z" fill="#f00"/>'
+              '<path d="M45 24 27 14v20z" fill="#fff"/></svg></span>'
+              '<span class="ks-video-titulo">' + titulo + '</span>'
+              '</a></div>')
     return html.replace(MARCA, bloque)

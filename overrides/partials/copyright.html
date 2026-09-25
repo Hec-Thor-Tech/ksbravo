@@ -26,7 +26,8 @@
   }
   .ks-social a:hover { color: #fff !important; background-color: #ff5a1f; border-color: #ff5a1f; box-shadow: 0 0 10px rgba(255,90,31,.6); }
   .ks-social svg, .ks-social img { width: 20px; height: 20px; fill: currentColor; }
-  .ks-copy { font-size: .85em; color: #999; line-height: 1.6; }
+  /* 1em (unos 13px): a .85em quedaba en 11px, chico para leer en el celular. */
+  .ks-copy { font-size: 1em; color: #a8a8a8; line-height: 1.6; }
   .ks-copy strong { color: #e0e0e0; }
   /* El recuadro del pie siempre se ajusto a su contenido, y con la fila de
      botones eso daba un ancho que quedaba bien. En Trabajo en Progreso, sin
@@ -59,7 +60,7 @@
         YouTube
       </a>
       <a href="https://steamcommunity.com/id/KSBravo/myworkshopfiles" target="_blank" rel="noopener" title="Steam Workshop">
-        <img src="{{ base_url }}/img/steam.svg" alt="Steam">
+        <img src="{{ base_url }}/img/steam.svg" alt="">
         Workshop
       </a>
       <a href="https://www.gmodstore.com/users/ks_bravo" target="_blank" rel="noopener" title="Gmodstore">
@@ -67,7 +68,7 @@
         Gmodstore
       </a>
       <a href="https://toy-zombies.com/" target="_blank" rel="noopener" title="Toy Zombies">
-        <img src="{{ base_url }}/img/toyzombies.webp" alt="Toy Zombies">
+        <img src="{{ base_url }}/img/toyzombies.webp" alt="">
         Toy Zombies
       </a>
       <a href="https://patreon.com/KSBravo" target="_blank" rel="noopener" title="Patreon">

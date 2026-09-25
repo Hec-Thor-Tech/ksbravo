@@ -79,13 +79,13 @@ Hay dos caminos, y son los únicos. Los pedidos que llegan por otro lado se pier
 ### Formulario
 Completás el formulario y nos llega todo lo que necesitamos de una. Usalo si no estás en Discord.
 
-<a class="ks-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSck1vwAOcUGXFrQgPmBfU3xFmRUgw8TtBlW7DfMpFpkwj7-dg/viewform" target="_blank">Abrir el formulario</a>
+<a class="ks-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSck1vwAOcUGXFrQgPmBfU3xFmRUgw8TtBlW7DfMpFpkwj7-dg/viewform" target="_blank" rel="noopener">Abrir el formulario</a>
 </div>
 <div class="ks-card" markdown>
 ### Discord
 Entrás al servidor y abrís un ticket privado en `#how-to-order`. Mejor si querés charlarlo, mandar archivos o seguir el trabajo mientras se hace.
 
-<a class="ks-btn ghost" href="https://discord.gg/bMudjAq2JR" target="_blank">Entrar al Discord</a>
+<a class="ks-btn ghost" href="https://discord.gg/bMudjAq2JR" target="_blank" rel="noopener">Entrar al Discord</a>
 </div>
 </div>
 

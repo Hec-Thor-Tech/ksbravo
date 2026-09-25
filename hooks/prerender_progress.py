@@ -216,6 +216,9 @@ def _dibujar(datos, idioma, raiz):
                           ' data-voto="' + tipo + '"'
                           ' aria-label="' + escape(L[tipo]) + " - " + nombre + '">' +
                           icono + '<span class="ks-react-n">0</span></button>')
+            # Los dos pulgares van en un mismo envoltorio: asi en celular
+            # pasan juntos al renglon de abajo y nunca queda uno solo colgando.
+            boton = '<span class="ks-react-par">' + boton + "</span>"
             # Personajes que son EL MISMO en packs distintos: la marca la lee
             # vinculos.js para dibujar la linea que los une.
             grupo = (m.get("group") or "").strip()
@@ -252,8 +255,8 @@ def _dibujar(datos, idioma, raiz):
                  "</span>") if pack.get("paused") else ""
         partes.append(
             '<div class="ks-prog-pack' + (" pausado" if pack.get("paused") else "") + '">'
-            '<div class="ks-prog-title"><h3>' + escape(pack.get("name", "")) +
-            "</h3>" + sello + "<b>" + str(pack_pct) + "%</b></div>" +
+            '<div class="ks-prog-title"><h2>' + escape(pack.get("name", "")) +
+            "</h2>" + sello + "<b>" + str(pack_pct) + "%</b></div>" +
             ("<p>" + escape(nota) + "</p>" if nota else "") +
             "".join(filas) +
             "</div>"

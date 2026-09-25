@@ -1,6 +1,6 @@
 ---
 title: KSBravo - Custom nextbots, NPCs and tools for Garry's Mod and s&box
-description: KSBravo makes custom nextbots, NPCs, player models and server tools for Garry's Mod and s&box. Commissions open. 40+ Workshop releases.
+description: KSBravo makes custom nextbots, NPCs, player models and server tools for Garry's Mod and s&box. Dozens of Steam Workshop releases.
 ---
 
 <div class="ks-hero" markdown>
@@ -10,10 +10,10 @@ description: KSBravo makes custom nextbots, NPCs, player models and server tools
 
 A small family studio. We model, rig, animate and compile characters for Source and s&box, and we build the tools we use to do it fast.
 
-<a class="ks-btn" href="commissions/">Request a commission</a>
+<a class="ks-btn" href="commissions/">Commissions</a>
 <a class="ks-btn ghost" href="work/">See our work</a>
 </div>
-<img class="ks-hero-art" src="img/mascota.webp" width="900" height="901" alt="KSBravo mascot at a computer">
+<img class="ks-hero-art" src="img/mascota-500.webp" srcset="img/mascota-500.webp 500w, img/mascota.webp 900w" sizes="(max-width: 599px) 160px, 250px" width="900" height="901" fetchpriority="high" alt="KSBravo mascot at a computer">
 </div>
 
 <!-- KS-ACCESOS -->
@@ -35,12 +35,12 @@ The same characters running on **SBHBase**, our nextbot base for s&box: possessi
 
 <!-- KS-SHOWCASE -->
 
-New packs and showcases every few weeks on [YouTube](https://www.youtube.com/@KSBravo){target=_blank}.
+New packs and showcases every few weeks on [YouTube](https://www.youtube.com/@KSBravo){target=_blank rel=noopener}.
 
 ## How to order
 
 <ol class="ks-steps">
-<li>Send us the character through the <a href="commissions/">request form</a> or a private ticket on <a href="https://discord.gg/bMudjAq2JR" target="_blank">Discord</a>: an image, a reference video or a 3D model, and tell us what it should do (walk, run, attack, sounds).</li>
+<li>Send us the character through the <a href="commissions/">request form</a> or a private ticket on <a href="https://discord.gg/bMudjAq2JR" target="_blank" rel="noopener">Discord</a>: an image, a reference video or a 3D model, and tell us what it should do (walk, run, attack, sounds).</li>
 <li>We reply with a price and a delivery date for that request. Nothing starts until you agree.</li>
 <li>You get a video of the character working in game before you pay.</li>
 <li>You receive the addon, ready to install.</li>

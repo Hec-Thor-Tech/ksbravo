@@ -9,59 +9,59 @@ Todo lo de abajo es público y jugable. Los encargos privados para creadores de 
 
 ## Steam Workshop
 
-Más de 40 publicaciones en el [Workshop de KS_Bravo](https://steamcommunity.com/id/KSBravo/myworkshopfiles){target=_blank}. Una selección:
+Decenas de publicaciones en el [Workshop de KS_Bravo](https://steamcommunity.com/id/KSBravo/myworkshopfiles){target=_blank rel=noopener}. Una selección:
 
 <div class="ks-grid" markdown>
 <div class="ks-card" markdown>
 ### 3D Memes Pack 22 (BFDI)
 Seis nextbots 3D estilo BFDI, DrGBase.
-[Página del Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3783971128){target=_blank}
+[Página del Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3783971128){target=_blank rel=noopener}
 </div>
 <div class="ks-card" markdown>
 ### 3D Memes Pack 21 (BFDI)
 Seis personajes, ataque de cabezazo, voces propias.
-[Página del Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3775366338){target=_blank}
+[Página del Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3775366338){target=_blank rel=noopener}
 </div>
 <div class="ks-card" markdown>
 ### 3D Memes Pack 20 (BFDI)
 El pack que arrancó la serie BFDI.
-[Página del Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3769112457){target=_blank}
+[Página del Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3769112457){target=_blank rel=noopener}
 </div>
 <div class="ks-card" markdown>
 ### 3D Memes Pack 19
 Seis 3D memes elegidos por la comunidad.
-[Página del Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3765951044){target=_blank}
+[Página del Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3765951044){target=_blank rel=noopener}
 </div>
 <div class="ks-card" markdown>
 ### 3D Memes Pack 18
 Elegidos por encuesta, versiones 3D de nextbots 2D clásicos.
-[Página del Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3761499276){target=_blank}
+[Página del Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3761499276){target=_blank rel=noopener}
 </div>
 <div class="ks-card" markdown>
 ### Cursed 3D Memes Pack 1
 La versión terrorífica de la línea 3D memes.
-[Página del Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3754454899){target=_blank}
+[Página del Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3754454899){target=_blank rel=noopener}
 </div>
 <div class="ks-card" markdown>
 ### Toy Zombies SNPCs pack
 Los enemigos de Toy Zombies como SNPCs de DrGBase.
-[Página del Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3669672149){target=_blank}
+[Página del Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3669672149){target=_blank rel=noopener}
 </div>
 <div class="ks-card" markdown>
 ### SPRUNKI Horror
 Personajes Sprunki, fase horror.
-[Página del Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3608848369){target=_blank}
+[Página del Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3608848369){target=_blank rel=noopener}
 </div>
 <div class="ks-card" markdown>
 ### Clash of Clans MINI
 Tropas mini como nextbots (con Joelias_N1).
-[Página del Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3757731482){target=_blank}
+[Página del Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3757731482){target=_blank rel=noopener}
 </div>
 </div>
 
 ## Videos de showcase
 
-Cada pack tiene su video de gameplay. La serie completa está en la lista [Testing on Garry's Mod](https://www.youtube.com/playlist?list=PLUmqzx7_-17uYbyJmcIlly-4PLargdt7k){target=_blank}, más timelapses de Blender del modelado y la animación.
+Cada pack tiene su video de gameplay. La serie completa está en la lista [Testing on Garry's Mod](https://www.youtube.com/playlist?list=PLUmqzx7_-17uYbyJmcIlly-4PLargdt7k){target=_blank rel=noopener}, más timelapses de Blender del modelado y la animación.
 
 <div class="ks-video">
 <iframe src="https://www.youtube-nocookie.com/embed/videoseries?list=PLUmqzx7_-17uYbyJmcIlly-4PLargdt7k" title="Lista Testing on Garry's Mod" allowfullscreen loading="lazy"></iframe>
@@ -73,4 +73,4 @@ Cada pack tiene su video de gameplay. La serie completa está en la lista [Testi
 
 ## Toy Zombies
 
-Toy Zombies es un juego de terror de Joelias_N1, parte del mismo estudio familiar. Sitio oficial: [toy-zombies.com](https://toy-zombies.com/){target=_blank}.
+Toy Zombies es un juego de terror de Joelias_N1, parte del mismo estudio familiar. Sitio oficial: [toy-zombies.com](https://toy-zombies.com/){target=_blank rel=noopener}.

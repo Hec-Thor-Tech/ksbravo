@@ -94,7 +94,7 @@
       var sello = pack.paused ? '<span class="ks-prog-sello">' + L.paused + "</span>" : "";
       html +=
         '<div class="ks-prog-pack' + (pack.paused ? " pausado" : "") + '">' +
-          '<div class="ks-prog-title"><h3>' + pack.name + "</h3>" + sello +
+          '<div class="ks-prog-title"><h2>' + pack.name + "</h2>" + sello +
             "<b>" + packPct + "%</b></div>" +
           (note ? "<p>" + note + "</p>" : "") +
           rows +

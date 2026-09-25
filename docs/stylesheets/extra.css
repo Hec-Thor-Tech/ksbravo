@@ -4,6 +4,19 @@
   --ks-orange-soft: rgba(255, 90, 31, 0.15);
   --ks-panel: rgba(255, 255, 255, 0.04);
   --ks-border: rgba(255, 255, 255, 0.10);
+  /* Naranja mas oscuro SOLO para el fondo de los botones: sobre el naranja
+     de siempre la letra blanca no llegaba al contraste minimo recomendado
+     (3.1 a 1, y hace falta 4.5). Con este da 4.9 y se sigue viendo naranja. */
+  --ks-orange-btn: #cc3f0c;
+}
+
+/* Los links dentro de un parrafo o una lista van subrayados: el celeste de
+   Material casi no se distinguia del texto gris de alrededor, y con sol en el
+   celular no se sabia que eran links. Botones y tarjetas no se tocan. */
+.md-typeset p a:not(.ks-btn):not(.ks-link),
+.md-typeset li a:not(.ks-btn):not(.ks-link) {
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 .md-header { border-bottom: 2px solid var(--ks-orange); }
@@ -56,6 +69,16 @@ body { background: none; }
 .ks-bg-capa:nth-child(2) { background-image: url("../img/bg1.webp"); }
 .ks-bg-capa:nth-child(3) { background-image: url("../img/bg2.webp"); }
 .ks-bg-capa:nth-child(4) { background-image: url("../img/bg3.webp"); }
+/* Celular parado: la pantalla es angosta y con "cover" solo se ve la franja
+   del medio de cada dibujo (menos de un tercio del ancho). Las versiones -m
+   son ESA franja recortada del original, con la misma nitidez: se ve igual
+   que antes y baja la mitad de peso. */
+@media screen and (max-width: 599px) and (orientation: portrait) {
+  .ks-bg-capa:nth-child(1) { background-image: url("../img/bg0-m.webp"); }
+  .ks-bg-capa:nth-child(2) { background-image: url("../img/bg1-m.webp"); }
+  .ks-bg-capa:nth-child(3) { background-image: url("../img/bg2-m.webp"); }
+  .ks-bg-capa:nth-child(4) { background-image: url("../img/bg3-m.webp"); }
+}
 /* El velo va ultimo, o sea ARRIBA de las 4 capas: es lo que mantiene legible
    el texto. Si se aclara mucho, la ilustracion se come al contenido. */
 .ks-bg-velo {
@@ -109,13 +132,13 @@ body { background: none; }
 /* Buttons */
 .ks-btn {
   display: inline-block; padding: 10px 18px; margin: 6px 8px 6px 0;
-  border: 1px solid var(--ks-orange); border-radius: 6px;
-  color: #fff !important; background: var(--ks-orange);
+  border: 1px solid var(--ks-orange-btn); border-radius: 6px;
+  color: #fff !important; background: var(--ks-orange-btn);
   text-decoration: none !important; font-weight: 600;
   transition: all .2s ease;
 }
-.ks-btn:hover { background: #ff7a45; box-shadow: 0 0 12px rgba(255, 90, 31, .45); }
-.ks-btn.ghost { background: transparent; color: var(--ks-orange) !important; }
+.ks-btn:hover { background: #b93809; box-shadow: 0 0 12px rgba(255, 90, 31, .45); }
+.ks-btn.ghost { background: transparent; border-color: var(--ks-orange); color: var(--ks-orange) !important; }
 .ks-btn.ghost:hover { background: var(--ks-orange-soft); }
 
 /* Card grid */
@@ -192,6 +215,27 @@ body { background: none; }
 /* Video embed */
 .ks-video { position: relative; padding-bottom: 56.25%; height: 0; margin: 12px 0 24px; border-radius: 8px; overflow: hidden; border: 1px solid var(--ks-border); }
 .ks-video iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+/* Miniatura con boton de play (la "fachada"): ocupa el mismo lugar que el
+   reproductor, asi que cambiar una cosa por la otra no mueve nada. */
+.md-typeset a.ks-video-cara {
+  position: absolute; inset: 0; display: block; background: #000;
+  color: #fff; text-decoration: none; cursor: pointer;
+}
+.md-typeset .ks-video-cara img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  opacity: .85; transition: opacity .2s ease;
+}
+.ks-video-cara:hover img, .ks-video-cara:focus-visible img { opacity: 1; }
+.ks-video-play {
+  position: absolute; top: 50%; left: 50%; width: 68px; height: 48px;
+  transform: translate(-50%, -50%); filter: drop-shadow(0 2px 8px rgba(0, 0, 0, .5));
+}
+.ks-video-play svg { width: 100%; height: 100%; display: block; }
+.ks-video-titulo {
+  position: absolute; left: 0; right: 0; top: 0; padding: 12px 14px 28px;
+  font-weight: 600; line-height: 1.3;
+  background: linear-gradient(rgba(0, 0, 0, .75), rgba(0, 0, 0, 0));
+}
 
 /* Progress bars */
 .ks-prog-pack {
@@ -200,7 +244,13 @@ body { background: none; }
 }
 .ks-prog-pack > p { margin: 0 0 14px; font-size: .92em; opacity: .85; }
 .ks-prog-title { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
-.ks-prog-title h3 { margin: 0 0 6px; color: #fff; }
+/* Es un h2 (antes h3): despues del titulo de la pagina (h1) tiene que venir
+   un h2, o los lectores de pantalla leen mal la estructura. Se le copia el
+   tamano que tenia de h3 para que se vea igual que siempre. */
+.md-typeset .ks-prog-title h2 {
+  margin: 0 0 6px; color: #fff; font-size: 1.25em; font-weight: 400;
+  letter-spacing: -.01em; line-height: 1.5; border: 0; padding: 0;
+}
 .ks-prog-title b { color: var(--ks-orange); font-size: 1.4em; }
 /* Sello de goma "PAUSADO / PAUSED" para un pack que quedo frenado.
    Va entre el nombre del pack y el porcentaje: el titulo reparte el espacio,
@@ -212,12 +262,12 @@ body { background: none; }
 .ks-prog-sello {
   flex: 0 0 auto;
   align-self: center;
-  font-size: .68em;
+  font-size: .75em;
   font-weight: 800;
   letter-spacing: .22em;
   text-transform: uppercase;
-  color: #d95c5c;
-  border: 3px double #d95c5c;
+  color: #ec7676;
+  border: 3px double #ec7676;
   border-radius: 5px;
   padding: 3px 10px 2px 13px;          /* de mas a la izquierda: lo compensa el letter-spacing del final */
   background: rgba(217, 92, 92, .09);
@@ -264,8 +314,8 @@ body { background: none; }
    derecha sin importar cuanto ocupe esto. */
 .md-typeset a.ks-prog-video {
   display: inline-flex; align-items: center; gap: 5px;
-  font-size: .78em; text-decoration: none;
-  color: #ff3d3d; border: 1px solid rgba(255, 61, 61, .45);
+  font-size: .8em; text-decoration: none;
+  color: #ff5c5c; border: 1px solid rgba(255, 61, 61, .45);
   padding: 1px 8px 1px 6px; border-radius: 10px; white-space: nowrap;
   transition: background .18s ease, color .18s ease;
 }
@@ -277,15 +327,16 @@ body { background: none; }
    corra el resto de la fila. */
 .md-typeset button.ks-react {
   display: inline-flex; align-items: center; gap: 4px;
-  font-size: .78em; font-family: inherit; cursor: pointer;
+  font-size: .8em; font-family: inherit; cursor: pointer;
   color: var(--md-typeset-color); background: transparent;
   border: 1px solid var(--ks-border);
   padding: 1px 7px 1px 5px; border-radius: 10px;
   transition: color .18s ease, border-color .18s ease, opacity .18s ease;
 }
-/* Los dos van juntos, como un par. */
-.md-typeset button.ks-react--like { margin-left: 2px; }
-.md-typeset button.ks-react--dislike { margin-left: 4px; }
+/* Los dos van juntos, como un par. El envoltorio .ks-react-par (lo pone el
+   hook) hace que en celular nunca se separen: antes el pulgar abajo se caia
+   solo al renglon de abajo. */
+.ks-react-par { display: inline-flex; gap: 4px; margin-left: 2px; flex: 0 0 auto; }
 .ks-react svg { width: 12px; height: 12px; fill: currentColor; flex: 0 0 auto; }
 .ks-react-n { min-width: 1.1em; text-align: left; font-variant-numeric: tabular-nums; }
 .md-typeset button.ks-react:disabled { cursor: default; opacity: .4; }
@@ -306,7 +357,7 @@ body { background: none; }
   .ks-prog-video-corto { display: inline; }
 }
 .ks-prog-tag {
-  font-size: .72em; padding: 1px 8px; border-radius: 10px; font-weight: 600;
+  font-size: .8em; padding: 1px 8px; border-radius: 10px; font-weight: 600;
   background: var(--ks-orange-soft); color: var(--ks-orange);
 }
 .ks-prog-tag.done { background: rgba(76, 175, 80, .18); color: #6fcf73; }
@@ -353,8 +404,14 @@ body { background: none; }
      Los nombres de esta pagina son cortos; si alguna vez entra uno muy largo
      va a haber que dejarlo partir de nuevo. */
   .ks-prog-head > span:first-child, .ks-prog-tag { white-space: nowrap; }
+  /* Botones mas grandes para el dedo: el test y los pulgares median unos
+     20px de alto y era facil tocar el de al lado. */
+  .md-typeset a.ks-prog-video, .md-typeset button.ks-react {
+    min-height: 32px; padding: 2px 10px; border-radius: 16px;
+  }
+  .ks-react-par { gap: 6px; }
 }
-.ks-prog-updated { font-size: .82em; opacity: .6; margin-top: 4px; }
+.ks-prog-updated { font-size: .82em; opacity: .8; margin-top: 4px; }
 
 /* Personajes que son EL MISMO en packs distintos (los dos Pellow).
    La linea la posiciona vinculos.js, porque las dos filas viven en tarjetas
@@ -377,8 +434,8 @@ body { background: none; }
 .ks-vinculo-txt {
   position: absolute; left: 13px; top: 50%; transform: translateY(-50%);
   writing-mode: vertical-rl;            /* el texto de canto, como pidio Hector */
-  font-size: 9px; letter-spacing: .14em; text-transform: uppercase;
-  color: rgba(255, 90, 31, .75); white-space: nowrap;
+  font-size: 10px; letter-spacing: .14em; text-transform: uppercase;
+  color: #ff6a33; white-space: nowrap;
 }
 .ks-vinculo.sin-texto .ks-vinculo-txt { display: none; }
 /* En pantallas angostas las dos filas quedan a paginas de distancia: la linea
@@ -393,7 +450,7 @@ body { background: none; }
 @media screen and (max-width: 899px) {
   .ks-mismo-nota {
     display: inline-flex; align-items: center; gap: 4px;
-    font-size: .72em; color: rgba(255, 90, 31, .8);
+    font-size: .8em; color: #ff6a33;
     margin: 0 0 5px; line-height: 1;
   }
   .ks-mismo-nota svg { width: 11px; height: 11px; fill: currentColor; flex: 0 0 auto; }

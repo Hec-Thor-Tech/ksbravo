@@ -1,6 +1,19 @@
 {% extends "base.html" %}
 
 {#
+  Titulo de la pestana. Material le agrega " - KSBravo" al titulo de cada
+  pagina, pero nuestros titulos ya lo traen, y quedaba "Encargos - KSBravo -
+  KSBravo". Aca se usa el titulo tal cual esta escrito en cada .md.
+#}
+{% block htmltitle %}
+  {% if page.meta and page.meta.title %}
+    <title>{{ page.meta.title | e }}</title>
+  {% else %}
+    {{ super() }}
+  {% endif %}
+{% endblock %}
+
+{#
   Vista previa al compartir el link (Discord, WhatsApp, Twitter, Steam...).
   Sin esto, pegar ks-bravo.com en un chat sale como texto pelado.
   La imagen es el avatar completo; el titulo y la descripcion salen de cada pagina.
@@ -9,18 +22,31 @@
   {% set titulo = page.meta.title if page and page.meta and page.meta.title else config.site_name %}
   {% set desc = page.meta.description if page and page.meta and page.meta.description else config.site_description %}
   {% set imagen = config.site_url ~ 'img/social-card.jpg' %}
+  {% set es = config.theme.language == 'es' %}
+
+  {#- Icono para "agregar a pantalla de inicio" en iPhone. -#}
+  <link rel="apple-touch-icon" href="{{ 'img/apple-touch-icon.png' | url }}">
 
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="{{ config.site_name }}">
-  <meta property="og:title" content="{{ titulo }}">
-  <meta property="og:description" content="{{ desc }}">
-  <meta property="og:image" content="{{ imagen }}">
+  <meta property="og:locale" content="{{ 'es_LA' if es else 'en_US' }}">
+  <meta property="og:locale:alternate" content="{{ 'en_US' if es else 'es_LA' }}">
+  <meta property="og:title" content="{{ titulo | e }}">
+  <meta property="og:description" content="{{ desc | e }}">
   <meta property="og:url" content="{{ page.canonical_url }}">
+  {#- El tamano y el tipo de la imagen van escritos: sin ellos WhatsApp a veces
+      no muestra la foto la primera vez que alguien comparte el link. -#}
+  <meta property="og:image" content="{{ imagen }}">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="{{ 'Logo de KSBravo' if es else 'KSBravo logo' }}">
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="{{ titulo }}">
-  <meta name="twitter:description" content="{{ desc }}">
+  <meta name="twitter:title" content="{{ titulo | e }}">
+  <meta name="twitter:description" content="{{ desc | e }}">
   <meta name="twitter:image" content="{{ imagen }}">
+  <meta name="twitter:image:alt" content="{{ 'Logo de KSBravo' if es else 'KSBravo logo' }}">
 
   <meta name="theme-color" content="#ff5a1f">
 {% endblock %}
