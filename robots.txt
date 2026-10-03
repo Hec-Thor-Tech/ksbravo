@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://ks-bravo.com/sitemap.xml
