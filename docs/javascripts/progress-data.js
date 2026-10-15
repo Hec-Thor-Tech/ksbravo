@@ -13,7 +13,7 @@
    ===================================================================== */
 
 window.KS_PROGRESS = {
-  updated: "2026-10-14",
+  updated: "2026-10-15",
   packs: [
     {
       name: "3D Memes Bonus Pack 01",
@@ -25,8 +25,8 @@ window.KS_PROGRESS = {
         { name: "Pellow",    steps: 30, img: "ref-pellow.webp", imgv: "1789774196", video: "y4T2OjN7Lj8", group: "pellow" },
         { name: "Umnidorid", steps: 30, img: "ref-umnidorid.webp", imgv: "1787253870", video: "a6VqXX8Njzk" },
         { name: "Tim",       steps: 30, img: "ref-tim.webp", imgv: "1787199448", video: "COssIbk5HGw" },
-        { name: "Megmen",    steps: 30, img: "ref-megmen.webp", imgv: "1787199449" },
-        { name: "Noobstar",  steps: 30, img: "ref-noobstar.webp", imgv: "1787199450" },
+        { name: "Megmen",    steps: 30, img: "ref-megmen.webp", imgv: "1787199449", video: "b83nY4AGYis" },
+        { name: "Noobstar",  steps: 30, img: "ref-noobstar.webp", imgv: "1787199450", video: "b83nY4AGYis" },
         { name: "Nyoan Cot", steps: 30, img: "ref-nyoancot.webp", imgv: "1787199451", video: "y4T2OjN7Lj8" }
       ]
     },
