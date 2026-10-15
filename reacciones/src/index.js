@@ -13,6 +13,14 @@
  * habia votado, se cambia (se descuenta de un lado y se suma del otro); si
  * repite lo mismo, no pasa nada.
  *
+ * SOLO SE VOTAN LOS PERSONAJES DE LA PAGINA
+ * Antes el servicio aceptaba cualquier nombre que le mandaran, asi que
+ * cualquiera podia inventar entradas. Ahora, para crear un nombre nuevo, ese
+ * nombre tiene que estar en https://ks-bravo.com/progress/. La lista se lee de
+ * la pagina y se refresca cada pocos minutos, de manera que un personaje
+ * agregado desde el Gestor empieza a aceptar votos solo, sin tocar este
+ * archivo ni volver a publicar el Worker.
+ *
  * POR QUE UN DURABLE OBJECT Y NO KV
  * La primera version guardaba todo en KV. KV avisa de los cambios "cuando
  * puede": al cambiar de voto rapido, el servidor todavia no veia el voto
@@ -24,6 +32,25 @@
 
 const MAX_PERSONAJES = 300;      // techo para que nadie infle el almacenamiento
 const DIAS_MEMORIA = 30;         // cuanto se recuerda el voto de cada conexion
+
+// De donde sale la lista de personajes que existen de verdad. Se lee la propia
+// pagina y se sacan las claves de los botones, asi la lista se mantiene sola:
+// cuando Hector agrega un personaje en el Gestor y publica, al rato el servicio
+// ya lo acepta, sin tocar este archivo ni volver a publicar el Worker.
+const PAGINA = "https://ks-bravo.com/progress/";
+const CLAVE_EN_PAGINA = /data-personaje="([a-z0-9-]{1,40})"/g;
+// Cada cuanto se vuelve a mirar la pagina. Corto a proposito: Hector publica
+// un personaje nuevo y lo prueba enseguida, asi que la lista tiene que estar
+// al dia en minutos, no en horas. Igual la pagina se pide MUY de vez en cuando:
+// solo cuando llega un voto de un nombre que todavia no tiene votos.
+const MINUTOS_LISTA = 5;
+
+// Limpieza de una sola vez. Cuando queda dando vueltas una clave que no es
+// ningun personaje (una prueba vieja), se pone aca y se publica: se borra la
+// primera vez que llega un pedido y no se vuelve a ejecutar nunca mas, porque
+// queda anotado que ya se hizo. Vaciar la lista NO deshace lo borrado.
+const A_BORRAR = ["zzpais"];     // resto de cuando probamos lo de los paises
+const MARCA_LIMPIEZA = "limpieza:2026-09-22";
 
 const ORIGENES = [
   "https://ks-bravo.com",
@@ -90,7 +117,59 @@ export class Contadores {
     return salida;
   }
 
+  /**
+   * Los personajes que hoy estan en la pagina. Se guarda una copia por unos
+   * minutos para no pedir la pagina en cada voto.
+   *
+   * Si la pagina no contesta se devuelve la copia vieja aunque este vencida, y
+   * si nunca hubo copia se devuelve null. Quien llama decide: los personajes
+   * que YA tienen votos siguen funcionando igual, pase lo que pase; lo unico
+   * que se frena es la creacion de nombres nuevos.
+   */
+  async permitidas() {
+    const guardado = await this.state.storage.get("permitidas");
+    const fresco = guardado &&
+      (Date.now() - guardado.ts) < MINUTOS_LISTA * 60000;
+    if (fresco) { return new Set(guardado.claves); }
+
+    try {
+      const r = await fetch(PAGINA, {
+        headers: { "User-Agent": "ksbravo-reacciones" },
+        cf: { cacheTtl: 300 },
+      });
+      if (r.ok) {
+        const texto = await r.text();
+        const claves = [...new Set(
+          [...texto.matchAll(CLAVE_EN_PAGINA)].map((m) => m[1]))];
+        // Si la pagina viniera vacia o cambiara de forma, la expresion no
+        // encuentra nada: en ese caso no se pisa la lista buena con una vacia.
+        if (claves.length) {
+          await this.state.storage.put("permitidas",
+            { claves: claves, ts: Date.now() });
+          return new Set(claves);
+        }
+      }
+    } catch (e) { /* sin internet o pagina caida: se sigue con la copia vieja */ }
+
+    return guardado ? new Set(guardado.claves) : null;
+  }
+
+  /** Borra de una sola vez las claves de A_BORRAR. Ver el comentario de arriba. */
+  async limpiar() {
+    if (!A_BORRAR.length) { return; }
+    if (await this.state.storage.get(MARCA_LIMPIEZA)) { return; }
+    const totales = await this.totales();
+    let toco = false;
+    for (const k of A_BORRAR) {
+      if (k in totales) { delete totales[k]; toco = true; }
+    }
+    const aEscribir = { [MARCA_LIMPIEZA]: Date.now() };
+    if (toco) { aEscribir.totales = totales; }
+    await this.state.storage.put(aEscribir);
+  }
+
   async fetch(peticion) {
+    await this.limpiar();
     const url = new URL(peticion.url);
     const partes = url.pathname.split("/").filter(Boolean).map(decodeURIComponent);
 
@@ -118,6 +197,24 @@ export class Contadores {
 
       if (!(clave in totales) && Object.keys(totales).length >= MAX_PERSONAJES) {
         return Response.json({ error: "demasiados personajes" }, { status: 429 });
+      }
+
+      // Nombre que todavia no existe: solo se crea si esta de verdad en la
+      // pagina. Antes se aceptaba cualquier cosa, y asi entro una clave de
+      // prueba que no era ningun personaje. Los que ya tienen votos no pasan
+      // por aca, asi que esto no puede dejar afuera a nadie real.
+      if (!(clave in totales)) {
+        const ok = await this.permitidas();
+        // Los dos casos se contestan distinto a proposito: asi se sabe si el
+        // nombre esta mal o si el problema fue que no se pudo leer la pagina.
+        if (!ok) {
+          return Response.json({ error: "no se pudo leer la lista de personajes" },
+                               { status: 503 });
+        }
+        if (!ok.has(clave)) {
+          return Response.json({ error: "ese personaje no esta en la pagina" },
+                               { status: 403 });
+        }
       }
 
       // El voto anterior de esta conexion. Se guarda con fecha para que caduque
