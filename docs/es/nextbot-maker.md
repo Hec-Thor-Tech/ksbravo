@@ -30,6 +30,9 @@ Convertí una imagen en un nextbot 2D para Garry's Mod. Elegí tu imagen, poné 
 <h2 id="datos">2. Datos</h2>
 <label class="ks-nb2d-campo" for="nb2d-nombre">Nombre (menú Q)</label>
 <input type="text" id="nb2d-nombre" value="My Nextbot" maxlength="64">
+<label class="ks-nb2d-campo" for="nb2d-firma">Firma del autor</label>
+<input type="text" id="nb2d-firma" value="" maxlength="16" autocomplete="off" spellcheck="false">
+<p class="ks-nb2d-ayuda">Un código corto que hace único a tu nextbot, para que no choque con el nextbot de otra persona del mismo personaje. Usá la misma firma en todos tus nextbots.</p>
 <label class="ks-nb2d-campo" for="nb2d-altura">Altura (unidades, jugador = 72)</label>
 <div class="ks-nb2d-fila"><input type="range" id="nb2d-altura-rango" min="16" max="400" value="96" aria-label="Altura"><input type="number" id="nb2d-altura" min="8" max="4096" step="any" value="96"></div>
 <label class="ks-nb2d-campo" for="nb2d-categoria">Categoría (menú Q)</label>
