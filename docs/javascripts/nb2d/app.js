@@ -305,8 +305,22 @@ async function iniciar() {
     });
   }
 
+  const CLAVE_FIRMA = "ks-nb2d-firma";
+  const campoFirma = $("nb2d-firma");
+  let firmaGuardada = null;
+  try { firmaGuardada = localStorage.getItem(CLAVE_FIRMA); } catch (e) { }
+  if (firmaGuardada === null) {
+    const letras = "abcdefghijkmnpqrstuvwxyz", todos = letras + "23456789";
+    const r = crypto.getRandomValues(new Uint8Array(4));
+    firmaGuardada = letras[r[0] % letras.length] + [1, 2, 3].map((i) => todos[r[i] % todos.length]).join("");
+    try { localStorage.setItem(CLAVE_FIRMA, firmaGuardada); } catch (e) { }
+  }
+  campoFirma.value = firmaGuardada;
+  campoFirma.addEventListener("change", () => { try { localStorage.setItem(CLAVE_FIRMA, campoFirma.value); } catch (e) { } });
+
   const valores = () => ({
     nombre: $("nb2d-nombre").value,
+    firma: campoFirma.value,
     altura: $("nb2d-altura").value,
     categoria: $("nb2d-categoria").value,
     salud: $("nb2d-salud").value,
