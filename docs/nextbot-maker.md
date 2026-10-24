@@ -57,9 +57,9 @@ Turn an image into a 2D nextbot for Garry's Mod. Pick your image, set the name, 
 </section>
 <section class="ks-nb2d-panel">
 <h2 id="save">4. Save</h2>
-<p class="ks-nb2d-botones"><button type="button" id="nb2d-guardar-carpeta" class="ks-btn">Save to Garry's Mod</button><button type="button" id="nb2d-guardar-zip" class="ks-btn ghost">Download ZIP</button></p>
-<p id="nb2d-ayuda-carpeta" class="ks-nb2d-ayuda">Save to Garry's Mod: choose your garrysmod/addons folder. It is usually in C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\addons. The ZIP is the same addon, to keep or share.</p>
-<p id="nb2d-ayuda-otros" class="ks-nb2d-ayuda">This browser cannot write to folders, so the addon comes as a ZIP. Unzip it inside garrysmod/addons. To save straight into the folder, use Chrome or Edge.</p>
+<p class="ks-nb2d-botones"><button type="button" id="nb2d-guardar-zip" class="ks-btn">Download ZIP</button><button type="button" id="nb2d-guardar-carpeta" class="ks-btn ghost">Save to a folder</button></p>
+<p class="ks-nb2d-ayuda">Download the ZIP and unzip it inside garrysmod/addons. It is usually in C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\addons.</p>
+<p id="nb2d-ayuda-carpeta" class="ks-nb2d-ayuda">Save to a folder: Chrome and Edge do not let a web page write inside Program Files, where Steam installs Garry's Mod by default. This only works if your Garry's Mod is somewhere else, like a Steam library on another drive.</p>
 <p id="nb2d-estado" class="ks-nb2d-estado" role="status" aria-live="polite"></p>
 </section>
 </div>
