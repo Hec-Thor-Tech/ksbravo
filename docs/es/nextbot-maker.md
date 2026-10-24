@@ -57,9 +57,9 @@ Convertí una imagen en un nextbot 2D para Garry's Mod. Elegí tu imagen, poné 
 </section>
 <section class="ks-nb2d-panel">
 <h2 id="guardar">4. Guardar</h2>
-<p class="ks-nb2d-botones"><button type="button" id="nb2d-guardar-carpeta" class="ks-btn">Guardar en Garry's Mod</button><button type="button" id="nb2d-guardar-zip" class="ks-btn ghost">Descargar ZIP</button></p>
-<p id="nb2d-ayuda-carpeta" class="ks-nb2d-ayuda">Guardar en Garry's Mod: elegí tu carpeta garrysmod/addons. Suele estar en C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\addons. El ZIP es el mismo addon, para guardarlo o compartirlo.</p>
-<p id="nb2d-ayuda-otros" class="ks-nb2d-ayuda">Este navegador no puede escribir en carpetas, así que el addon sale en un ZIP. Descomprimilo dentro de garrysmod/addons. Para guardarlo directo en la carpeta, usá Chrome o Edge.</p>
+<p class="ks-nb2d-botones"><button type="button" id="nb2d-guardar-zip" class="ks-btn">Descargar ZIP</button><button type="button" id="nb2d-guardar-carpeta" class="ks-btn ghost">Guardar en una carpeta</button></p>
+<p class="ks-nb2d-ayuda">Descargá el ZIP y descomprimilo dentro de garrysmod/addons. Suele estar en C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\addons.</p>
+<p id="nb2d-ayuda-carpeta" class="ks-nb2d-ayuda">Guardar en una carpeta: Chrome y Edge no dejan que una página escriba dentro de Program Files, que es donde Steam instala Garry's Mod de forma normal. Solo sirve si tu Garry's Mod está en otro lado, por ejemplo en una biblioteca de Steam en otro disco.</p>
 <p id="nb2d-estado" class="ks-nb2d-estado" role="status" aria-live="polite"></p>
 </section>
 </div>

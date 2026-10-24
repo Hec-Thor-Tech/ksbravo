@@ -16,6 +16,7 @@ const TEXTOS = {
     noAddons: "The folder you chose is \"{nombre}\", not \"addons\". Save the addon inside it anyway?",
     reemplazar: "The folder \"{carpeta}\" already exists in addons. Replace its files?",
     cancelado: "Cancelled. Nothing was saved.",
+    canceladoCarpeta: "Cancelled. Nothing was saved. If the browser did not let you pick the folder, use Download ZIP.",
     sinPermiso: "The browser did not get permission to write in that folder.",
     listoCarpeta: "Done. Saved to addons/{carpeta}. Restart Garry's Mod or change the map, then open the Q menu: NPCs > {cat} > {nombre}.",
     listoZip: "Done. Unzip \"{zip}\" inside garrysmod/addons. Then restart Garry's Mod or change the map and open the Q menu: NPCs > {cat} > {nombre}.",
@@ -37,6 +38,7 @@ const TEXTOS = {
     noAddons: "La carpeta que elegiste es \"{nombre}\", no \"addons\". ¿Guardar el addon adentro igual?",
     reemplazar: "La carpeta \"{carpeta}\" ya existe en addons. ¿Reemplazar sus archivos?",
     cancelado: "Cancelado. No se guardó nada.",
+    canceladoCarpeta: "Cancelado. No se guardó nada. Si el navegador no te dejó elegir la carpeta, usá Descargar ZIP.",
     sinPermiso: "El navegador no tuvo permiso para escribir en esa carpeta.",
     listoCarpeta: "Listo. Se guardó en addons/{carpeta}. Reiniciá Garry's Mod o cambiá de mapa, y abrí el menú Q: NPCs > {cat} > {nombre}.",
     listoZip: "Listo. Descomprimí \"{zip}\" dentro de garrysmod/addons. Después reiniciá Garry's Mod o cambiá de mapa y abrí el menú Q: NPCs > {cat} > {nombre}.",
@@ -381,9 +383,6 @@ async function iniciar() {
     btnCarpeta.hidden = true;
     const ayuda = $("nb2d-ayuda-carpeta");
     if (ayuda) ayuda.hidden = true;
-  } else {
-    const otro = $("nb2d-ayuda-otros");
-    if (otro) otro.hidden = true;
   }
 
   btnCarpeta.addEventListener("click", async () => {
@@ -391,7 +390,7 @@ async function iniciar() {
     try {
       elegida = await window.showDirectoryPicker({ id: "nb2d-addons", mode: "readwrite" });
     } catch (e) {
-      avisar(T.cancelado);
+      avisar(T.canceladoCarpeta);
       return;
     }
     try {
